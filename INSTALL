@@ -1,0 +1,9 @@
+Building Talkcoin
+
+See doc/readme-qt.rst for instructions on building Talkcoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Talkcoin.
+
+See doc/build-*.txt for instructions on building talkcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Talkcoin.

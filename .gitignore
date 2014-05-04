@@ -1,0 +1,34 @@
+src/*.exe
+src/talkcoin
+src/talkcoind
+src/test_talkcoin
+.*.swp
+*.*~*
+*.bak
+*.rej
+*.orig
+*.o
+*.patch
+.talkcoin
+
+# Compilation and Qt preprocessor part
+*.qm
+Makefile
+talkcoin-qt
+Talkcoin-Qt.app
+
+# Unit-tests
+Makefile.test
+talkcoin-qt_test
+
+# Resources cpp
+qrc_*.cpp
+
+# Qt creator
+*.pro.user
+
+# Mac specific
+.DS_Store
+build
+
+!src/leveldb*/Makefile
