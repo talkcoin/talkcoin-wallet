@@ -82,7 +82,10 @@ int64 nMinimumInputValue = DUST_HARD_LIMIT;
 
 // #talkcoin
 #ifdef USE_CHAT
-std::string TLK[50 + 1][6];
+std::string TLK___[50 + 1][6];
+std::string TLK_en[50 + 1][6];
+std::string TLK_ru[50 + 1][6];
+std::string TLK_cn[50 + 1][6];
 #endif
 
 //////////////////////////////////////////////////////////////////////////////
@@ -2186,15 +2189,27 @@ QString D64(const QString& str)
 
 bool checkVersion(const std::string& str)
 {
-    if (str.empty()) return false;
     QStringList data1 = D64(str.c_str()).split(";");
     for (unsigned int i = 0; i < data1.count(); i++)
     {
-         QStringList data2 = data1[i].split("=");
-         if (data2.count() == 2 && data2[1].indexOf("talkcoin") != -1)
-            return true;
+        QStringList data2 = data1[i].split("=");
+        if (data2.count() == 2 && data2[0] == "version")
+            if (data2[1].indexOf("talkcoin") != -1)
+                return true;
     }
     return false;
+}
+
+std::string getLang(const std::string& str)
+{
+    QStringList data1 = D64(str.c_str()).split(";");
+    for (unsigned int i = 0; i < data1.count(); i++)
+    {
+        QStringList data2 = data1[i].split("=");
+        if (data2.count() == 2 && data2[0] == "lang")
+            return data2[1].toStdString();
+    }
+    return "";
 }
 #endif
 
@@ -2274,13 +2289,15 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
 
 // #talkcoin
 #ifdef USE_CHAT
-    unsigned int size = sizeof(TLK)/sizeof(TLK[0]);
+    unsigned int tlk_size1 = sizeof(TLK___)/sizeof(TLK___[0]);
+    unsigned int tlk_size2 = sizeof(TLK___[0])/sizeof(TLK___[0][0]);
     BOOST_FOREACH(const CTransaction& tx, vtx)
     {
         if (tx.TLKtime > 0 && !tx.TLKnick.empty() && !tx.TLKmsg.empty() && checkVersion(tx.TLKdata) && tx.vout.size() == 2)
         {
             bool bTX = false;
             int64 nValue = 0;
+            std::string lang;
 
             for (unsigned int i = 0; i < tx.vout.size(); i++)
             {
@@ -2291,6 +2308,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                     {
                         bTX = true;
                         nValue = txout.nValue;
+                        lang = getLang(tx.TLKdata);
                         break;
                     }
                 }
@@ -2298,9 +2316,18 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
 
             if (bTX)
             {
+                if (lang == "en")
+                    std::copy(&TLK_en[0][0], &TLK_en[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "ru")
+                    std::copy(&TLK_ru[0][0], &TLK_ru[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "cn")
+                    std::copy(&TLK_cn[0][0], &TLK_cn[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else
+                    std::copy(&TLK_en[0][0], &TLK_en[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+
                 // Check double
-                for (unsigned int i = 0; i < size; i++)
-                    if (TLK[i][0] == tx.GetHash().ToString()) { bTX = false; break; }
+                for (unsigned int i = 0; i < tlk_size1; i++)
+                    if (TLK___[i][0] == tx.GetHash().ToString()) { bTX = false; break; }
             }
 
             if (bTX)
@@ -2312,49 +2339,59 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                 std::string tmp4 = D64(tx.TLKmsg.c_str()).toStdString();
                 std::string tmp5 = D64(tx.TLKdata.c_str()).toStdString();
 
-                if (TLK[size-1][0].empty())
+                if (TLK___[tlk_size1-2][0].empty())
                 {
-                    for (unsigned int i = 0; i < size; i++)
+                    for (unsigned int i = 0; i < tlk_size1; i++)
                     {
-                        if (TLK[i][0].empty())
+                        if (TLK___[i][0].empty())
                         {
-                            TLK[i][0] = tmp0;
-                            TLK[i][1] = tmp1;
-                            TLK[i][2] = tmp2;
-                            TLK[i][3] = tmp3;
-                            TLK[i][4] = tmp4;
-                            TLK[i][5] = tmp5;
+                            TLK___[i][0] = tmp0;
+                            TLK___[i][1] = tmp1;
+                            TLK___[i][2] = tmp2;
+                            TLK___[i][3] = tmp3;
+                            TLK___[i][4] = tmp4;
+                            TLK___[i][5] = tmp5;
                             break;
                         }
                     }
                 }
                 else
                 {
-                    TLK[size-1][0] = tmp0;
-                    TLK[size-1][1] = tmp1;
-                    TLK[size-1][2] = tmp2;
-                    TLK[size-1][3] = tmp3;
-                    TLK[size-1][4] = tmp4;
-                    TLK[size-1][5] = tmp5;
+                    TLK___[tlk_size1-1][0] = tmp0;
+                    TLK___[tlk_size1-1][1] = tmp1;
+                    TLK___[tlk_size1-1][2] = tmp2;
+                    TLK___[tlk_size1-1][3] = tmp3;
+                    TLK___[tlk_size1-1][4] = tmp4;
+                    TLK___[tlk_size1-1][5] = tmp5;
                 }
 
                 // Sort
-                for (unsigned int i = 0; i < size; i++)
+                for (unsigned int i = 0; i < tlk_size1; i++)
                 {
-                    if (TLK[i][0].empty()) break;
-                    for (unsigned int k = 0; k < size; k++)
+                    if (TLK___[i][0].empty()) break;
+                    for (unsigned int k = 0; k < tlk_size1; k++)
                     {
-                        if (TLK[k][0].empty()) break;
-                        if (atoi(TLK[i][2].c_str()) > atoi(TLK[k][2].c_str())) {
-                            tmp0 = TLK[i][0].c_str(); TLK[i][0] = TLK[k][0]; TLK[k][0] = tmp0;
-                            tmp1 = TLK[i][1].c_str(); TLK[i][1] = TLK[k][1]; TLK[k][1] = tmp1;
-                            tmp2 = TLK[i][2].c_str(); TLK[i][2] = TLK[k][2]; TLK[k][2] = tmp2;
-                            tmp3 = TLK[i][3].c_str(); TLK[i][3] = TLK[k][3]; TLK[k][3] = tmp3;
-                            tmp4 = TLK[i][4].c_str(); TLK[i][4] = TLK[k][4]; TLK[k][4] = tmp4;
-                            tmp5 = TLK[i][5].c_str(); TLK[i][5] = TLK[k][5]; TLK[k][5] = tmp5;
+                        if (TLK___[k][0].empty()) break;
+                        if (atoi(TLK___[i][2].c_str()) > atoi(TLK___[k][2].c_str())) {
+                            tmp0 = TLK___[i][0].c_str(); TLK___[i][0] = TLK___[k][0]; TLK___[k][0] = tmp0;
+                            tmp1 = TLK___[i][1].c_str(); TLK___[i][1] = TLK___[k][1]; TLK___[k][1] = tmp1;
+                            tmp2 = TLK___[i][2].c_str(); TLK___[i][2] = TLK___[k][2]; TLK___[k][2] = tmp2;
+                            tmp3 = TLK___[i][3].c_str(); TLK___[i][3] = TLK___[k][3]; TLK___[k][3] = tmp3;
+                            tmp4 = TLK___[i][4].c_str(); TLK___[i][4] = TLK___[k][4]; TLK___[k][4] = tmp4;
+                            tmp5 = TLK___[i][5].c_str(); TLK___[i][5] = TLK___[k][5]; TLK___[k][5] = tmp5;
                         }
                     }
                 }
+
+                if (lang == "en")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_en[0][0]);
+                else if (lang == "ru")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_ru[0][0]);
+                else if (lang == "cn")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_cn[0][0]);
+                else
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_en[0][0]);
+
             }
         }
     }

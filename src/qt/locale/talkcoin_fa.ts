@@ -672,13 +672,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+498"/>
-        <location line="+12"/>
+        <location filename="../guiutil.cpp" line="+502"/>
+        <location line="+13"/>
         <source>Talkcoin-Qt</source>
         <translation>Talkcoin-Qt</translation>
     </message>
     <message>
-        <location line="-12"/>
+        <location line="-13"/>
         <source>version</source>
         <translation>نسخه</translation>
     </message>
@@ -711,6 +711,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+1"/>
         <source>Show splash screen on startup (default: 1)</source>
         <translation>نمایش صفحه splash  در STARTUP (پیش فرض:1)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Play sound (default: 1)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -941,54 +946,58 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>تراز</translation>
     </message>
     <message>
-        <location line="+50"/>
-        <location line="+166"/>
+        <location line="+56"/>
+        <location line="+194"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>اطلاعات نمایش داده شده روزآمد نیستند.wallet  شما به صورت خودکار با شبکه talkcoin بعد از برقراری اتصال روزآمد می شود اما این فرایند هنوز کامل نشده است.</translation>
     </message>
     <message>
-        <location line="-124"/>
+        <location line="-147"/>
         <source>Balance:</source>
         <translation>راز:</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+35"/>
         <source>Unconfirmed:</source>
         <translation>تایید نشده</translation>
     </message>
     <message>
-        <location line="+186"/>
+        <location line="+204"/>
         <source>lblRewardInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+27"/>
         <source>lblVoteInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+25"/>
         <source>Block Reward:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+15"/>
         <source> TAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+19"/>
-        <location line="+141"/>
+        <location line="+27"/>
+        <source>10 TAC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+392"/>
         <source>1 TAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-138"/>
+        <location line="-374"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+70"/>
+        <location line="+306"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;10 TAC&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1003,37 +1012,37 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-480"/>
+        <location line="-787"/>
         <source>Wallet</source>
         <translation>wallet</translation>
     </message>
     <message>
-        <location line="+107"/>
+        <location line="+129"/>
         <source>Immature:</source>
         <translation>نابالغ</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Mined balance that has not yet matured</source>
         <translation>بالانس/تتمه حساب استخراج شده، نابالغ است /تکمیل نشده است</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+51"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>اخرین معاملات&amp;lt</translation>
     </message>
     <message>
-        <location line="-101"/>
+        <location line="-118"/>
         <source>Your current balance</source>
         <translation>تزار جاری شما</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+35"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>تعداد معاملات که تایید شده ولی هنوز در تزار جاری شما بر شمار نرفته است</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+131"/>
+        <location filename="../overviewpage.cpp" line="+140"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>روزآمد نشده</translation>
@@ -1049,13 +1058,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+40"/>
-        <source>Current reward per block: </source>
+        <location line="+41"/>
+        <source>Current reward: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+10"/>
-        <source> hours remaining before voting begins</source>
+        <source> hours remaining before the voting begins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1069,11 +1078,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+66"/>
+        <location line="+67"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
-        <location line="+84"/>
+        <location line="+85"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1081,7 +1090,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">ارسال سکه ها</translation>
     </message>
     <message>
-        <location line="-115"/>
+        <location line="-116"/>
         <source>The amount to vote exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1101,7 +1110,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+84"/>
+        <location line="+85"/>
         <source>The amount to chat exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>

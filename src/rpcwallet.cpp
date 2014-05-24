@@ -1614,13 +1614,13 @@ Value vote2(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "votedev <amount per cent>\n"
-            "Percentage to be given to developers 0-100");
+            "votedev <percentage>\n"
+            "Percentage to be given to developers 0-10");
 
     if (nSubsidy <= 0)
         throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Invalid Subsidy");
 
-    if (!(params[0].get_real() >= 0 && params[0].get_real() <=100))
+    if (!(params[0].get_real() >= 0 && params[0].get_real() <= 10))
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid Percentage");
 
     int64 nVote2 = nSubsidy * params[0].get_real() / 100;

@@ -9,11 +9,8 @@ Copyright (c) 2014 Talkcoin Developers
 What is Talkcoin?
 ----------------
 
-Talkcoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
- - 20 seconds block targets
-
-The rest is the same as Bitcoin.
- - 5-100 coins per block
+Talkcoin is the first to offer a true decentralized chat program that won't rely on a central server to deliver messages from the sender to their recipients and lets you communicate freely with anyone in the world without censorship.
+It also has a decentralized block reward voting, fast transactions, new efficient algorithm / GPU miner (based on NIST5: BLAKE - Grøstl - JH - Keccak - Skein).
 
 For more information, as well as an immediately useable, binary version of
 the Talkcoin client sofware, see http://www.talkcoin.org.
@@ -68,4 +65,3 @@ Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
     qmake TALKCOIN_QT_TEST=1 -o Makefile.test talkcoin-qt.pro
     make -f Makefile.test
     ./talkcoin-qt_test
-

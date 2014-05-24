@@ -40,6 +40,9 @@
         <file alias="filesave">res/icons/filesave.png</file>
         <file alias="qrcode">res/icons/qrcode.png</file>
         <file alias="debugwindow">res/icons/debugwindow.png</file>
+        <file alias="flag_en">res/icons/flags/flag_en.png</file>
+        <file alias="flag_ru">res/icons/flags/flag_ru.png</file>
+        <file alias="flag_cn">res/icons/flags/flag_cn.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
@@ -49,6 +52,9 @@
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file alias="chat">res/sounds/chat.wav</file>
     </qresource>
     <qresource prefix="/translations">
         <file alias="af_ZA">locale/talkcoin_af_ZA.qm</file>

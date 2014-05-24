@@ -7,12 +7,12 @@
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
         <source>About Talkcoin</source>
-        <translation>关于莱特币</translation>
+        <translation>关于聊聊币</translation>
     </message>
     <message>
         <location line="+39"/>
         <source>&lt;b&gt;Talkcoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;莱特币&lt;/b&gt;版本</translation>
+        <translation>&lt;b&gt;聊聊币&lt;/b&gt;版本</translation>
     </message>
     <message>
         <location line="+58"/>
@@ -79,7 +79,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
         <source>These are your Talkcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>这是您用来收款的莱特币地址。为了标记不同的资金来源，建议为每个付款人保留不同的收款地址。</translation>
+        <translation>这是您用来收款的聊聊币地址。为了标记不同的资金来源，建议为每个付款人保留不同的收款地址。</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -119,7 +119,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-44"/>
         <source>Verify a message to ensure it was signed with a specified Talkcoin address</source>
-        <translation>验证消息，确保消息是由指定的莱特币地址签名过的。</translation>
+        <translation>验证消息，确保消息是由指定的聊聊币地址签名过的。</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -134,7 +134,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
         <source>These are your Talkcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>这是您用来付款的莱特币地址。在付款前，请总是核实付款金额和收款地址。</translation>
+        <translation>这是您用来付款的聊聊币地址。在付款前，请总是核实付款金额和收款地址。</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -260,7 +260,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+1"/>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TALKCOINS&lt;/b&gt;!</source>
-        <translation>警告：如果您加密了您的钱包，但是忘记了密码，你将会&lt;b&gt;丢失所有的莱特币&lt;/b&gt;！</translation>
+        <translation>警告：如果您加密了您的钱包，但是忘记了密码，你将会&lt;b&gt;丢失所有的聊聊币&lt;/b&gt;！</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -287,7 +287,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-56"/>
         <source>Talkcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your talkcoins from being stolen by malware infecting your computer.</source>
-        <translation>将关闭软件以完成加密过程。 请您谨记：钱包加密并不是万能的，电脑中毒，您的莱特币还是有可能丢失。</translation>
+        <translation>将关闭软件以完成加密过程。 请您谨记：钱包加密并不是万能的，电脑中毒，您的聊聊币还是有可能丢失。</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -664,7 +664,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Talkcoin address.</source>
-        <translation>您输入的 &quot;%1&quot; 不是合法的莱特币地址.</translation>
+        <translation>您输入的 &quot;%1&quot; 不是合法的聊聊币地址.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -680,13 +680,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+498"/>
-        <location line="+12"/>
+        <location filename="../guiutil.cpp" line="+502"/>
+        <location line="+13"/>
         <source>Talkcoin-Qt</source>
         <translation>Talkcoin-Qt</translation>
     </message>
     <message>
-        <location line="-12"/>
+        <location line="-13"/>
         <source>version</source>
         <translation>版本</translation>
     </message>
@@ -721,6 +721,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <source>Show splash screen on startup (default: 1)</source>
         <translation>启动时显示版权页 (缺省: 1)</translation>
     </message>
+    <message>
+        <location line="+1"/>
+        <source>Play sound (default: 1)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
@@ -747,7 +752,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+31"/>
         <source>Automatically start Talkcoin after logging in to the system.</source>
-        <translation>登录系统后自动开启莱特币客户端</translation>
+        <translation>登录系统后自动开启聊聊币客户端</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -772,7 +777,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+6"/>
         <source>Automatically open the Talkcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>自动在路由器中打开莱特币端口。只有当您的路由器开启 UPnP 选项时此功能才有效。</translation>
+        <translation>自动在路由器中打开聊聊币端口。只有当您的路由器开启 UPnP 选项时此功能才有效。</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -782,7 +787,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Connect to the Talkcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>通过代理服务器连接莱特币网络(例如：通过Tor连接)</translation>
+        <translation>通过代理服务器连接聊聊币网络(例如：通过Tor连接)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -862,22 +867,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+11"/>
         <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;莱特币金额单位:</translation>
+        <translation>&amp;聊聊币金额单位:</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>选择莱特币单位。</translation>
+        <translation>选择聊聊币单位。</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Whether to show Talkcoin addresses in the transaction list or not.</source>
-        <translation>是否需要在交易清单中显示莱特币地址。</translation>
+        <translation>是否需要在交易清单中显示聊聊币地址。</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>在交易清单中&amp;显示莱特币地址</translation>
+        <translation>在交易清单中&amp;显示聊聊币地址</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -950,54 +955,58 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>表单</translation>
     </message>
     <message>
-        <location line="+50"/>
-        <location line="+166"/>
+        <location line="+56"/>
+        <location line="+194"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>现在显示的消息可能是过期的. 在连接上莱特币网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成.</translation>
+        <translation>现在显示的消息可能是过期的. 在连接上聊聊币网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成.</translation>
     </message>
     <message>
-        <location line="-124"/>
+        <location line="-147"/>
         <source>Balance:</source>
         <translation>余额：</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+35"/>
         <source>Unconfirmed:</source>
         <translation>未确认：</translation>
     </message>
     <message>
-        <location line="+186"/>
+        <location line="+204"/>
         <source>lblRewardInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+27"/>
         <source>lblVoteInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+25"/>
         <source>Block Reward:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+15"/>
         <source> TAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+19"/>
-        <location line="+141"/>
+        <location line="+27"/>
+        <source>10 TAC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+392"/>
         <source>1 TAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-138"/>
+        <location line="-374"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+70"/>
+        <location line="+306"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;10 TAC&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1012,37 +1021,37 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-480"/>
+        <location line="-787"/>
         <source>Wallet</source>
         <translation>钱包</translation>
     </message>
     <message>
-        <location line="+107"/>
+        <location line="+129"/>
         <source>Immature:</source>
         <translation>未成熟的：</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Mined balance that has not yet matured</source>
         <translation>尚未成熟的挖矿收入余额</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+51"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>&lt;b&gt;最近交易记录&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-101"/>
+        <location line="-118"/>
         <source>Your current balance</source>
         <translation>您的当前余额</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+35"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>尚未确认的交易总额, 未计入当前余额</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+131"/>
+        <location filename="../overviewpage.cpp" line="+140"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>数据同步中</translation>
@@ -1058,13 +1067,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+40"/>
-        <source>Current reward per block: </source>
+        <location line="+41"/>
+        <source>Current reward: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+10"/>
-        <source> hours remaining before voting begins</source>
+        <source> hours remaining before the voting begins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1078,11 +1087,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+66"/>
+        <location line="+67"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
-        <location line="+84"/>
+        <location line="+85"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1090,7 +1099,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-115"/>
+        <location line="-116"/>
         <source>The amount to vote exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1110,7 +1119,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+84"/>
+        <location line="+85"/>
         <source>The amount to chat exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1135,7 +1144,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../paymentserver.cpp" line="+110"/>
         <source>Cannot start talkcoin: click-to-pay handler</source>
-        <translation>暂时无法启动莱特币：点击支付功能</translation>
+        <translation>暂时无法启动聊聊币：点击支付功能</translation>
     </message>
 </context>
 <context>
@@ -1250,7 +1259,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+23"/>
         <source>On testnet</source>
-        <translation>当前为莱特币测试网络</translation>
+        <translation>当前为聊聊币测试网络</translation>
     </message>
     <message>
         <location line="+23"/>
@@ -1305,12 +1314,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-104"/>
         <source>Talkcoin - Debug window</source>
-        <translation>莱特币 - 调试窗口</translation>
+        <translation>聊聊币 - 调试窗口</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>Talkcoin Core</source>
-        <translation>莱特币核心</translation>
+        <translation>聊聊币核心</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1474,7 +1483,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <source>Enter a Talkcoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation type="obsolete">请输入莱特币地址 (例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <translation type="obsolete">请输入聊聊币地址 (例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-175"/>
@@ -1575,7 +1584,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+5"/>
         <source>Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>错误: 交易被拒绝. 如果您使用的是备份钱包，可能存在两个钱包不同步的情况，另一个钱包中的莱特币已经被使用，但本地的这个钱包尚没有记录。</translation>
+        <translation>错误: 交易被拒绝. 如果您使用的是备份钱包，可能存在两个钱包不同步的情况，另一个钱包中的聊聊币已经被使用，但本地的这个钱包尚没有记录。</translation>
     </message>
     <message>
         <location line="+271"/>
@@ -1657,7 +1666,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <source>Enter a Talkcoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation type="obsolete">请输入莱特币地址 (例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <translation type="obsolete">请输入聊聊币地址 (例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
@@ -1763,7 +1772,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+40"/>
         <source>Verify the message to ensure it was signed with the specified Talkcoin address</source>
-        <translation>验证消息，确保消息是由指定的莱特币地址签名过的。</translation>
+        <translation>验证消息，确保消息是由指定的聊聊币地址签名过的。</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1777,7 +1786,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <source>Enter a Talkcoin address (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</source>
-        <translation type="obsolete">请输入莱特币地址 (例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
+        <translation type="obsolete">请输入聊聊币地址 (例如: Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
@@ -1793,7 +1802,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+3"/>
         <source>Enter Talkcoin signature</source>
-        <translation>输入莱特币签名</translation>
+        <translation>输入聊聊币签名</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1938,7 +1947,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+4"/>
         <source>Show information about Talkcoin</source>
-        <translation>显示莱特币的相关信息</translation>
+        <translation>显示聊聊币的相关信息</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1983,7 +1992,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-365"/>
         <source>Send coins to a Talkcoin address</source>
-        <translation>向一个莱特币地址发送莱特币</translation>
+        <translation>向一个聊聊币地址发送聊聊币</translation>
     </message>
     <message>
         <location line="+49"/>
@@ -2019,7 +2028,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="-168"/>
         <location line="+551"/>
         <source>Talkcoin</source>
-        <translation>莱特币</translation>
+        <translation>聊聊币</translation>
     </message>
     <message>
         <location line="-551"/>
@@ -2044,7 +2053,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+22"/>
         <source>&amp;About Talkcoin</source>
-        <translation>&amp;关于莱特币</translation>
+        <translation>&amp;关于聊聊币</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -2064,12 +2073,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Sign messages with your Talkcoin addresses to prove you own them</source>
-        <translation>用莱特币地址关联的私钥为消息签名，以证明您拥有这个莱特币地址</translation>
+        <translation>用聊聊币地址关联的私钥为消息签名，以证明您拥有这个聊聊币地址</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Verify messages to ensure they were signed with specified Talkcoin addresses</source>
-        <translation>校验消息，确保该消息是由指定的莱特币地址所有者签名的</translation>
+        <translation>校验消息，确保该消息是由指定的聊聊币地址所有者签名的</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -2100,13 +2109,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+65"/>
         <source>Talkcoin client</source>
-        <translation>莱特币客户端</translation>
+        <translation>聊聊币客户端</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
         <source>%n active connection(s) to Talkcoin network</source>
         <translation>
-            <numerusform>到莱特币网络的连接共有%n条</numerusform>
+            <numerusform>到聊聊币网络的连接共有%n条</numerusform>
         </translation>
     </message>
     <message>
@@ -2178,7 +2187,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+70"/>
         <source>This transaction is over the size limit. You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network. Do you want to pay the fee?</source>
-        <translation>该交易的字节数超标。您可以选择支付%1的交易费给处理您的交易的网络节点，有助于莱特币网络的运行。您愿意支付这笔交易费用吗？</translation>
+        <translation>该交易的字节数超标。您可以选择支付%1的交易费给处理您的交易的网络节点，有助于聊聊币网络的运行。您愿意支付这笔交易费用吗？</translation>
     </message>
     <message>
         <location line="-140"/>
@@ -2228,7 +2237,7 @@ Address: %4
         <location line="-23"/>
         <location line="+23"/>
         <source>URI can not be parsed! This can be caused by an invalid Talkcoin address or malformed URI parameters.</source>
-        <translation>URI无法解析！原因可能是莱特币地址不正确，或者URI参数错误。</translation>
+        <translation>URI无法解析！原因可能是聊聊币地址不正确，或者URI参数错误。</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2376,7 +2385,7 @@ Address: %4
     <message>
         <location line="+3"/>
         <source>Generated coins must mature 120 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>新挖出的莱特币必须等确120个确认才能使用。您生产出的数据块，将被广播到全网并添加到数据块链。如果入链失败，状态将变为“未被接受”，意味着您的数据块竞争失败，挖出的莱特币将不能使用。当某个节点先于你几秒生产出新的数据块，这种情况会偶尔发生。</translation>
+        <translation>新挖出的聊聊币必须等确120个确认才能使用。您生产出的数据块，将被广播到全网并添加到数据块链。如果入链失败，状态将变为“未被接受”，意味着您的数据块竞争失败，挖出的聊聊币将不能使用。当某个节点先于你几秒生产出新的数据块，这种情况会偶尔发生。</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -2543,7 +2552,7 @@ Address: %4
     <message>
         <location line="+2"/>
         <source>Date and time that the transaction was received.</source>
-        <translation>接收莱特币的时间</translation>
+        <translation>接收聊聊币的时间</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2743,7 +2752,7 @@ Address: %4
     <message>
         <location filename="../walletmodel.cpp" line="+226"/>
         <source>Send Coins</source>
-        <translation>发送莱特币</translation>
+        <translation>发送聊聊币</translation>
     </message>
 </context>
 <context>
@@ -2794,7 +2803,7 @@ Address: %4
     <message>
         <location filename="../talkcoinstrings.cpp" line="+94"/>
         <source>Talkcoin version</source>
-        <translation>莱特币版本</translation>
+        <translation>聊聊币版本</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2955,7 +2964,7 @@ rpcpassword=%s
     <message>
         <location line="+3"/>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的莱特币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了莱特币，但是这个钱包文件中没有记录。</translation>
+        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的聊聊币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了聊聊币，但是这个钱包文件中没有记录。</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -2995,7 +3004,7 @@ rpcpassword=%s
     <message>
         <location line="+3"/>
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Talkcoin will not work properly.</source>
-        <translation>警告：请检查电脑的日期时间设置是否正确！时间错误可能会导致莱特币客户端运行异常。</translation>
+        <translation>警告：请检查电脑的日期时间设置是否正确！时间错误可能会导致聊聊币客户端运行异常。</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3518,7 +3527,7 @@ rpcpassword=%s
     <message>
         <location line="-25"/>
         <source>Unable to bind to %s on this computer. Talkcoin is probably already running.</source>
-        <translation>无法在本机绑定 %s 端口 . 莱特币客户端软件可能已经在运行.</translation>
+        <translation>无法在本机绑定 %s 端口 . 聊聊币客户端软件可能已经在运行.</translation>
     </message>
     <message>
         <location line="+64"/>

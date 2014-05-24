@@ -64,6 +64,9 @@ private slots:
     void on_btnChatSend_clicked();
     void on_txtChatNick_textChanged(const QString &arg1);
     void on_txtChatMsg_textChanged(const QString &arg1);
+    void on_rbLang_en_clicked();
+    void on_rbLang_ru_clicked();
+    void on_rbLang_cn_clicked();
 };
 
 #endif // OVERVIEWPAGE_H

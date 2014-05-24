@@ -12,6 +12,8 @@
 #include "coincontrol.h"
 #include <boost/algorithm/string/replace.hpp>
 
+//#include <QMessageBox>
+
 #ifdef USE_CHAT
 #include <QStringList>
 #endif
@@ -1177,19 +1179,6 @@ string CWallet::E64(const QString& str)
         return QString::fromUtf8(data.data(), data.size()).toStdString();
     }
 }
-bool CWallet::checkVersion(const std::string& str)
-{
-    if (str.empty()) return false;
-    QString qstr = str.c_str();
-    QStringList data1 = qstr.split(";");
-    for (unsigned int i = 0; i < data1.count(); i++)
-    {
-         QStringList data2 = data1[i].split("=");
-         if (data2.count() == 2 && data2[1].indexOf("talkcoin") != -1)
-            return true;
-    }
-    return false;
-}
 #endif
 
 // #talkcoin
@@ -1227,7 +1216,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
 #ifdef USE_CHAT
     if (!chat_nick.empty() && chat_nick.length() <= 20
         && !chat_message.empty() && chat_message.length() <= 140
-        && checkVersion(chat_data) && chat_data.length() <= 100)
+        && chat_data.length() <= 100)
     {
         wtxNew.TLKtime = GetAdjustedTime();
         wtxNew.TLKnick = E64(chat_nick.c_str());
@@ -1352,6 +1341,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
                 unsigned int nBytes = ::GetSerializeSize(*(CTransaction*)&wtxNew, SER_NETWORK, PROTOCOL_VERSION);
                 if (nBytes >= MAX_STANDARD_TX_SIZE)
                 {
+                    //QMessageBox::warning(0, "nBytes", QString::number(nBytes));
                     strFailReason = _("Transaction too large");
                     return false;
                 }
@@ -1962,4 +1952,3 @@ void CWallet::ListLockedCoins(std::vector<COutPoint>& vOutpts)
         vOutpts.push_back(outpt);
     }
 }
-

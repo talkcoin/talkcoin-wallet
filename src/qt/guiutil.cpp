@@ -46,6 +46,10 @@
 #include "shellapi.h"
 #endif
 
+#include <QSound>
+#include <QDir>
+#include <QFile>
+
 namespace GUIUtil {
 
 QString dateTimeStr(const QDateTime &date)
@@ -505,7 +509,8 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
     uiOptions = tr("UI options") + ":\n" +
         "  -lang=<lang>           " + tr("Set language, for example \"de_DE\" (default: system locale)") + "\n" +
         "  -min                   " + tr("Start minimized") + "\n" +
-        "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
+        "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n" +
+        "  -sound                 " + tr("Play sound (default: 1)") + "\n";
 
     setWindowTitle(tr("Talkcoin-Qt"));
     setTextFormat(Qt::PlainText);
@@ -530,6 +535,25 @@ void HelpMessageBox::showOrPrint()
         // On other operating systems, print help text to console
         printToConsole();
 #endif
+}
+
+void playSound(const QString res)
+{
+    if (GetBoolArg("-sound", true))
+    {
+        QFile file(QDir::tempPath() + "/_talkcoin.wav");
+        if (file.open(QIODevice::ReadWrite))
+        {
+            QFile workFile(res);
+            if (workFile.open(QIODevice::ReadOnly))
+            {
+                file.write(workFile.readAll());
+                workFile.close();
+            }
+            file.close();
+            QSound::play(file.fileName());
+        }
+    }
 }
 
 } // namespace GUIUtil
