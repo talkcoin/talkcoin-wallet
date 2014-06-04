@@ -1,4 +1,4 @@
-Talkcoin 1.1.0.0
+Talkcoin 1.2.0.0
 ====================
 
 Copyright (c) 2009-2013 Bitcoin Developers
@@ -14,7 +14,7 @@ Intro
 ---------------------
 Talkcoin is a free open source peer-to-peer electronic cash and chat system that is
 completely decentralized, without the need for a central server or trusted
-parties.  Users hold the crypto keys to their own money and transact directly
+parties. Users hold the crypto keys to their own money and transact directly
 with each other, with the help of a P2P network to check for double-spending.
 
 

@@ -184,10 +184,14 @@ public:
     int64 GetBalance() const;
     int64 GetUnconfirmedBalance() const;
     int64 GetImmatureBalance() const;
+
 #ifdef USE_CHAT
-    std::string E64(const QString& str);
+    std::string E64(const std::string& str);
+    std::string D64(const std::string& str);
     bool checkVersion(const std::string& str);
+    std::string getLang(const std::string& str);
 #endif
+
     bool CreateTransaction(const std::vector<std::pair<CScript, int64> >& vecSend,
                            CWalletTx& wtxNew, CReserveKey& reservekey,
                            int64& nFeeRet, std::string& strFailReason, const CCoinControl *coinControl=NULL,

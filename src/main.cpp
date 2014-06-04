@@ -17,10 +17,6 @@
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 
-#ifdef USE_CHAT
-#include <QStringList>
-#endif
-
 using namespace std;
 using namespace boost;
 
@@ -2179,40 +2175,6 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
     return true;
 }
 
-
-#ifdef USE_CHAT
-QString D64(const QString& str)
-{
-    QByteArray data = QByteArray(str.toUtf8());
-    return data.isEmpty() ? NULL : QString::fromUtf8(qUncompress(QByteArray::fromBase64(data)));
-}
-
-bool checkVersion(const std::string& str)
-{
-    QStringList data1 = D64(str.c_str()).split(";");
-    for (unsigned int i = 0; i < data1.count(); i++)
-    {
-        QStringList data2 = data1[i].split("=");
-        if (data2.count() == 2 && data2[0] == "version")
-            if (data2[1].indexOf("talkcoin") != -1)
-                return true;
-    }
-    return false;
-}
-
-std::string getLang(const std::string& str)
-{
-    QStringList data1 = D64(str.c_str()).split(";");
-    for (unsigned int i = 0; i < data1.count(); i++)
-    {
-        QStringList data2 = data1[i].split("=");
-        if (data2.count() == 2 && data2[0] == "lang")
-            return data2[1].toStdString();
-    }
-    return "";
-}
-#endif
-
 bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerkleRoot) const
 {
     // These are checks that are independent of context
@@ -2293,7 +2255,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
     unsigned int tlk_size2 = sizeof(TLK___[0])/sizeof(TLK___[0][0]);
     BOOST_FOREACH(const CTransaction& tx, vtx)
     {
-        if (tx.TLKtime > 0 && !tx.TLKnick.empty() && !tx.TLKmsg.empty() && checkVersion(tx.TLKdata) && tx.vout.size() == 2)
+        if (tx.TLKtime > 0 && !tx.TLKnick.empty() && !tx.TLKmsg.empty() && pwalletMain->checkVersion(tx.TLKdata) && tx.vout.size() == 2)
         {
             bool bTX = false;
             int64 nValue = 0;
@@ -2308,7 +2270,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                     {
                         bTX = true;
                         nValue = txout.nValue;
-                        lang = getLang(tx.TLKdata);
+                        lang = pwalletMain->getLang(tx.TLKdata);
                         break;
                     }
                 }
@@ -2335,9 +2297,9 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                 std::string tmp0 = tx.GetHash().ToString();
                 std::string tmp1 = QString::number(nValue).toStdString();
                 std::string tmp2 = QString::number(tx.TLKtime).toStdString();
-                std::string tmp3 = D64(tx.TLKnick.c_str()).toStdString();
-                std::string tmp4 = D64(tx.TLKmsg.c_str()).toStdString();
-                std::string tmp5 = D64(tx.TLKdata.c_str()).toStdString();
+                std::string tmp3 = pwalletMain->D64(tx.TLKnick);
+                std::string tmp4 = pwalletMain->D64(tx.TLKmsg);
+                std::string tmp5 = pwalletMain->D64(tx.TLKdata);
 
                 if (TLK___[tlk_size1-2][0].empty())
                 {

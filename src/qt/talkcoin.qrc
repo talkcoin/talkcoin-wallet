@@ -40,15 +40,31 @@
         <file alias="filesave">res/icons/filesave.png</file>
         <file alias="qrcode">res/icons/qrcode.png</file>
         <file alias="debugwindow">res/icons/debugwindow.png</file>
+        <file alias="smiley-button">res/icons/smiley-button.png</file>
+        <file alias="chat-bubble">res/icons/chat-bubble.png</file>
         <file alias="flag_en">res/icons/flags/flag_en.png</file>
         <file alias="flag_ru">res/icons/flags/flag_ru.png</file>
         <file alias="flag_cn">res/icons/flags/flag_cn.png</file>
+    </qresource>
+    <qresource prefix="/smileys">
+        <file alias="icon_smile">res/icons/smileys/icon_smile.png</file>
+        <file alias="icon_biggrin">res/icons/smileys/icon_biggrin.png</file>
+        <file alias="icon_sad">res/icons/smileys/icon_sad.png</file>
+        <file alias="icon_surprised">res/icons/smileys/icon_surprised.png</file>
+        <file alias="icon_eek">res/icons/smileys/icon_eek.png</file>
+        <file alias="icon_confused">res/icons/smileys/icon_confused.png</file>
+        <file alias="icon_cool">res/icons/smileys/icon_cool.png</file>
+        <file alias="icon_mad">res/icons/smileys/icon_mad.png</file>
+        <file alias="icon_razz">res/icons/smileys/icon_razz.png</file>
+        <file alias="icon_neutral">res/icons/smileys/icon_neutral.png</file>
+        <file alias="icon_wink">res/icons/smileys/icon_wink.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash.png</file>
         <file alias="splash_testnet">res/images/splash_testnet.png</file>
         <file alias="logo">res/images/logo.png</file>
+        <file alias="p2p">res/images/p2p.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>

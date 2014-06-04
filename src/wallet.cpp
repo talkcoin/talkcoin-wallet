@@ -1167,17 +1167,48 @@ bool CWallet::SelectCoins(int64 nTargetValue, set<pair<const CWalletTx*,unsigned
 }
 
 #ifdef USE_CHAT
-string CWallet::E64(const QString& str)
+std::string CWallet::E64(const std::string& str)
 {
-    if (str.trimmed().isEmpty())
+    if (QString(str.c_str()).trimmed().isEmpty())
     {
         return NULL;
     }
     else
     {
-        QByteArray data = qCompress(str.trimmed().toUtf8(), 9).toBase64();
+        QByteArray data = qCompress(QString(str.c_str()).trimmed().toUtf8(), 9).toBase64();
         return QString::fromUtf8(data.data(), data.size()).toStdString();
     }
+}
+
+std::string CWallet::D64(const std::string& str)
+{
+    QByteArray data = QByteArray(QString(str.c_str()).toUtf8());
+    return data.isEmpty() ? NULL : QString::fromUtf8(qUncompress(QByteArray::fromBase64(data))).toStdString();
+}
+
+bool CWallet::checkVersion(const std::string& str)
+{
+    QStringList data1 = QString(CWallet::D64(str).c_str()).split(";");
+    for (unsigned int i = 0; i < data1.count(); i++)
+    {
+        QStringList data2 = data1[i].split("=");
+        if (data2.count() == 2 && data2[0] == "version")
+            if (data2[1].indexOf("talkcoin") != -1)
+                return true;
+    }
+    return false;
+}
+
+std::string CWallet::getLang(const std::string& str)
+{
+    QStringList data1 = QString(CWallet::D64(str).c_str()).split(";");
+    for (unsigned int i = 0; i < data1.count(); i++)
+    {
+        QStringList data2 = data1[i].split("=");
+        if (data2.count() == 2 && data2[0] == "lang")
+            return data2[1].toStdString();
+    }
+    return "";
 }
 #endif
 
@@ -1219,9 +1250,9 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
         && chat_data.length() <= 100)
     {
         wtxNew.TLKtime = GetAdjustedTime();
-        wtxNew.TLKnick = E64(chat_nick.c_str());
-        wtxNew.TLKmsg = E64(chat_message.c_str());
-        wtxNew.TLKdata = E64(chat_data.c_str());
+        wtxNew.TLKnick = E64(chat_nick);
+        wtxNew.TLKmsg = E64(chat_message);
+        wtxNew.TLKdata = E64(chat_data);
     }
 #endif
 

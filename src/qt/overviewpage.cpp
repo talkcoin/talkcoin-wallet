@@ -241,29 +241,53 @@ void OverviewPage::showVote()
         else
             ui->lblVoteInfo->setText("► Less than 1 hour remaining before the voting begins");
         ui->lblVoteInfo->setStyleSheet("color: black;");
-        ui->spbVote->setEnabled(false);
         ui->btnVote->setEnabled(false);
     }
     else if (nBestHeight >= start && nBestHeight <= end)
     {
         ui->lblVoteInfo->setText("► " + tr("Voting is opened"));
         ui->lblVoteInfo->setStyleSheet("color: green;");
-        ui->spbVote->setEnabled(bVote? false : true);
-        ui->btnVote->setEnabled(bVote? false : true);
+
+        if (!clientModel->inInitialBlockDownload())
+        {
+            if (bVote)
+            {
+                ui->btnVote->setEnabled(false);
+            }
+            else
+            {
+                ui->btnVote->setEnabled(true);
+                if (ui->chkAutoVote->isChecked())
+                {
+                    ui->chkAutoVote->setChecked(Qt::Unchecked);
+                    this->on_btnVote_clicked();
+                }
+            }
+        }
     }
     else
     {
         ui->lblVoteInfo->setText("► " + tr("Voting is closed"));
         ui->lblVoteInfo->setStyleSheet("color: red;");
-        ui->spbVote->setEnabled(false);
         ui->btnVote->setEnabled(false);
         bVote = false;
+    }
+}
+
+void replaceAll(std::string& str, const std::string& from, const std::string& to) {
+    if(from.empty())
+        return;
+    size_t start_pos = 0;
+    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
+        str.replace(start_pos, from.length(), to);
+        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
     }
 }
 
 void OverviewPage::showChat()
 {
     std::string tlk = "";
+    std::string nick_ = "";
 
     for (int i = tlk_size1-1; i >= 0; i--)
     {
@@ -274,11 +298,18 @@ void OverviewPage::showChat()
             if (atoi(TLK___[i][1].c_str()) == GetChatBValue())
                 style = "<b>" + style + "</b>";
             else if (atoi(TLK___[i][1].c_str()) == GetChatRValue())
-                style = "<b><font color=red>" + style + "</font></b>";
+                style = "<b><font color=\"red\">" + style + "</font></b>";
 
-            tlk += "<p><font color=blue>" + TLK___[i][3] + "</font> <small>("
-                    + GUIUtil::dateTimeStr(atoi(TLK___[i][2].c_str())).toStdString() + ")</small><br>"
-                    + style + "</p>";
+            std::string nick = QString(TLK___[i][3].c_str()).remove(QRegExp("<[^>]*>")).toStdString();
+
+            tlk += (std::string)"<table><tr><td class=\"icon\" width=\"18\">"
+                   + (nick_!=nick? "<img src=\":/icons/chat-bubble\">" : "")
+                   + "</td><td class=\"nick-time\" valign=\"middle\">"
+                   + nick
+                   + " <small>(" + GUIUtil::dateTimeStr(atoi(TLK___[i][2].c_str())).toStdString() + ")</small></td></tr>"
+                   + "<tr><td></td><td class=\"msg\">" + style + "</td></tr></table>";
+
+            nick_ = nick;
         }
     }
 
@@ -286,12 +317,57 @@ void OverviewPage::showChat()
     {
         _tlk = tlk;
         ui->txtChat->clear();
+        ui->txtChat->document()->setDefaultStyleSheet(
+                    "table        { }"
+                    "td.icon      { padding-top: 5px; }"
+                    "td.nick-time { font-family: Monospace; font-size: 12px; color: blue; text-align : left; padding-top: 5px; }"
+                    "small        { font-size: 10px; color: #808080; }"
+                    "td.msg       { font-family: Monospace; font-size: 12px; text-align : left; }"
+                    );
+
+        replaceAll(tlk, " :)", " <img src=\":/smileys/icon_smile\">");
+        replaceAll(tlk, " :D", " <img src=\":/smileys/icon_biggrin\">");
+        replaceAll(tlk, " :(", " <img src=\":/smileys/icon_sad\">");
+        replaceAll(tlk, " :o", " <img src=\":/smileys/icon_surprised\">");
+        replaceAll(tlk, " 8O", " <img src=\":/smileys/icon_eek\">");
+        replaceAll(tlk, " :?", " <img src=\":/smileys/icon_confused\">");
+        replaceAll(tlk, " 8)", " <img src=\":/smileys/icon_cool\">");
+        replaceAll(tlk, " :x", " <img src=\":/smileys/icon_mad\">");
+        replaceAll(tlk, " :P", " <img src=\":/smileys/icon_razz\">");
+        replaceAll(tlk, " :|", " <img src=\":/smileys/icon_neutral\">");
+        replaceAll(tlk, " ;)", " <img src=\":/smileys/icon_wink\">");
+
         ui->txtChat->setHtml(tlk.c_str());
+        if (!tlk.empty() && !clientModel->inInitialBlockDownload()) GUIUtil::playSound(":/sounds/chat");
         QScrollBar *sb = ui->txtChat->verticalScrollBar();
         sb->setValue(sb->maximum());
-        if (!tlk.empty() && !clientModel->inInitialBlockDownload())
-            GUIUtil::playSound(":/sounds/chat");
     }
+}
+
+void OverviewPage::on_btnSmiley_clicked()
+{
+    QMessageBox *msgBox = new QMessageBox();
+    msgBox->setWindowTitle(tr("List of emoticons"));
+
+    msgBox->setText(
+                    (QString)"<table align=\"center\" width=\"100%\"><tr><td><img src=\":/smileys/icon_smile\"></td><td><b>:)</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_biggrin\"></td><td><b>:D</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_sad\"></td><td><b>:(</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_surprised\"></td><td><b>:o</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_eek\"></td><td><b>8O</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_confused\"></td><td><b>:?</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_cool\"></td><td><b>8)</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_mad\"></td><td><b>:x</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_razz\"></td><td><b>:P</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_neutral\"></td><td><b>:|</b></td></tr>"
+                    + "<tr><td><img src=\":/smileys/icon_wink\"></td><td><b>;)</b></td></tr></table>"
+                   );
+
+    msgBox->setStandardButtons(QMessageBox::Ok);
+    msgBox->setDefaultButton(QMessageBox::Ok);
+    msgBox->setModal(true);
+    msgBox->setWindowFlags(msgBox->windowFlags() | Qt::WindowStaysOnTopHint);
+    msgBox->show();
 }
 
 void OverviewPage::on_btnVote_clicked()
@@ -343,16 +419,10 @@ void OverviewPage::on_btnVote_clicked()
     case WalletModel::Aborted: // User aborted, nothing to do
         break;
     case WalletModel::OK:
-        ui->spbVote->setEnabled(false);
         ui->btnVote->setEnabled(false);
         bVote = true;
         break;
     }
-}
-
-void OverviewPage::on_spbVote_valueChanged(int arg1)
-{
-    ui->spbVote->setStyleSheet("");
 }
 
 void OverviewPage::on_btnChatSend_clicked()

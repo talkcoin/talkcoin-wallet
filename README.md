@@ -9,7 +9,7 @@ Copyright (c) 2014 Talkcoin Developers
 What is Talkcoin?
 ----------------
 
-Talkcoin is the first to offer a true decentralized chat program that won't rely on a central server to deliver messages from the sender to their recipients and lets you communicate freely with anyone in the world without censorship.
+Talkcoin is the first cryptocurrency to offer a true decentralized chat program that won't rely on a central server to deliver messages from the sender to their recipients and lets you communicate freely with anyone in the world without censorship.
 It also has a decentralized block reward voting, fast transactions, new efficient algorithm / GPU miner (based on NIST5: BLAKE - Grøstl - JH - Keccak - Skein).
 
 For more information, as well as an immediately useable, binary version of

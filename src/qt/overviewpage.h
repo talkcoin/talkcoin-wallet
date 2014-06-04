@@ -59,8 +59,8 @@ private slots:
     void showAction();
     void showVote();
     void showChat();
+    void on_btnSmiley_clicked();
     void on_btnVote_clicked();
-    void on_spbVote_valueChanged(int arg1);
     void on_btnChatSend_clicked();
     void on_txtChatNick_textChanged(const QString &arg1);
     void on_txtChatMsg_textChanged(const QString &arg1);
