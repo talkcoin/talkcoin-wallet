@@ -1,11 +1,11 @@
 TEMPLATE = app
 TARGET = talkcoin-qt
 macx:TARGET = "Talkcoin-Qt"
-VERSION = 1.2.0.0
+VERSION = 1.3.0.0
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE USE_VOTE USE_CHAT
+DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
 
@@ -197,6 +197,7 @@ HEADERS += src/qt/talkcoingui.h \
     src/qt/walletframe.h \
     src/talkcoinrpc.h \
     src/qt/overviewpage.h \
+    src/qt/messagingpage.h \
     src/qt/csvmodelwriter.h \
     src/crypter.h \
     src/qt/sendcoinsentry.h \
@@ -280,6 +281,7 @@ SOURCES += src/qt/talkcoin.cpp \
     src/rpcblockchain.cpp \
     src/rpcrawtransaction.cpp \
     src/qt/overviewpage.cpp \
+    src/qt/messagingpage.cpp \
     src/qt/csvmodelwriter.cpp \
     src/crypter.cpp \
     src/qt/sendcoinsentry.cpp \
@@ -311,6 +313,7 @@ FORMS += src/qt/forms/sendcoinsdialog.ui \
     src/qt/forms/editaddressdialog.ui \
     src/qt/forms/transactiondescdialog.ui \
     src/qt/forms/overviewpage.ui \
+    src/qt/forms/messagingpage.ui \
     src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \

@@ -2,7 +2,6 @@
 #include "ui_overviewpage.h"
 
 #include "clientmodel.h"
-#include "walletmodel.h"
 #include "talkcoinunits.h"
 #include "optionsmodel.h"
 #include "transactiontablemodel.h"
@@ -19,10 +18,12 @@
 #include "coincontroldialog.h"
 #include "util.h"
 #include "base58.h"
+#include "askpassphrasedialog.h"
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
 
+// extern Vote
 extern int nBestHeight;
 extern int64 nSubsidy;
 extern int V_BlockInterval;
@@ -33,12 +34,22 @@ extern int V_Total;
 static const unsigned int tlk_size1 = 50;
 static const unsigned int tlk_size2 = 6;
 
-static std::string TLK___[tlk_size1][tlk_size2];
-static std::string _tlk;
-
+// extern Chat
 extern std::string TLK_en[tlk_size1][tlk_size2];
+extern std::string TLK_de[tlk_size1][tlk_size2];
+extern std::string TLK_fr[tlk_size1][tlk_size2];
+extern std::string TLK_es[tlk_size1][tlk_size2];
+extern std::string TLK_it[tlk_size1][tlk_size2];
+extern std::string TLK_pt[tlk_size1][tlk_size2];
+extern std::string TLK_tr[tlk_size1][tlk_size2];
 extern std::string TLK_ru[tlk_size1][tlk_size2];
 extern std::string TLK_cn[tlk_size1][tlk_size2];
+extern std::string TLK_jp[tlk_size1][tlk_size2];
+extern std::string TLK_kr[tlk_size1][tlk_size2];
+
+static std::string TLK___[tlk_size1][tlk_size2];
+static std::string xTLK[tlk_size1];
+
 
 class TxViewDelegate : public QAbstractItemDelegate
 {
@@ -142,6 +153,42 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
+
+    // ToolTips
+    ui->btnVote->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_VOTE()));
+    ui->chkAutoVote->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_VOTE()));
+    ui->btnChatSend->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_CHAT()));
+    ui->btnChatBold->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_CHATB()));
+
+    // vote
+    ui->spbVote->setMinimum((double)GET_V_REWARDMIN()/COIN);
+    ui->spbVote->setMaximum((double)GET_V_REWARDMAX()/COIN);
+    ui->spbVote->setValue((double)(GET_V_REWARDMAX()/2)/COIN);
+
+    // chat
+    ui->txtChatNick->installEventFilter(this);
+    ui->txtChatMsg->installEventFilter(this);
+    ui->txtChat->document()->setDefaultStyleSheet(
+                "table        { }"
+                "td.icon      { padding-top: 5px; }"
+                "td.nick-time { font-family: Monospace; font-size: 12px; color: blue; text-align : left; padding-top: 5px; }"
+                "small        { font-size: 10px; color: #808080; }"
+                "td.msg       { font-family: Monospace; font-size: 12px; text-align : left; }"
+                );
+}
+
+bool OverviewPage::eventFilter(QObject *object, QEvent *event)
+{
+    if ((object == ui->txtChatNick || object == ui->txtChatMsg) && event->type() == QEvent::KeyPress)
+    {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->key() == Qt::Key_Return)
+        {
+            this->OverviewPage::on_btnChatSend_clicked();
+            return true;
+        }
+    }
+    return QWidget::eventFilter(object, event);
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -190,35 +237,31 @@ void OverviewPage::setClientModel(ClientModel *model)
 #endif
 
     bVote = false;
-    ui->txtChatNick->installEventFilter(this);
-    ui->txtChatMsg->installEventFilter(this);
 
     t_action = new QTimer(this); t_action->start(10*1000);
     connect(t_action, SIGNAL(timeout()), this, SLOT(showAction()));
     this->showAction();
 }
 
-bool OverviewPage::eventFilter(QObject *object, QEvent *event)
-{
-    if ((object == ui->txtChatNick || object == ui->txtChatMsg) && event->type() == QEvent::KeyPress)
-    {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-        if (keyEvent->key() == Qt::Key_Return)
-        {
-            this->OverviewPage::on_btnChatSend_clicked();
-            return true;
-        }
-    }
-    return QWidget::eventFilter(object, event);
-}
-
 // #talkcoin
 void OverviewPage::showAction()
 {
+    if(walletModel)
+        this->setWalletStatus();
+
     this->showVote();
+
     if (ui->rbLang_en->isChecked()) this->on_rbLang_en_clicked();
+    else if (ui->rbLang_de->isChecked()) this->on_rbLang_de_clicked();
+    else if (ui->rbLang_fr->isChecked()) this->on_rbLang_fr_clicked();
+    else if (ui->rbLang_es->isChecked()) this->on_rbLang_es_clicked();
+    else if (ui->rbLang_it->isChecked()) this->on_rbLang_it_clicked();
+    else if (ui->rbLang_pt->isChecked()) this->on_rbLang_pt_clicked();
+    else if (ui->rbLang_tr->isChecked()) this->on_rbLang_tr_clicked();
     else if (ui->rbLang_ru->isChecked()) this->on_rbLang_ru_clicked();
     else if (ui->rbLang_cn->isChecked()) this->on_rbLang_cn_clicked();
+    else if (ui->rbLang_jp->isChecked()) this->on_rbLang_jp_clicked();
+    else if (ui->rbLang_kr->isChecked()) this->on_rbLang_kr_clicked();
 }
 
 void OverviewPage::showVote()
@@ -227,7 +270,7 @@ void OverviewPage::showVote()
     int start = nHeightH - V_BlockInit - V_Blocks;
     int end = nHeightH - V_BlockInit;
 
-    ui->lblRewardInfo->setText("► " + tr("Current reward: ")
+    ui->lblInfo->setText("► " + tr("Current reward: ")
                                + TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, nSubsidy)
                                + (V_Total? " (" + QString::number(V_Total) + " votes)" : "")
                               );
@@ -245,7 +288,7 @@ void OverviewPage::showVote()
     }
     else if (nBestHeight >= start && nBestHeight <= end)
     {
-        ui->lblVoteInfo->setText("► " + tr("Voting is opened"));
+        ui->lblVoteInfo->setText("► " + tr("Voting is open"));
         ui->lblVoteInfo->setStyleSheet("color: green;");
 
         if (!clientModel->inInitialBlockDownload())
@@ -274,77 +317,54 @@ void OverviewPage::showVote()
     }
 }
 
-void replaceAll(std::string& str, const std::string& from, const std::string& to) {
-    if(from.empty())
-        return;
-    size_t start_pos = 0;
-    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
-        str.replace(start_pos, from.length(), to);
-        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
-    }
-}
-
 void OverviewPage::showChat()
 {
+    for (unsigned int i = 0; i < tlk_size1; i++)
+    {
+        if (xTLK[i] != TLK___[i][0])
+        {
+            for (unsigned int i = 0; i < tlk_size1; i++)
+                xTLK[i] = TLK___[i][0];
+            break;
+        }
+        if (i == tlk_size1-1 || TLK___[i][0].empty()) return;
+    }
+
+
     std::string tlk = "";
-    std::string nick_ = "";
+    std::string nickx = "";
 
     for (int i = tlk_size1-1; i >= 0; i--)
     {
         if (!TLK___[i][0].empty())
         {
-            std::string style = QString(TLK___[i][4].c_str()).remove(QRegExp("<[^>]*>")).toStdString();
+            std::string style = QString(TLK___[i][4].c_str()).remove(QRegExp("<[^>]*>")).trimmed().toStdString();
+            std::string translate = "<a href =\"https://translate.google.com/m?sl=auto&tl=auto&ie=UTF-8&prev=_m&q=" + QString(QUrl::toPercentEncoding(style.c_str())).toStdString() + "\"><img src=\":/icons/chat-translate\"></a>&nbsp;";
+            style = getSmileys(style);
+            std::string nick = QString(TLK___[i][3].c_str()).remove(QRegExp("<[^>]*>")).trimmed().toStdString();
 
-            if (atoi(TLK___[i][1].c_str()) == GetChatBValue())
+            if (atoi(TLK___[i][1].c_str()) == GET_V_CHATB(nBestHeight))
                 style = "<b>" + style + "</b>";
-            else if (atoi(TLK___[i][1].c_str()) == GetChatRValue())
-                style = "<b><font color=\"red\">" + style + "</font></b>";
-
-            std::string nick = QString(TLK___[i][3].c_str()).remove(QRegExp("<[^>]*>")).toStdString();
 
             tlk += (std::string)"<table><tr><td class=\"icon\" width=\"18\">"
-                   + (nick_!=nick? "<img src=\":/icons/chat-bubble\">" : "")
+                   + (nickx!=nick? "<img src=\":/icons/chat-bubble\">" : "")
                    + "</td><td class=\"nick-time\" valign=\"middle\">"
                    + nick
                    + " <small>(" + GUIUtil::dateTimeStr(atoi(TLK___[i][2].c_str())).toStdString() + ")</small></td></tr>"
-                   + "<tr><td></td><td class=\"msg\">" + style + "</td></tr></table>";
+                   + "<tr><td></td><td class=\"msg\">" + translate + style + "</td></tr></table>";
 
-            nick_ = nick;
+            nickx = nick;
         }
     }
 
-    if (tlk != _tlk)
-    {
-        _tlk = tlk;
-        ui->txtChat->clear();
-        ui->txtChat->document()->setDefaultStyleSheet(
-                    "table        { }"
-                    "td.icon      { padding-top: 5px; }"
-                    "td.nick-time { font-family: Monospace; font-size: 12px; color: blue; text-align : left; padding-top: 5px; }"
-                    "small        { font-size: 10px; color: #808080; }"
-                    "td.msg       { font-family: Monospace; font-size: 12px; text-align : left; }"
-                    );
-
-        replaceAll(tlk, " :)", " <img src=\":/smileys/icon_smile\">");
-        replaceAll(tlk, " :D", " <img src=\":/smileys/icon_biggrin\">");
-        replaceAll(tlk, " :(", " <img src=\":/smileys/icon_sad\">");
-        replaceAll(tlk, " :o", " <img src=\":/smileys/icon_surprised\">");
-        replaceAll(tlk, " 8O", " <img src=\":/smileys/icon_eek\">");
-        replaceAll(tlk, " :?", " <img src=\":/smileys/icon_confused\">");
-        replaceAll(tlk, " 8)", " <img src=\":/smileys/icon_cool\">");
-        replaceAll(tlk, " :x", " <img src=\":/smileys/icon_mad\">");
-        replaceAll(tlk, " :P", " <img src=\":/smileys/icon_razz\">");
-        replaceAll(tlk, " :|", " <img src=\":/smileys/icon_neutral\">");
-        replaceAll(tlk, " ;)", " <img src=\":/smileys/icon_wink\">");
-
-        ui->txtChat->setHtml(tlk.c_str());
-        if (!tlk.empty() && !clientModel->inInitialBlockDownload()) GUIUtil::playSound(":/sounds/chat");
-        QScrollBar *sb = ui->txtChat->verticalScrollBar();
-        sb->setValue(sb->maximum());
-    }
+    ui->txtChat->clear();
+    ui->txtChat->setHtml(tlk.c_str());
+    if (!clientModel->inInitialBlockDownload()) GUIUtil::playSound(":/sounds/chat");
+    QScrollBar *sb = ui->txtChat->verticalScrollBar();
+    sb->setValue(sb->maximum());
 }
 
-void OverviewPage::on_btnSmiley_clicked()
+void OverviewPage::on_btnChatSmiley_clicked()
 {
     QMessageBox *msgBox = new QMessageBox();
     msgBox->setWindowTitle(tr("List of emoticons"));
@@ -370,18 +390,47 @@ void OverviewPage::on_btnSmiley_clicked()
     msgBox->show();
 }
 
+std::string OverviewPage::getSmileys(std::string str)
+{
+    replaceAll(str, ":)", "<img src=\":/smileys/icon_smile\">");
+    replaceAll(str, ":D", "<img src=\":/smileys/icon_biggrin\">");
+    replaceAll(str, ":(", "<img src=\":/smileys/icon_sad\">");
+    replaceAll(str, ":o", "<img src=\":/smileys/icon_surprised\">");
+    replaceAll(str, "8O", "<img src=\":/smileys/icon_eek\">");
+    replaceAll(str, ":?", "<img src=\":/smileys/icon_confused\">");
+    replaceAll(str, "8)", "<img src=\":/smileys/icon_cool\">");
+    replaceAll(str, ":x", "<img src=\":/smileys/icon_mad\">");
+    replaceAll(str, ":P", "<img src=\":/smileys/icon_razz\">");
+    replaceAll(str, ":|", "<img src=\":/smileys/icon_neutral\">");
+    replaceAll(str, ";)", "<img src=\":/smileys/icon_wink\">");
+    return str;
+}
+
+void OverviewPage::replaceAll(std::string& str, const std::string& from, const std::string& to)
+{
+    if(from.empty())
+        return;
+    size_t start_pos = 0;
+    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
+        str.replace(start_pos, from.length(), to);
+        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+    }
+}
+
 void OverviewPage::on_btnVote_clicked()
 {
-    if (ui->spbVote->value() < 1)
+    if (clientModel->inInitialBlockDownload()) return;
+
+    if (ui->spbVote->value() < 1 && nBestHeight < HF1)
     {
         ui->spbVote->setStyleSheet("background-color: red;");
         return;
     }
 
     SendCoinsRecipient rv;
-    rv.address = GetVoteAddr().c_str();
-    rv.label = GetVoteLbl().c_str();
-    rv.amount = GetVoteValue();
+    rv.address = DecodeBase64(GET_A_VOTE1(nBestHeight)).c_str();
+    rv.label = "Talkcoin Vote";
+    rv.amount = GET_V_VOTE(nBestHeight);
     rv.SetVote();
     rv.vote = ui->spbVote->value() * COIN;
     QList<SendCoinsRecipient> recipients;
@@ -427,26 +476,33 @@ void OverviewPage::on_btnVote_clicked()
 
 void OverviewPage::on_btnChatSend_clicked()
 {
+    if (clientModel->inInitialBlockDownload()) return;
+
     SendCoinsRecipient rv;
-    rv.address = GetChatAddr().c_str();
-    rv.label = GetChatLbl().c_str();
-    rv.amount = ui->btnBold->isChecked()? GetChatBValue() : GetChatValue();
+    rv.address = DecodeBase64(GET_A_CHAT(nBestHeight)).c_str();
+    rv.label = "Talkcoin Chat";
+    rv.amount = ui->btnChatBold->isChecked()? GET_V_CHATB(nBestHeight) : GET_V_CHAT(nBestHeight);
     rv.SetChat();
     rv.nick = ui->txtChatNick->text().remove(QRegExp("<[^>]*>")).trimmed();
     rv.message = ui->txtChatMsg->text().remove(QRegExp("<[^>]*>")).trimmed();
     rv.data = "version=" + clientModel->formatFullVersion() + ";";
     if (ui->rbLang_en->isChecked()) rv.data += "lang=en;";
+    else if (ui->rbLang_de->isChecked()) rv.data += "lang=de;";
+    else if (ui->rbLang_fr->isChecked()) rv.data += "lang=fr;";
+    else if (ui->rbLang_es->isChecked()) rv.data += "lang=es;";
+    else if (ui->rbLang_it->isChecked()) rv.data += "lang=it;";
+    else if (ui->rbLang_pt->isChecked()) rv.data += "lang=pt;";
+    else if (ui->rbLang_tr->isChecked()) rv.data += "lang=tr;";
     else if (ui->rbLang_ru->isChecked()) rv.data += "lang=ru;";
     else if (ui->rbLang_cn->isChecked()) rv.data += "lang=cn;";
+    else if (ui->rbLang_jp->isChecked()) rv.data += "lang=jp;";
+    else if (ui->rbLang_kr->isChecked()) rv.data += "lang=kr;";
 
     bool valid = true;
 
     if (!ui->txtChatNick->isReadOnly())
     {
-        if (rv.nick.length() < 1 || rv.nick.length() > 20
-            || rv.nick.toLower() == "talkcoin"
-            || rv.nick.toLower() == "administrator"
-            || rv.nick.toLower() == "admin")
+        if (rv.nick.length() < 1 || rv.nick.length() > 20 || !validNick(rv.nick.toStdString()))
         {
             valid = false;
             ui->txtChatNick->setStyleSheet("background-color: red;");
@@ -456,11 +512,27 @@ void OverviewPage::on_btnChatSend_clicked()
             for (unsigned int i = 0; i < tlk_size1; i++)
             {
                 QString nick_en = TLK_en[i][3].c_str();
+                QString nick_de = TLK_de[i][3].c_str();
+                QString nick_fr = TLK_fr[i][3].c_str();
+                QString nick_es = TLK_es[i][3].c_str();
+                QString nick_it = TLK_it[i][3].c_str();
+                QString nick_pt = TLK_pt[i][3].c_str();
+                QString nick_tr = TLK_tr[i][3].c_str();
                 QString nick_ru = TLK_ru[i][3].c_str();
                 QString nick_cn = TLK_cn[i][3].c_str();
+                QString nick_jp = TLK_jp[i][3].c_str();
+                QString nick_kr = TLK_kr[i][3].c_str();
                 if (nick_en.toLower() == rv.nick.toLower()
+                    || nick_de.toLower() == rv.nick.toLower()
+                    || nick_fr.toLower() == rv.nick.toLower()
+                    || nick_es.toLower() == rv.nick.toLower()
+                    || nick_it.toLower() == rv.nick.toLower()
+                    || nick_pt.toLower() == rv.nick.toLower()
+                    || nick_tr.toLower() == rv.nick.toLower()
                     || nick_ru.toLower() == rv.nick.toLower()
                     || nick_cn.toLower() == rv.nick.toLower()
+                    || nick_jp.toLower() == rv.nick.toLower()
+                    || nick_kr.toLower() == rv.nick.toLower()
                    )
                 {
                     valid = false;
@@ -533,27 +605,58 @@ void OverviewPage::on_txtChatMsg_textChanged(const QString &arg1)
 
 void OverviewPage::on_rbLang_en_clicked()
 {
-    if (ui->rbLang_en->isChecked())
-    {
-        std::copy(&TLK_en[0][0], &TLK_en[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-        this->showChat();
-    }
+    std::copy(&TLK_en[0][0], &TLK_en[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
+}
+void OverviewPage::on_rbLang_de_clicked()
+{
+    std::copy(&TLK_de[0][0], &TLK_de[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
+}
+void OverviewPage::on_rbLang_fr_clicked()
+{
+    std::copy(&TLK_fr[0][0], &TLK_fr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
+}
+void OverviewPage::on_rbLang_es_clicked()
+{
+    std::copy(&TLK_es[0][0], &TLK_es[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
+}
+void OverviewPage::on_rbLang_it_clicked()
+{
+    std::copy(&TLK_it[0][0], &TLK_it[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
+}
+void OverviewPage::on_rbLang_pt_clicked()
+{
+    std::copy(&TLK_pt[0][0], &TLK_pt[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
+}
+void OverviewPage::on_rbLang_tr_clicked()
+{
+    std::copy(&TLK_tr[0][0], &TLK_tr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
 }
 void OverviewPage::on_rbLang_ru_clicked()
 {
-    if (ui->rbLang_ru->isChecked())
-    {
-        std::copy(&TLK_ru[0][0], &TLK_ru[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-        this->showChat();
-    }
+    std::copy(&TLK_ru[0][0], &TLK_ru[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
 }
 void OverviewPage::on_rbLang_cn_clicked()
 {
-    if (ui->rbLang_cn->isChecked())
-    {
-        std::copy(&TLK_cn[0][0], &TLK_cn[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-        this->showChat();
-    }
+    std::copy(&TLK_cn[0][0], &TLK_cn[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
+}
+void OverviewPage::on_rbLang_jp_clicked()
+{
+    std::copy(&TLK_jp[0][0], &TLK_jp[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
+}
+void OverviewPage::on_rbLang_kr_clicked()
+{
+    std::copy(&TLK_kr[0][0], &TLK_kr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    this->showChat();
 }
 
 void OverviewPage::setWalletModel(WalletModel *model)
@@ -607,4 +710,49 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
 {
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
+}
+
+void OverviewPage::on_btnWallet_clicked()
+{
+    WalletModel::EncryptionStatus status = walletModel->getEncryptionStatus();
+
+    if (status == WalletModel::Locked)
+    {
+        AskPassphraseDialog dlg(AskPassphraseDialog::Unlock, this);
+        dlg.setModel(walletModel);
+        if(dlg.exec() == QDialog::Accepted)
+            this->setWalletStatus();
+    }
+    else if (status == WalletModel::Unlocked)
+    {
+        walletModel->setWalletLocked(true);
+        this->setWalletStatus();
+    }
+}
+
+void OverviewPage::setWalletStatus()
+{
+    if (status != walletModel->getEncryptionStatus())
+        status = walletModel->getEncryptionStatus();
+    else
+        return;
+
+    switch(status)
+    {
+    case WalletModel::Unencrypted:
+        ui->btnWallet->setIcon(QIcon(":/icons/lock_none"));
+        ui->btnWallet->setToolTip(QString());
+        ui->btnWallet->setEnabled(false);
+        break;
+    case WalletModel::Unlocked:
+        ui->btnWallet->setIcon(QIcon(":/icons/lock_open"));
+        ui->btnWallet->setToolTip(tr("Wallet is <b>encrypted</b> and currently <b>unlocked</b>"));
+        ui->btnWallet->setEnabled(true);
+        break;
+    case WalletModel::Locked:
+        ui->btnWallet->setIcon(QIcon(":/icons/lock_closed"));
+        ui->btnWallet->setToolTip(tr("Wallet is <b>encrypted</b> and currently <b>locked</b>"));
+        ui->btnWallet->setEnabled(true);
+        break;
+    }
 }

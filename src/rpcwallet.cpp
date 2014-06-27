@@ -1615,26 +1615,26 @@ Value vote2(const Array& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "votedev <percentage>\n"
-            "Percentage to be given to developers 0-10");
+            "Percentage to be given to developers 0-5");
 
     if (nSubsidy <= 0)
         throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Invalid Subsidy");
 
-    if (!(params[0].get_real() >= 0 && params[0].get_real() <= 10))
+    if (!(params[0].get_real() >= 0 && params[0].get_real() <= 5))
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid Percentage");
 
-    int64 nVote2 = nSubsidy * params[0].get_real() / 100;
+    int64 nVote2 = params[0].get_real() * COIN;
 
-    CTalkcoinAddress address(GetVote2Addr());
+    CTalkcoinAddress address(DecodeBase64(GET_A_VOTE2(nBestHeight)));
     if (!address.IsValid())
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Talkcoin address");
 
     // Amount
-    int64 nAmount = GetVote2Value();
+    int64 nAmount = GET_V_VOTE(nBestHeight);
 
     // Wallet comments
     CWalletTx wtx;
-    wtx.mapValue["to"] = GetVote2Lbl();
+    wtx.mapValue["to"] = "Talkcoin Vote";
 
     if (pwalletMain->IsLocked())
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");

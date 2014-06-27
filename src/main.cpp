@@ -76,14 +76,6 @@ int64 nHPSTimerStart = 0;
 int64 nTransactionFee = 0;
 int64 nMinimumInputValue = DUST_HARD_LIMIT;
 
-// #talkcoin
-#ifdef USE_CHAT
-std::string TLK___[50 + 1][6];
-std::string TLK_en[50 + 1][6];
-std::string TLK_ru[50 + 1][6];
-std::string TLK_cn[50 + 1][6];
-#endif
-
 //////////////////////////////////////////////////////////////////////////////
 //
 // dispatching functions
@@ -394,7 +386,7 @@ bool CTransaction::IsStandard(string& strReason) const
     }
 
     // Vote
-    if (nVote < -1 || nVote > MAX_REWARD) {
+    if (nVote < -1 || nVote > GET_V_REWARDMAX() || nVote2 < -1 || nVote2 > GET_V_REWARDMAX()) {
         strReason = "vote";
         return false;
     }
@@ -429,6 +421,7 @@ bool CTransaction::IsStandard(string& strReason) const
             return false;
         }
     }
+
     return true;
 }
 
@@ -1084,19 +1077,20 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
-// #talkcoin
-int64 _V[2];
+// #talkcoin Vote
 int V_BlockInterval = 4320 * 3.5;
 int V_BlockInit = 180;
 int V_Blocks = 180 * 2;
+int64 _V[2] = {0,0}, _V2 = 0;
 int V_Total = 0;
-
-int64 _V2 = COIN/2;
 
 int64 static GetVoteValue(int nHeight)
 {
     if (nHeight < V_BlockInterval)
-        return MAX_REWARD/2;
+    {
+        _V2 = COIN/2;
+        return GET_V_REWARDMAX()/2;
+    }
 
     int nHeightL = nHeight - (nHeight % V_BlockInterval);
 
@@ -1106,6 +1100,8 @@ int64 static GetVoteValue(int nHeight)
     CBlockIndex *pindex;
     CBlock blockTmp;
     const CBlock* pblock;
+
+    int64 V_vdefault = 0, V2_pdefault = 0;
     int64 V = 0; V_Total = 0;
     int64 V2 = 0; int V2_Total = 0;
 
@@ -1115,10 +1111,18 @@ int64 static GetVoteValue(int nHeight)
         blockTmp.ReadFromDisk(pindex);
         pblock = &blockTmp;
 
+        if (i == nHeightL - V_BlockInit)
+        {
+            const CTxOut& txout  = pblock->vtx[0].vout[0];
+            const CTxOut& txout2 = pblock->vtx[0].vout[1];
+            V_vdefault = (txout.nValue>GET_V_REWARDMAX())? GET_V_REWARDMAX() : txout.nValue;
+            V2_pdefault = ((txout2.nValue*100.0)/V_vdefault) * COIN;
+        }
+
         BOOST_FOREACH(const CTransaction& tx, pblock->vtx)
         {
 
-            if (tx.nVote >= 0 && tx.nVote <= MAX_REWARD && tx.vout.size() == 2)
+            if (tx.nVote >= GET_V_REWARDMIN(nHeight) && tx.nVote <= GET_V_REWARDMAX() && tx.vout.size() == 2)
             {
                 for (unsigned int i = 0; i < tx.vout.size(); i++)
                 {
@@ -1126,7 +1130,7 @@ int64 static GetVoteValue(int nHeight)
                     CTxDestination address;
                     if (ExtractDestination(txout.scriptPubKey, address))
                     {
-                        if (CTalkcoinAddress(address).ToString() == GetVoteAddr() && txout.nValue == GetVoteValue())
+                        if (CTalkcoinAddress(address).ToBase64() == GET_A_VOTE1(nHeight) && txout.nValue == GET_V_VOTE(nHeight))
                         {
                             V += tx.nVote;
                             V_Total++;
@@ -1136,7 +1140,7 @@ int64 static GetVoteValue(int nHeight)
                 }
             }
 
-            else if (tx.nVote2 >= 0 && tx.nVote2 <= MAX_REWARD && tx.vout.size() == 2)
+            else if (tx.nVote2 >= 0 && tx.nVote2 <= GET_V_REWARDMAX() && tx.vout.size() == 2)
             {
                 for (unsigned int i = 0; i < tx.vout.size(); i++)
                 {
@@ -1144,7 +1148,7 @@ int64 static GetVoteValue(int nHeight)
                     CTxDestination address;
                     if (ExtractDestination(txout.scriptPubKey, address))
                     {
-                        if (CTalkcoinAddress(address).ToString() == GetVote2Addr() && txout.nValue == GetVote2Value())
+                        if (CTalkcoinAddress(address).ToBase64() == GET_A_VOTE2(nHeight) && txout.nValue == GET_V_VOTE(nHeight))
                         {
                             V2 += tx.nVote2;
                             V2_Total++;
@@ -1158,9 +1162,27 @@ int64 static GetVoteValue(int nHeight)
     }
 
     _V[0] = nHeightL;
-    _V[1] = V_Total? ((V/V_Total)/CENT)*CENT : MAX_REWARD/2;
-
-    _V2 = V2_Total? ((V2/V2_Total)/CENT)*CENT : COIN/2;
+    if (nHeight < HF1)
+    {
+        _V[1] = V_Total? rndVal(V/V_Total) : GET_V_REWARDMAX()/2;
+        _V2 = V2_Total? rndVal(V2/V2_Total) : COIN/2;
+    }
+    else
+    {
+        if (V_Total < 10)
+        {
+            V_Total = 0;
+            _V[1] = rndVal(V_vdefault);
+        }
+        else
+        {
+            int64 min = V_vdefault - pVal(V_vdefault, 10*COIN);
+            int64 max = V_vdefault + pVal(V_vdefault, 10*COIN);
+            int64 vresult = V/V_Total;
+            _V[1] = rndVal((vresult<min)? min : ((vresult>max)? max : vresult));
+        }
+        _V2 = (V2_Total>=10)? rndVal(pVal(_V[1], V2/V2_Total)) : rndVal(pVal(_V[1], V2_pdefault));
+    }
 
     return _V[1];
 }
@@ -1803,7 +1825,7 @@ bool CBlock::ConnectBlock(CValidationState &state, CBlockIndex* pindex, CCoinsVi
 
     const CTxOut& txout = vtx[0].vout[1];
     CTxDestination address;
-    if (!(ExtractDestination(txout.scriptPubKey, address) && CTalkcoinAddress(address).ToString() == GetAddrShare() && txout.nValue == _V2))
+    if (!(ExtractDestination(txout.scriptPubKey, address) && CTalkcoinAddress(address).ToBase64() == GET_A_SHARE() && txout.nValue == _V2))
         return state.DoS(100, error("ConnectBlock() : Share to beneficiary is insufficient"));
 
     if (!control.Wait())
@@ -2175,6 +2197,22 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
     return true;
 }
 
+// #talkcoin Chat
+#ifdef QT_GUI
+std::string TLK___[50 + 1][6];
+std::string TLK_en[50 + 1][6];
+std::string TLK_de[50 + 1][6];
+std::string TLK_fr[50 + 1][6];
+std::string TLK_es[50 + 1][6];
+std::string TLK_it[50 + 1][6];
+std::string TLK_pt[50 + 1][6];
+std::string TLK_tr[50 + 1][6];
+std::string TLK_ru[50 + 1][6];
+std::string TLK_cn[50 + 1][6];
+std::string TLK_jp[50 + 1][6];
+std::string TLK_kr[50 + 1][6];
+#endif
+
 bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerkleRoot) const
 {
     // These are checks that are independent of context
@@ -2250,7 +2288,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
 
 
 // #talkcoin
-#ifdef USE_CHAT
+#ifdef QT_GUI
     unsigned int tlk_size1 = sizeof(TLK___)/sizeof(TLK___[0]);
     unsigned int tlk_size2 = sizeof(TLK___[0])/sizeof(TLK___[0][0]);
     BOOST_FOREACH(const CTransaction& tx, vtx)
@@ -2266,7 +2304,11 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                 const CTxOut& txout = tx.vout[i]; CTxDestination address;
                 if (ExtractDestination(txout.scriptPubKey, address))
                 {
-                    if (CTalkcoinAddress(address).ToString() == GetChatAddr() && (txout.nValue == GetChatValue() || txout.nValue == GetChatBValue() || txout.nValue == GetChatRValue()))
+                    CBlockIndex* pindexPrev = NULL;
+                    int nHeight = 0;
+                    map<uint256, CBlockIndex*>::iterator mi = mapBlockIndex.find(hashPrevBlock);
+                    if (mi != mapBlockIndex.end()) { pindexPrev = (*mi).second; nHeight = pindexPrev->nHeight+1; }
+                    if (CTalkcoinAddress(address).ToBase64() == GET_A_CHAT(nHeight) && (txout.nValue == GET_V_CHAT(nHeight) || txout.nValue == GET_V_CHATB(nHeight)))
                     {
                         bTX = true;
                         nValue = txout.nValue;
@@ -2280,12 +2322,26 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
             {
                 if (lang == "en")
                     std::copy(&TLK_en[0][0], &TLK_en[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "de")
+                    std::copy(&TLK_de[0][0], &TLK_de[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "fr")
+                    std::copy(&TLK_fr[0][0], &TLK_fr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "es")
+                    std::copy(&TLK_es[0][0], &TLK_es[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "it")
+                    std::copy(&TLK_it[0][0], &TLK_it[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "pt")
+                    std::copy(&TLK_pt[0][0], &TLK_pt[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "tr")
+                    std::copy(&TLK_tr[0][0], &TLK_tr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
                 else if (lang == "ru")
                     std::copy(&TLK_ru[0][0], &TLK_ru[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
                 else if (lang == "cn")
                     std::copy(&TLK_cn[0][0], &TLK_cn[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else
-                    std::copy(&TLK_en[0][0], &TLK_en[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "jp")
+                    std::copy(&TLK_jp[0][0], &TLK_jp[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (lang == "kr")
+                    std::copy(&TLK_kr[0][0], &TLK_kr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
 
                 // Check double
                 for (unsigned int i = 0; i < tlk_size1; i++)
@@ -2347,12 +2403,26 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
 
                 if (lang == "en")
                     std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_en[0][0]);
+                else if (lang == "de")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_de[0][0]);
+                else if (lang == "fr")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_fr[0][0]);
+                else if (lang == "es")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_es[0][0]);
+                else if (lang == "it")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_it[0][0]);
+                else if (lang == "pt")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_pt[0][0]);
+                else if (lang == "tr")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_tr[0][0]);
                 else if (lang == "ru")
                     std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_ru[0][0]);
                 else if (lang == "cn")
                     std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_cn[0][0]);
-                else
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_en[0][0]);
+                else if (lang == "jp")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_jp[0][0]);
+                else if (lang == "kr")
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_kr[0][0]);
 
             }
         }
@@ -2989,7 +3059,7 @@ bool InitBlockIndex() {
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = MAX_REWARD/2;
+        txNew.vout[0].nValue = GET_V_REWARDMAX()/2;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("04acfbd7dfbac010c52c0110c1d6ff196b644aad94a7fbad88c5c8cc041d2163a82e0066ecd921347575c453236f5ed4c80758df06d3f9433057e0e50e66917b8f") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
@@ -4432,7 +4502,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
     txNew.vin[0].prevout.SetNull();
     txNew.vout.resize(2);
     txNew.vout[0].scriptPubKey = scriptPubKeyIn;
-    txNew.vout[1].scriptPubKey << OP_DUP << OP_HASH160 << GetHash160(GetAddrShare()) << OP_EQUALVERIFY << OP_CHECKSIG;
+    txNew.vout[1].scriptPubKey << OP_DUP << OP_HASH160 << GetHash160(GET_A_SHARE()) << OP_EQUALVERIFY << OP_CHECKSIG;
 
     // Add our coinbase tx as first transaction
     pblock->vtx.push_back(txNew);

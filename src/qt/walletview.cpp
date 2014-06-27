@@ -16,6 +16,7 @@
 #include "optionsmodel.h"
 #include "transactionview.h"
 #include "overviewpage.h"
+#include "messagingpage.h"
 #include "askpassphrasedialog.h"
 #include "ui_interface.h"
 
@@ -38,6 +39,7 @@ WalletView::WalletView(QWidget *parent, TalkcoinGUI *_gui):
 {
     // Create tabs
     overviewPage = new OverviewPage();
+    messagingPage = new MessagingPage();
 
     transactionsPage = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
@@ -63,6 +65,7 @@ WalletView::WalletView(QWidget *parent, TalkcoinGUI *_gui):
     signVerifyMessageDialog = new SignVerifyMessageDialog(gui);
 
     addWidget(overviewPage);
+    addWidget(messagingPage);
     addWidget(transactionsPage);
     addWidget(addressBookPage);
     addWidget(receiveCoinsPage);
@@ -155,6 +158,12 @@ void WalletView::gotoOverviewPage()
 {
     gui->getOverviewAction()->setChecked(true);
     setCurrentWidget(overviewPage);
+}
+
+void WalletView::gotoMessagingPage()
+{
+    gui->getMessagingAction()->setChecked(true);
+    setCurrentWidget(messagingPage);
 }
 
 void WalletView::gotoHistoryPage()

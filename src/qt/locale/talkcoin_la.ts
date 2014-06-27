@@ -726,6 +726,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
+    <name>MessagingPage</name>
+    <message>
+        <location filename="../forms/messagingpage.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Schema</translation>
+    </message>
+</context>
+<context>
     <name>OptionsDialog</name>
     <message>
         <location filename="../forms/optionsdialog.ui" line="+14"/>
@@ -953,7 +961,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Schema</translation>
     </message>
     <message>
-        <location line="+56"/>
+        <location line="+79"/>
         <location line="+194"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Monstrata informatio fortasse non recentissima est.  Tuum cassidile per se synchronizat cum rete Talkcoin postquam conexio constabilita est, sed hoc actio nondum perfecta est.</translation>
@@ -970,7 +978,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+204"/>
-        <source>lblRewardInfo</source>
+        <source>lblInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -984,37 +992,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+7"/>
         <source> TAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>Auto Voting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+424"/>
-        <source>1 TAC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-388"/>
+        <location line="+33"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+307"/>
+        <location line="+791"/>
         <source>B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+84"/>
+        <location line="+81"/>
         <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-814"/>
+        <location line="-1272"/>
         <source>Wallet</source>
         <translation>Cassidile</translation>
     </message>
@@ -1044,13 +1047,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Totali nummi transactionum quae adhuc confirmandae sunt, et nondum afficiunt pendendum</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+140"/>
+        <location filename="../overviewpage.cpp" line="+151"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>non synchronizato</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+83"/>
         <source>Nickname</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1060,7 +1063,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+41"/>
+        <location line="+37"/>
         <source>Current reward: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1071,7 +1074,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+8"/>
-        <source>Voting is opened</source>
+        <source>Voting is open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1080,11 +1083,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+129"/>
+        <location line="+135"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
-        <location line="+79"/>
+        <location line="+102"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1092,7 +1095,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Mitte Nummos</translation>
     </message>
     <message>
-        <location line="-110"/>
+        <location line="-133"/>
         <source>The amount to vote exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1112,7 +1115,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+102"/>
         <source>The amount to chat exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1132,8 +1135,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+684"/>
-        <location filename="../overviewpage.cpp" line="-161"/>
+        <location line="+166"/>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation type="unfinished">Cassidile &lt;b&gt;cifratum&lt;/b&gt; est et iam nunc &lt;b&gt;reseratum&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation type="unfinished">Cassidile &lt;b&gt;cifratum&lt;/b&gt; est et iam nunc &lt;b&gt;seratum&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../forms/overviewpage.ui" line="+1145"/>
+        <location filename="../overviewpage.cpp" line="-384"/>
         <source>List of emoticons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1890,17 +1903,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TalkcoinGUI</name>
     <message>
-        <location filename="../talkcoingui.cpp" line="+239"/>
+        <location filename="../talkcoingui.cpp" line="+248"/>
         <source>Sign &amp;message...</source>
         <translation>Signa &amp;nuntium...</translation>
     </message>
     <message>
-        <location line="+298"/>
+        <location line="+305"/>
         <source>Synchronizing with network...</source>
         <translation>Synchronizans cum rete...</translation>
     </message>
     <message>
-        <location line="-367"/>
+        <location line="-383"/>
         <source>&amp;Overview</source>
         <translation>&amp;Summarium</translation>
     </message>
@@ -1910,7 +1923,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Monstra generale summarium cassidilis</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+27"/>
         <source>&amp;Transactions</source>
         <translation>&amp;Transactiones</translation>
     </message>
@@ -1930,7 +1943,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Monstra indicem inscriptionum quibus pensitationes acceptandae</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+33"/>
         <source>E&amp;xit</source>
         <translation>E&amp;xi</translation>
     </message>
@@ -1975,7 +1988,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Muta tesseram...</translation>
     </message>
     <message>
-        <location line="+303"/>
+        <location line="+310"/>
         <source>Importing blocks from disk...</source>
         <translation>Importans frusta ab disco...</translation>
     </message>
@@ -1985,12 +1998,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Recreans indicem frustorum in disco...</translation>
     </message>
     <message>
-        <location line="-365"/>
+        <location line="-374"/>
         <source>Send coins to a Talkcoin address</source>
         <translation>Mitte nummos ad inscriptionem Talkcoin</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+51"/>
         <source>Modify configuration options for Talkcoin</source>
         <translation>Muta configurationis optiones pro Talkcoin</translation>
     </message>
@@ -2020,18 +2033,28 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Verifica nuntium...</translation>
     </message>
     <message>
-        <location line="-168"/>
-        <location line="+551"/>
+        <location line="-177"/>
+        <location line="+567"/>
         <source>Talkcoin</source>
         <translation>Talkcoin</translation>
     </message>
     <message>
-        <location line="-551"/>
+        <location line="-567"/>
         <source>Wallet</source>
         <translation>Cassidile</translation>
     </message>
     <message>
         <location line="+104"/>
+        <source>&amp;Messaging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Secure Messaging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>&amp;Send</source>
         <translation>&amp;Mitte</translation>
     </message>
@@ -2046,7 +2069,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Inscriptiones</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+24"/>
         <source>&amp;About Talkcoin</source>
         <translation>&amp;Informatio de Talkcoin</translation>
     </message>
@@ -2096,18 +2119,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Tabella instrumentorum &quot;Tabs&quot;</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+18"/>
         <location line="+10"/>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+66"/>
         <source>Talkcoin client</source>
         <translation>Talkcoin cliens</translation>
     </message>
     <message numerus="yes">
-        <location line="+141"/>
+        <location line="+146"/>
         <source>%n active connection(s) to Talkcoin network</source>
         <translation>
             <numerusform>%n activa conexio ad rete Talkcoin</numerusform>
@@ -2753,7 +2776,7 @@ Inscriptio: %4
 <context>
     <name>WalletView</name>
     <message>
-        <location filename="../walletview.cpp" line="+47"/>
+        <location filename="../walletview.cpp" line="+49"/>
         <source>&amp;Export</source>
         <translation>&amp;Exporta</translation>
     </message>
@@ -2763,7 +2786,7 @@ Inscriptio: %4
         <translation>Exporta data in hac tabella in plicam</translation>
     </message>
     <message>
-        <location line="+198"/>
+        <location line="+205"/>
         <source>Backup Wallet</source>
         <translation>Conserva cassidile</translation>
     </message>

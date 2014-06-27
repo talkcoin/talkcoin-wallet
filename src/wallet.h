@@ -19,7 +19,7 @@
 #include "util.h"
 #include "walletdb.h"
 
-#ifdef USE_CHAT
+#ifdef QT_GUI
 #include <QString>
 #endif
 
@@ -185,11 +185,11 @@ public:
     int64 GetUnconfirmedBalance() const;
     int64 GetImmatureBalance() const;
 
-#ifdef USE_CHAT
-    std::string E64(const std::string& str);
-    std::string D64(const std::string& str);
-    bool checkVersion(const std::string& str);
-    std::string getLang(const std::string& str);
+#ifdef QT_GUI
+    std::string E64(const std::string str);
+    std::string D64(const std::string str);
+    bool checkVersion(const std::string str);
+    std::string getLang(const std::string str);
 #endif
 
     bool CreateTransaction(const std::vector<std::pair<CScript, int64> >& vecSend,

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>802</width>
-    <height>538</height>
+    <width>819</width>
+    <height>563</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,6 +45,29 @@
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QPushButton" name="btnWallet">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../talkcoin.qrc">
+                <normaloff>:/icons/lock_none</normaloff>:/icons/lock_none</iconset>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
             <item>
              <widget class="QLabel" name="label_5">
               <property name="font">
@@ -344,7 +367,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLabel" name="lblRewardInfo">
+      <widget class="QLabel" name="lblInfo">
        <property name="font">
         <font>
          <pointsize>9</pointsize>
@@ -353,7 +376,7 @@
         </font>
        </property>
        <property name="text">
-        <string>lblRewardInfo</string>
+        <string>lblInfo</string>
        </property>
       </widget>
      </item>
@@ -410,37 +433,17 @@
       </widget>
      </item>
      <item>
-      <widget class="QSpinBox" name="spbVote">
-       <property name="font">
-        <font>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(245, 245, 245);</string>
-       </property>
+      <widget class="QDoubleSpinBox" name="spbVote">
        <property name="suffix">
         <string> TAC</string>
        </property>
-       <property name="minimum">
-        <number>1</number>
-       </property>
-       <property name="maximum">
-        <number>50</number>
-       </property>
        <property name="singleStep">
-        <number>1</number>
-       </property>
-       <property name="value">
-        <number>25</number>
+        <double>0.100000000000000</double>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QCheckBox" name="chkAutoVote">
-       <property name="toolTip">
-        <string notr="true">10 TAC</string>
-       </property>
        <property name="text">
         <string>Auto Voting</string>
        </property>
@@ -458,9 +461,6 @@
          <italic>false</italic>
          <bold>true</bold>
         </font>
-       </property>
-       <property name="toolTip">
-        <string notr="true">10 TAC</string>
        </property>
        <property name="styleSheet">
         <string notr="true"> QPushButton {
@@ -524,18 +524,6 @@
          </property>
          <item>
           <widget class="QRadioButton" name="rbLang_en">
-           <property name="minimumSize">
-            <size>
-             <width>25</width>
-             <height>19</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>25</width>
-             <height>19</height>
-            </size>
-           </property>
            <property name="styleSheet">
             <string notr="true">QRadioButton::indicator {
 	subcontrol-position: top center;
@@ -578,10 +566,379 @@
  }</string>
            </property>
            <property name="text">
-            <string/>
+            <string notr="true"/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
            </property>
            <property name="checked">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbLang_de">
+           <property name="minimumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+	subcontrol-position: top center;
+	image: url(:/icons/flag_de);
+ }
+
+ QRadioButton::indicator::unchecked {
+	width: 22px;
+	height: 16px;
+ }
+
+ QRadioButton::indicator:unchecked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:unchecked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator::checked {
+	background-color: black;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbLang_fr">
+           <property name="minimumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+	subcontrol-position: top center;
+	image: url(:/icons/flag_fr);
+ }
+
+ QRadioButton::indicator::unchecked {
+	width: 22px;
+	height: 16px;
+ }
+
+ QRadioButton::indicator:unchecked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:unchecked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator::checked {
+	background-color: black;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbLang_es">
+           <property name="minimumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+	subcontrol-position: top center;
+	image: url(:/icons/flag_es);
+ }
+
+ QRadioButton::indicator::unchecked {
+	width: 22px;
+	height: 16px;
+ }
+
+ QRadioButton::indicator:unchecked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:unchecked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator::checked {
+	background-color: black;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbLang_it">
+           <property name="minimumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+	subcontrol-position: top center;
+	image: url(:/icons/flag_it);
+ }
+
+ QRadioButton::indicator::unchecked {
+	width: 22px;
+	height: 16px;
+ }
+
+ QRadioButton::indicator:unchecked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:unchecked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator::checked {
+	background-color: black;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbLang_pt">
+           <property name="minimumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+	subcontrol-position: top center;
+	image: url(:/icons/flag_pt);
+ }
+
+ QRadioButton::indicator::unchecked {
+	width: 22px;
+	height: 16px;
+ }
+
+ QRadioButton::indicator:unchecked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:unchecked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator::checked {
+	background-color: black;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbLang_tr">
+           <property name="minimumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+	subcontrol-position: top center;
+	image: url(:/icons/flag_tr);
+ }
+
+ QRadioButton::indicator::unchecked {
+	width: 22px;
+	height: 16px;
+ }
+
+ QRadioButton::indicator:unchecked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:unchecked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator::checked {
+	background-color: black;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }</string>
+           </property>
+           <property name="text">
+            <string/>
            </property>
           </widget>
          </item>
@@ -712,6 +1069,126 @@
           </widget>
          </item>
          <item>
+          <widget class="QRadioButton" name="rbLang_jp">
+           <property name="minimumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+	subcontrol-position: top center;
+	image: url(:/icons/flag_jp);
+ }
+
+ QRadioButton::indicator::unchecked {
+	width: 22px;
+	height: 16px;
+ }
+
+ QRadioButton::indicator:unchecked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:unchecked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator::checked {
+	background-color: black;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rbLang_kr">
+           <property name="minimumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>19</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QRadioButton::indicator {
+	subcontrol-position: top center;
+	image: url(:/icons/flag_kr);
+ }
+
+ QRadioButton::indicator::unchecked {
+	width: 22px;
+	height: 16px;
+ }
+
+ QRadioButton::indicator:unchecked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:unchecked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator::checked {
+	background-color: black;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:hover {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }
+
+ QRadioButton::indicator:checked:pressed {
+	background-color: blue;
+	width: 25px;
+	height: 19px;
+ }</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
           <spacer name="horizontalSpacer_7">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -732,7 +1209,7 @@
           <number>6</number>
          </property>
          <item>
-          <widget class="QTextEdit" name="txtChat">
+          <widget class="QTextBrowser" name="txtChat">
            <property name="font">
             <font>
              <pointsize>10</pointsize>
@@ -754,8 +1231,18 @@ background-position: center;</string>
            <property name="horizontalScrollBarPolicy">
             <enum>Qt::ScrollBarAlwaysOff</enum>
            </property>
-           <property name="textInteractionFlags">
-            <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+           <property name="documentTitle">
+            <string notr="true"/>
+           </property>
+           <property name="html">
+            <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="openExternalLinks">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -767,7 +1254,7 @@ background-position: center;</string>
           <number>6</number>
          </property>
          <item>
-          <widget class="QPushButton" name="btnBold">
+          <widget class="QPushButton" name="btnChatBold">
            <property name="maximumSize">
             <size>
              <width>20</width>
@@ -780,9 +1267,6 @@ background-position: center;</string>
              <weight>75</weight>
              <bold>true</bold>
             </font>
-           </property>
-           <property name="toolTip">
-            <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;10 TAC&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="text">
             <string>B</string>
@@ -843,7 +1327,7 @@ background-position: center;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btnSmiley">
+          <widget class="QPushButton" name="btnChatSmiley">
            <property name="font">
             <font>
              <pointsize>10</pointsize>
@@ -864,9 +1348,6 @@ background-position: center;</string>
             <font>
              <pointsize>10</pointsize>
             </font>
-           </property>
-           <property name="toolTip">
-            <string>1 TAC</string>
            </property>
            <property name="text">
             <string>Send</string>

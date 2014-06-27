@@ -728,6 +728,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
+    <name>MessagingPage</name>
+    <message>
+        <location filename="../forms/messagingpage.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">表单</translation>
+    </message>
+</context>
+<context>
     <name>OptionsDialog</name>
     <message>
         <location filename="../forms/optionsdialog.ui" line="+14"/>
@@ -955,7 +963,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>表单</translation>
     </message>
     <message>
-        <location line="+56"/>
+        <location line="+79"/>
         <location line="+194"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>现在显示的消息可能是过期的. 在连接上聊聊币网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成.</translation>
@@ -972,7 +980,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+204"/>
-        <source>lblRewardInfo</source>
+        <source>lblInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -986,37 +994,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+7"/>
         <source> TAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>Auto Voting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+424"/>
-        <source>1 TAC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-388"/>
+        <location line="+33"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+307"/>
+        <location line="+791"/>
         <source>B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+84"/>
+        <location line="+81"/>
         <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-814"/>
+        <location line="-1272"/>
         <source>Wallet</source>
         <translation>钱包</translation>
     </message>
@@ -1046,13 +1049,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>尚未确认的交易总额, 未计入当前余额</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+140"/>
+        <location filename="../overviewpage.cpp" line="+151"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>数据同步中</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+83"/>
         <source>Nickname</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1062,7 +1065,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+41"/>
+        <location line="+37"/>
         <source>Current reward: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1073,7 +1076,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+8"/>
-        <source>Voting is opened</source>
+        <source>Voting is open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1082,11 +1085,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+129"/>
+        <location line="+135"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
-        <location line="+79"/>
+        <location line="+102"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1094,7 +1097,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-110"/>
+        <location line="-133"/>
         <source>The amount to vote exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1114,7 +1117,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+102"/>
         <source>The amount to chat exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1134,8 +1137,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+684"/>
-        <location filename="../overviewpage.cpp" line="-161"/>
+        <location line="+166"/>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation type="unfinished">钱包已被&lt;b&gt;加密&lt;/b&gt;，当前为&lt;b&gt;解锁&lt;/b&gt;状态</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation type="unfinished">钱包已被&lt;b&gt;加密&lt;/b&gt;，当前为&lt;b&gt;锁定&lt;/b&gt;状态</translation>
+    </message>
+    <message>
+        <location filename="../forms/overviewpage.ui" line="+1145"/>
+        <location filename="../overviewpage.cpp" line="-384"/>
         <source>List of emoticons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1896,17 +1909,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TalkcoinGUI</name>
     <message>
-        <location filename="../talkcoingui.cpp" line="+239"/>
+        <location filename="../talkcoingui.cpp" line="+248"/>
         <source>Sign &amp;message...</source>
         <translation>对&amp;消息签名...</translation>
     </message>
     <message>
-        <location line="+298"/>
+        <location line="+305"/>
         <source>Synchronizing with network...</source>
         <translation>正在与网络同步...</translation>
     </message>
     <message>
-        <location line="-367"/>
+        <location line="-383"/>
         <source>&amp;Overview</source>
         <translation>&amp;概况</translation>
     </message>
@@ -1916,7 +1929,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>显示钱包概况</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+27"/>
         <source>&amp;Transactions</source>
         <translation>&amp;交易记录</translation>
     </message>
@@ -1936,7 +1949,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>显示接收支付的地址列表</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+33"/>
         <source>E&amp;xit</source>
         <translation>退出</translation>
     </message>
@@ -1981,7 +1994,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;修改密码...</translation>
     </message>
     <message>
-        <location line="+303"/>
+        <location line="+310"/>
         <source>Importing blocks from disk...</source>
         <translation>正在从磁盘导入数据块...</translation>
     </message>
@@ -1991,12 +2004,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>正在为数据块建立索引...</translation>
     </message>
     <message>
-        <location line="-365"/>
+        <location line="-374"/>
         <source>Send coins to a Talkcoin address</source>
         <translation>向一个聊聊币地址发送聊聊币</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+51"/>
         <source>Modify configuration options for Talkcoin</source>
         <translation>设置选项</translation>
     </message>
@@ -2026,18 +2039,28 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;验证消息...</translation>
     </message>
     <message>
-        <location line="-168"/>
-        <location line="+551"/>
+        <location line="-177"/>
+        <location line="+567"/>
         <source>Talkcoin</source>
         <translation>聊聊币</translation>
     </message>
     <message>
-        <location line="-551"/>
+        <location line="-567"/>
         <source>Wallet</source>
         <translation>钱包</translation>
     </message>
     <message>
         <location line="+104"/>
+        <source>&amp;Messaging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Secure Messaging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>&amp;Send</source>
         <translation>&amp;发送</translation>
     </message>
@@ -2052,7 +2075,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;地址</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+24"/>
         <source>&amp;About Talkcoin</source>
         <translation>&amp;关于聊聊币</translation>
     </message>
@@ -2102,18 +2125,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>分页工具栏</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+18"/>
         <location line="+10"/>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+66"/>
         <source>Talkcoin client</source>
         <translation>聊聊币客户端</translation>
     </message>
     <message numerus="yes">
-        <location line="+141"/>
+        <location line="+146"/>
         <source>%n active connection(s) to Talkcoin network</source>
         <translation>
             <numerusform>到聊聊币网络的连接共有%n条</numerusform>
@@ -2759,7 +2782,7 @@ Address: %4
 <context>
     <name>WalletView</name>
     <message>
-        <location filename="../walletview.cpp" line="+47"/>
+        <location filename="../walletview.cpp" line="+49"/>
         <source>&amp;Export</source>
         <translation type="unfinished">&amp;导出</translation>
     </message>
@@ -2769,7 +2792,7 @@ Address: %4
         <translation>导出当前数据到文件</translation>
     </message>
     <message>
-        <location line="+198"/>
+        <location line="+205"/>
         <source>Backup Wallet</source>
         <translation>备份钱包</translation>
     </message>

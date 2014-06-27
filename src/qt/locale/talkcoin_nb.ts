@@ -724,6 +724,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
+    <name>MessagingPage</name>
+    <message>
+        <location filename="../forms/messagingpage.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Skjema</translation>
+    </message>
+</context>
+<context>
     <name>OptionsDialog</name>
     <message>
         <location filename="../forms/optionsdialog.ui" line="+14"/>
@@ -951,7 +959,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Skjema</translation>
     </message>
     <message>
-        <location line="+56"/>
+        <location line="+79"/>
         <location line="+194"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med Talkcoin-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
@@ -968,7 +976,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+204"/>
-        <source>lblRewardInfo</source>
+        <source>lblInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -982,37 +990,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+7"/>
         <source> TAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+10"/>
         <source>Auto Voting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+424"/>
-        <source>1 TAC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-388"/>
+        <location line="+33"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+307"/>
+        <location line="+791"/>
         <source>B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+84"/>
+        <location line="+81"/>
         <source>Send</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-814"/>
+        <location line="-1272"/>
         <source>Wallet</source>
         <translation>Lommebok</translation>
     </message>
@@ -1042,13 +1045,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Totalt antall ubekreftede transaksjoner som ikke telles med i saldo enda</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+140"/>
+        <location filename="../overviewpage.cpp" line="+151"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>ute av synk</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+83"/>
         <source>Nickname</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1058,7 +1061,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+41"/>
+        <location line="+37"/>
         <source>Current reward: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1069,7 +1072,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+8"/>
-        <source>Voting is opened</source>
+        <source>Voting is open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1078,11 +1081,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+129"/>
+        <location line="+135"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
-        <location line="+79"/>
+        <location line="+102"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1090,7 +1093,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Send Talkcoins</translation>
     </message>
     <message>
-        <location line="-110"/>
+        <location line="-133"/>
         <source>The amount to vote exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1110,7 +1113,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+102"/>
         <source>The amount to chat exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1130,8 +1133,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+684"/>
-        <location filename="../overviewpage.cpp" line="-161"/>
+        <location line="+166"/>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation type="unfinished">Lommeboken er &lt;b&gt;kryptert&lt;/b&gt; og for tiden &lt;b&gt;ulåst&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation type="unfinished">Lommeboken er &lt;b&gt;kryptert&lt;/b&gt; og for tiden &lt;b&gt;låst&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../forms/overviewpage.ui" line="+1145"/>
+        <location filename="../overviewpage.cpp" line="-384"/>
         <source>List of emoticons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1888,17 +1901,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TalkcoinGUI</name>
     <message>
-        <location filename="../talkcoingui.cpp" line="+239"/>
+        <location filename="../talkcoingui.cpp" line="+248"/>
         <source>Sign &amp;message...</source>
         <translation>Signer &amp;melding...</translation>
     </message>
     <message>
-        <location line="+298"/>
+        <location line="+305"/>
         <source>Synchronizing with network...</source>
         <translation>Synkroniserer med nettverk...</translation>
     </message>
     <message>
-        <location line="-367"/>
+        <location line="-383"/>
         <source>&amp;Overview</source>
         <translation>&amp;Oversikt</translation>
     </message>
@@ -1908,7 +1921,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Vis generell oversikt over lommeboken</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+27"/>
         <source>&amp;Transactions</source>
         <translation>&amp;Transaksjoner</translation>
     </message>
@@ -1928,7 +1941,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Vis listen over adresser for mottak av betalinger</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+33"/>
         <source>E&amp;xit</source>
         <translation>&amp;Avslutt</translation>
     </message>
@@ -1973,7 +1986,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Endre Adgangsfrase...</translation>
     </message>
     <message>
-        <location line="+303"/>
+        <location line="+310"/>
         <source>Importing blocks from disk...</source>
         <translation>Importere blokker...</translation>
     </message>
@@ -1983,12 +1996,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Re-indekserer blokker på disk...</translation>
     </message>
     <message>
-        <location line="-365"/>
+        <location line="-374"/>
         <source>Send coins to a Talkcoin address</source>
         <translation>Send til en Talkcoin-adresse</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+51"/>
         <source>Modify configuration options for Talkcoin</source>
         <translation>Endre oppsett for Talkcoin</translation>
     </message>
@@ -2018,18 +2031,28 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Verifiser melding...</translation>
     </message>
     <message>
-        <location line="-168"/>
-        <location line="+551"/>
+        <location line="-177"/>
+        <location line="+567"/>
         <source>Talkcoin</source>
         <translation>Talkcoin</translation>
     </message>
     <message>
-        <location line="-551"/>
+        <location line="-567"/>
         <source>Wallet</source>
         <translation>Lommebok</translation>
     </message>
     <message>
         <location line="+104"/>
+        <source>&amp;Messaging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Secure Messaging</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>&amp;Send</source>
         <translation>&amp;Send</translation>
     </message>
@@ -2044,7 +2067,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Adressebok</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+24"/>
         <source>&amp;About Talkcoin</source>
         <translation>&amp;Om Talkcoin</translation>
     </message>
@@ -2094,18 +2117,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Verktøylinje for faner</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+18"/>
         <location line="+10"/>
         <source>[testnet]</source>
         <translation>[testnett]</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+66"/>
         <source>Talkcoin client</source>
         <translation>Talkcoinklient</translation>
     </message>
     <message numerus="yes">
-        <location line="+141"/>
+        <location line="+146"/>
         <source>%n active connection(s) to Talkcoin network</source>
         <translation>
             <numerusform>%n aktiv forbindelse til Talkcoin-nettverket</numerusform>
@@ -2760,7 +2783,7 @@ Adresse: %4
 <context>
     <name>WalletView</name>
     <message>
-        <location filename="../walletview.cpp" line="+47"/>
+        <location filename="../walletview.cpp" line="+49"/>
         <source>&amp;Export</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2770,7 +2793,7 @@ Adresse: %4
         <translation>Eksporter data fra nåværende fane til fil</translation>
     </message>
     <message>
-        <location line="+198"/>
+        <location line="+205"/>
         <source>Backup Wallet</source>
         <translation>Sikkerhetskopier lommebok</translation>
     </message>

@@ -12,10 +12,10 @@
 #include "coincontrol.h"
 #include <boost/algorithm/string/replace.hpp>
 
-//#include <QMessageBox>
-
-#ifdef USE_CHAT
+#ifdef QT_GUI
 #include <QStringList>
+#include <talkcoinunits.h>
+#include <QMessageBox>
 #endif
 
 using namespace std;
@@ -780,6 +780,7 @@ bool CWalletTx::WriteToDisk()
 int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
 {
     int ret = 0;
+    int64 moneysupply = 0, moneydestroyed = 0;
 
     CBlockIndex* pindex = pindexStart;
     {
@@ -788,14 +789,35 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
         {
             CBlock block;
             block.ReadFromDisk(pindex);
+
             BOOST_FOREACH(CTransaction& tx, block.vtx)
             {
+                if (GetBoolArg("-moneysupply"))
+                {
+                    if (tx.IsCoinBase()) moneysupply += tx.GetValueOut();
+                    for (unsigned int i = 0; i < tx.vout.size(); i++)
+                    {
+                        const CTxOut& txout = tx.vout[i];
+                        CTxDestination address;
+                        if (ExtractDestination(txout.scriptPubKey, address) && CTalkcoinAddress(address).ToBase64() == GET_A_GENESIS())
+                            moneydestroyed += txout.nValue;
+                    }
+                }
+
                 if (AddToWalletIfInvolvingMe(tx.GetHash(), tx, &block, fUpdate))
                     ret++;
             }
             pindex = pindex->pnext;
         }
     }
+#ifdef QT_GUI
+    if (moneysupply)
+        QMessageBox::information(0, "Money Supply", "Total TAC In Circulation ~ <b>" + TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, ((moneysupply-moneydestroyed)/COIN)*COIN));
+#else
+    if (moneysupply)
+        printf("Total TAC In Circulation ~ %s\n", FormatMoney(((moneysupply-moneydestroyed)/COIN)*COIN).c_str());
+#endif
+
     return ret;
 }
 
@@ -1166,8 +1188,8 @@ bool CWallet::SelectCoins(int64 nTargetValue, set<pair<const CWalletTx*,unsigned
             SelectCoinsMinConf(nTargetValue, 0, 1, vCoins, setCoinsRet, nValueRet));
 }
 
-#ifdef USE_CHAT
-std::string CWallet::E64(const std::string& str)
+#ifdef QT_GUI
+std::string CWallet::E64(const std::string str)
 {
     if (QString(str.c_str()).trimmed().isEmpty())
     {
@@ -1180,13 +1202,13 @@ std::string CWallet::E64(const std::string& str)
     }
 }
 
-std::string CWallet::D64(const std::string& str)
+std::string CWallet::D64(const std::string str)
 {
     QByteArray data = QByteArray(QString(str.c_str()).toUtf8());
-    return data.isEmpty() ? NULL : QString::fromUtf8(qUncompress(QByteArray::fromBase64(data))).toStdString();
+    return data.isEmpty() ? NULL : QString::fromUtf8(qUncompress(QByteArray::fromBase64(data))).trimmed().toStdString();
 }
 
-bool CWallet::checkVersion(const std::string& str)
+bool CWallet::checkVersion(const std::string str)
 {
     QStringList data1 = QString(CWallet::D64(str).c_str()).split(";");
     for (unsigned int i = 0; i < data1.count(); i++)
@@ -1199,7 +1221,7 @@ bool CWallet::checkVersion(const std::string& str)
     return false;
 }
 
-std::string CWallet::getLang(const std::string& str)
+std::string CWallet::getLang(const std::string str)
 {
     QStringList data1 = QString(CWallet::D64(str).c_str()).split(";");
     for (unsigned int i = 0; i < data1.count(); i++)
@@ -1208,7 +1230,7 @@ std::string CWallet::getLang(const std::string& str)
         if (data2.count() == 2 && data2[0] == "lang")
             return data2[1].toStdString();
     }
-    return "";
+    return "en";
 }
 #endif
 
@@ -1236,15 +1258,15 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
 
     wtxNew.BindWallet(this);
 
-#ifdef USE_VOTE
-    if (vote >= 0 && vote <= MAX_REWARD)
+#ifdef QT_GUI
+    if (vote >= GET_V_REWARDMIN() && vote <= GET_V_REWARDMAX())
         wtxNew.nVote = vote;
 #endif
 
-    if (vote2 >= 0 && vote2 <= MAX_REWARD)
+    if (vote2 >= 0 && vote2 <= 10*COIN)
         wtxNew.nVote2 = vote2;
 
-#ifdef USE_CHAT
+#ifdef QT_GUI
     if (!chat_nick.empty() && chat_nick.length() <= 20
         && !chat_message.empty() && chat_message.length() <= 140
         && chat_data.length() <= 100)

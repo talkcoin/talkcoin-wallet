@@ -26,6 +26,25 @@
 
 static const char* pszBase58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 
+
+
+// Hard fork on block ...
+static const int HF1 = 230000;
+//
+inline std::string GET_A_GENESIS()              { return "VHBtZnVHcmp2Z240M0dvUjhNUlYzVUtmUEVaQnJzQlZHTg=="; }
+inline std::string GET_A_VOTE1(int nHeight=HF1) { return (nHeight<HF1)? "VHRENDZ6WmgxVEtqM0JaZHhLa0tzcmMyUHE3TDlqTUFxdw==" : GET_A_GENESIS(); }
+inline std::string GET_A_VOTE2(int nHeight=HF1) { return (nHeight<HF1)? "VFpaR1I4NTk3QWV6VG1hVXNLMW1QS0dqYzRWbkZIaUJDcg==" : GET_A_GENESIS(); }
+inline std::string GET_A_CHAT(int nHeight=HF1)  { return (nHeight<HF1)? "VGJVMVgzcVRjUWZHbW52eDFkSHIxMjUxejlKaXZpQkdDNg==" : GET_A_GENESIS(); }
+inline std::string GET_A_SHARE()                { return "VGdEN0VScmdnQlBleng2SlBQMmJwV2pBRlFXMXJhZnpDbg=="; }
+//
+inline int64 GET_V_REWARDMAX()                { return 50 * COIN; }
+inline int64 GET_V_REWARDMIN(int nHeight=HF1) { return (nHeight<HF1)? 0 : COIN/2; }
+inline int64 GET_V_VOTE(int nHeight=HF1)      { return (nHeight<HF1)? 10*COIN : 5*COIN; }
+inline int64 GET_V_CHAT(int nHeight=HF1)      { return (nHeight<HF1)? 1*COIN : COIN/10; }
+inline int64 GET_V_CHATB(int nHeight=HF1)     { return (nHeight<HF1)? 10*COIN : 1*COIN; }
+
+
+
 // Encode a byte sequence as a base58-encoded string
 inline std::string EncodeBase58(const unsigned char* pbegin, const unsigned char* pend)
 {
@@ -128,9 +147,6 @@ inline bool DecodeBase58(const std::string& str, std::vector<unsigned char>& vch
     return DecodeBase58(str.c_str(), vchRet);
 }
 
-
-
-
 // Encode a byte vector to a base58-encoded string, including checksum
 inline std::string EncodeBase58Check(const std::vector<unsigned char>& vchIn)
 {
@@ -168,8 +184,6 @@ inline bool DecodeBase58Check(const std::string& str, std::vector<unsigned char>
 {
     return DecodeBase58Check(str.c_str(), vchRet);
 }
-
-
 
 
 
@@ -232,6 +246,13 @@ public:
         std::vector<unsigned char> vch(1, nVersion);
         vch.insert(vch.end(), vchData.begin(), vchData.end());
         return EncodeBase58Check(vch);
+    }
+
+    std::string ToBase64() const
+    {
+        std::vector<unsigned char> vch(1, nVersion);
+        vch.insert(vch.end(), vchData.begin(), vchData.end());
+        return EncodeBase64(EncodeBase58Check(vch));
     }
 
     int CompareTo(const CBase58Data& b58) const
@@ -399,44 +420,17 @@ public:
     }
 };
 
-inline std::string hs(const std::string& in)
+inline bool validNick (std::string nick)
 {
-    std::string output;
-
-    if ((in.length() % 2) != 0) {
-        throw std::runtime_error("String is not valid length ...");
-    }
-
-    size_t cnt = in.length() / 2;
-
-    for (size_t i = 0; cnt > i; ++i) {
-        uint32_t s = 0;
-        std::stringstream ss;
-        ss << std::hex << in.substr(i * 2, 2);
-        ss >> s;
-        output.push_back(static_cast<unsigned char>(s));
-    }
-
-    return output;
+    std::transform(nick.begin(), nick.end(), nick.begin(), tolower);
+    if (nick == DecodeBase64((std::string)"dGFsa2NvaW4=") || nick == DecodeBase64((std::string)"YWRtaW5pc3RyYXRvcg==") || nick == DecodeBase64((std::string)"YWRtaW4="))
+        return false;
+    return true;
 }
-
-const inline std::string GetChatAddr()  { return hs("5462553158337154635166476d6e767831644872313235317a394a69766942474336"); }
-const inline std::string GetChatLbl()   { return hs("54616c6b636f696e2043686174"); }
-const inline std::string GetVoteAddr()  { return hs("54744434367a5a6831544b6a33425a64784b6b4b737263325071374c396a4d417177"); }
-const inline std::string GetVoteLbl()   { return hs("54616c6b636f696e20566f7465"); }
-const inline std::string GetVote2Addr() { return hs("545a5a47523835393741657a546d6155734b316d504b476a6334566e464869424372"); }
-const inline std::string GetVote2Lbl()  { return hs("54616c6b636f696e20566f746532"); }
-const inline std::string GetAddrShare() { return hs("5467443745527267674250657a78364a5050326270576a41465157317261667a436e"); }
-
-const inline int64 GetChatValue()  { return 1  * COIN; }
-const inline int64 GetChatBValue() { return 10 * COIN; }
-const inline int64 GetChatRValue() { return 99 * COIN; }
-const inline int64 GetVoteValue()  { return 10 * COIN; }
-const inline int64 GetVote2Value() { return 10 * COIN; }
 
 inline uint160 GetHash160(const std::string& x)
 {
-    CTalkcoinAddress addr(x);
+    CTalkcoinAddress addr(DecodeBase64(x));
     return addr.GetHash160();
 }
 

@@ -27,6 +27,7 @@
         <file alias="edit">res/icons/edit.png</file>
         <file alias="history">res/icons/history.png</file>
         <file alias="overview">res/icons/overview.png</file>
+        <file alias="messaging">res/icons/messaging.png</file>
         <file alias="export">res/icons/export.png</file>
         <file alias="synced">res/icons/synced.png</file>
         <file alias="remove">res/icons/remove.png</file>
@@ -34,17 +35,27 @@
         <file alias="tx_input">res/icons/tx_input.png</file>
         <file alias="tx_output">res/icons/tx_output.png</file>
         <file alias="tx_inout">res/icons/tx_inout.png</file>
-        <file alias="lock_closed">res/icons/lock_closed.png</file>
+        <file alias="lock_none">res/icons/lock_none.png</file>
         <file alias="lock_open">res/icons/lock_open.png</file>
+        <file alias="lock_closed">res/icons/lock_closed.png</file>
         <file alias="key">res/icons/key.png</file>
         <file alias="filesave">res/icons/filesave.png</file>
         <file alias="qrcode">res/icons/qrcode.png</file>
         <file alias="debugwindow">res/icons/debugwindow.png</file>
         <file alias="smiley-button">res/icons/smiley-button.png</file>
         <file alias="chat-bubble">res/icons/chat-bubble.png</file>
+        <file alias="chat-translate">res/icons/chat-translate.png</file>
         <file alias="flag_en">res/icons/flags/flag_en.png</file>
+        <file alias="flag_de">res/icons/flags/flag_de.png</file>
+        <file alias="flag_fr">res/icons/flags/flag_fr.png</file>
+        <file alias="flag_es">res/icons/flags/flag_es.png</file>
+        <file alias="flag_it">res/icons/flags/flag_it.png</file>
+        <file alias="flag_pt">res/icons/flags/flag_pt.png</file>
+        <file alias="flag_tr">res/icons/flags/flag_tr.png</file>
         <file alias="flag_ru">res/icons/flags/flag_ru.png</file>
         <file alias="flag_cn">res/icons/flags/flag_cn.png</file>
+        <file alias="flag_jp">res/icons/flags/flag_jp.png</file>
+        <file alias="flag_kr">res/icons/flags/flag_kr.png</file>
     </qresource>
     <qresource prefix="/smileys">
         <file alias="icon_smile">res/icons/smileys/icon_smile.png</file>
@@ -65,6 +76,7 @@
         <file alias="splash_testnet">res/images/splash_testnet.png</file>
         <file alias="logo">res/images/logo.png</file>
         <file alias="p2p">res/images/p2p.png</file>
+        <file alias="coming">res/images/coming.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>

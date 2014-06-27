@@ -1,4 +1,4 @@
-Talkcoin 1.2.0.0
+Talkcoin 1.3.0.0
 ====================
 
 Copyright (c) 2009-2013 Bitcoin Developers

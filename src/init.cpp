@@ -363,6 +363,7 @@ std::string HelpMessage()
         "  -upgradewallet         " + _("Upgrade wallet to latest format") + "\n" +
         "  -keypool=<n>           " + _("Set key pool size to <n> (default: 100)") + "\n" +
         "  -rescan                " + _("Rescan the block chain for missing wallet transactions") + "\n" +
+        "  -moneysupply           " + _("Total TAC In Circulation") + "\n" +
         "  -salvagewallet         " + _("Attempt to recover private keys from a corrupt wallet.dat") + "\n" +
         "  -checkblocks=<n>       " + _("How many blocks to check at startup (default: 720, 0 = all)") + "\n" +
         "  -checklevel=<n>        " + _("How thorough the block verification is (0-4, default: 3)") + "\n" +
@@ -1049,7 +1050,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         RegisterWallet(pwalletMain);
 
         CBlockIndex *pindexRescan = pindexBest;
-        if (GetBoolArg("-rescan"))
+        if (GetBoolArg("-rescan") || GetBoolArg("-moneysupply"))
             pindexRescan = pindexGenesisBlock;
         else
         {
