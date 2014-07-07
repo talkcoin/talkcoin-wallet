@@ -175,7 +175,7 @@ bool CCoinsView::HaveCoins(const uint256 &txid) { return false; }
 CBlockIndex *CCoinsView::GetBestBlock() { return NULL; }
 bool CCoinsView::SetBestBlock(CBlockIndex *pindex) { return false; }
 bool CCoinsView::BatchWrite(const std::map<uint256, CCoins> &mapCoins, CBlockIndex *pindex) { return false; }
-bool CCoinsView::GetStats(CCoinsStats &stats) { return false; }
+bool CCoinsView::GetStats(CCoinsStats &stats, bool fMoney) { return false; }
 
 
 CCoinsViewBacked::CCoinsViewBacked(CCoinsView &viewIn) : base(&viewIn) { }
@@ -186,7 +186,7 @@ CBlockIndex *CCoinsViewBacked::GetBestBlock() { return base->GetBestBlock(); }
 bool CCoinsViewBacked::SetBestBlock(CBlockIndex *pindex) { return base->SetBestBlock(pindex); }
 void CCoinsViewBacked::SetBackend(CCoinsView &viewIn) { base = &viewIn; }
 bool CCoinsViewBacked::BatchWrite(const std::map<uint256, CCoins> &mapCoins, CBlockIndex *pindex) { return base->BatchWrite(mapCoins, pindex); }
-bool CCoinsViewBacked::GetStats(CCoinsStats &stats) { return base->GetStats(stats); }
+bool CCoinsViewBacked::GetStats(CCoinsStats &stats, bool fMoney) { return base->GetStats(stats, fMoney); }
 
 CCoinsViewCache::CCoinsViewCache(CCoinsView &baseIn, bool fDummy) : CCoinsViewBacked(baseIn), pindexTip(NULL) { }
 
@@ -1189,9 +1189,9 @@ int64 static GetVoteValue(int nHeight)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    nSubsidy = GetVoteValue(nHeight) + nFees;
+    nSubsidy = GetVoteValue(nHeight);
     //printf("nHeight=%d -> nSubsidy=%"PRI64d"\n", nHeight, nSubsidy);
-    return nSubsidy;
+    return nSubsidy + nFees;
 }
 
 static const int64 nTargetTimespan = 40; // Talkcoin: 40sec.

@@ -2152,8 +2152,9 @@ struct CCoinsStats
     uint64 nSerializedSize;
     uint256 hashSerialized;
     int64 nTotalAmount;
+    int64 nTotalAmountDestroyed;
 
-    CCoinsStats() : nHeight(0), hashBlock(0), nTransactions(0), nTransactionOutputs(0), nSerializedSize(0), hashSerialized(0), nTotalAmount(0) {}
+    CCoinsStats() : nHeight(0), hashBlock(0), nTransactions(0), nTransactionOutputs(0), nSerializedSize(0), hashSerialized(0), nTotalAmount(0), nTotalAmountDestroyed(0) {}
 };
 
 /** Abstract view on the open txout dataset. */
@@ -2180,7 +2181,7 @@ public:
     virtual bool BatchWrite(const std::map<uint256, CCoins> &mapCoins, CBlockIndex *pindex);
 
     // Calculate statistics about the unspent transaction output set
-    virtual bool GetStats(CCoinsStats &stats);
+    virtual bool GetStats(CCoinsStats &stats, bool fMoney);
 
     // As we use CCoinsViews polymorphically, have a virtual destructor
     virtual ~CCoinsView() {}
@@ -2201,7 +2202,7 @@ public:
     bool SetBestBlock(CBlockIndex *pindex);
     void SetBackend(CCoinsView &viewIn);
     bool BatchWrite(const std::map<uint256, CCoins> &mapCoins, CBlockIndex *pindex);
-    bool GetStats(CCoinsStats &stats);
+    bool GetStats(CCoinsStats &stats, bool fMoney);
 };
 
 /** CCoinsView that adds a memory cache for transactions to another CCoinsView */

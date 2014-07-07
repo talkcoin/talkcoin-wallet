@@ -84,6 +84,7 @@ Value getinfo(const Array& params, bool fHelp)
     obj.push_back(Pair("connections",   (int)vNodes.size()));
     obj.push_back(Pair("proxy",         (proxy.first.IsValid() ? proxy.first.ToStringIPPort() : string())));
     obj.push_back(Pair("difficulty",    (double)GetDifficulty()));
+    obj.push_back(Pair("reward",        ValueFromAmount(nSubsidy)));
     obj.push_back(Pair("testnet",       fTestNet));
     if (pwalletMain) {
         obj.push_back(Pair("keypoololdest", (boost::int64_t)pwalletMain->GetOldestKeyPoolTime()));

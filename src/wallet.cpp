@@ -780,7 +780,6 @@ bool CWalletTx::WriteToDisk()
 int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
 {
     int ret = 0;
-    int64 moneysupply = 0, moneydestroyed = 0;
 
     CBlockIndex* pindex = pindexStart;
     {
@@ -789,34 +788,14 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
         {
             CBlock block;
             block.ReadFromDisk(pindex);
-
             BOOST_FOREACH(CTransaction& tx, block.vtx)
             {
-                if (GetBoolArg("-moneysupply"))
-                {
-                    if (tx.IsCoinBase()) moneysupply += tx.GetValueOut();
-                    for (unsigned int i = 0; i < tx.vout.size(); i++)
-                    {
-                        const CTxOut& txout = tx.vout[i];
-                        CTxDestination address;
-                        if (ExtractDestination(txout.scriptPubKey, address) && CTalkcoinAddress(address).ToBase64() == GET_A_GENESIS())
-                            moneydestroyed += txout.nValue;
-                    }
-                }
-
                 if (AddToWalletIfInvolvingMe(tx.GetHash(), tx, &block, fUpdate))
                     ret++;
             }
             pindex = pindex->pnext;
         }
     }
-#ifdef QT_GUI
-    if (moneysupply)
-        QMessageBox::information(0, "Money Supply", "Total TAC In Circulation ~ <b>" + TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, ((moneysupply-moneydestroyed)/COIN)*COIN));
-#else
-    if (moneysupply)
-        printf("Total TAC In Circulation ~ %s\n", FormatMoney(((moneysupply-moneydestroyed)/COIN)*COIN).c_str());
-#endif
 
     return ret;
 }

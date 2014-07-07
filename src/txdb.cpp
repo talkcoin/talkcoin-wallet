@@ -8,6 +8,8 @@
 #include "main.h"
 #include "hash.h"
 
+#include "base58.h"
+
 using namespace std;
 
 void static BatchWriteCoins(CLevelDBBatch &batch, const uint256 &hash, const CCoins &coins) {
@@ -24,8 +26,8 @@ void static BatchWriteHashBestChain(CLevelDBBatch &batch, const uint256 &hash) {
 CCoinsViewDB::CCoinsViewDB(size_t nCacheSize, bool fMemory, bool fWipe) : db(GetDataDir() / "chainstate", nCacheSize, fMemory, fWipe) {
 }
 
-bool CCoinsViewDB::GetCoins(const uint256 &txid, CCoins &coins) { 
-    return db.Read(make_pair('c', txid), coins); 
+bool CCoinsViewDB::GetCoins(const uint256 &txid, CCoins &coins) {
+    return db.Read(make_pair('c', txid), coins);
 }
 
 bool CCoinsViewDB::SetCoins(const uint256 &txid, const CCoins &coins) {
@@ -35,7 +37,7 @@ bool CCoinsViewDB::SetCoins(const uint256 &txid, const CCoins &coins) {
 }
 
 bool CCoinsViewDB::HaveCoins(const uint256 &txid) {
-    return db.Exists(make_pair('c', txid)); 
+    return db.Exists(make_pair('c', txid));
 }
 
 CBlockIndex *CCoinsViewDB::GetBestBlock() {
@@ -50,7 +52,7 @@ CBlockIndex *CCoinsViewDB::GetBestBlock() {
 
 bool CCoinsViewDB::SetBestBlock(CBlockIndex *pindex) {
     CLevelDBBatch batch;
-    BatchWriteHashBestChain(batch, pindex->GetBlockHash()); 
+    BatchWriteHashBestChain(batch, pindex->GetBlockHash());
     return db.WriteBatch(batch);
 }
 
@@ -112,7 +114,7 @@ bool CBlockTreeDB::ReadLastBlockFile(int &nFile) {
     return Read('l', nFile);
 }
 
-bool CCoinsViewDB::GetStats(CCoinsStats &stats) {
+bool CCoinsViewDB::GetStats(CCoinsStats &stats, bool fMoney) {
     leveldb::Iterator *pcursor = db.NewIterator();
     pcursor->SeekToFirst();
 
@@ -120,6 +122,8 @@ bool CCoinsViewDB::GetStats(CCoinsStats &stats) {
     stats.hashBlock = GetBestBlock()->GetBlockHash();
     ss << stats.hashBlock;
     int64 nTotalAmount = 0;
+    int64 nTotalAmountDestroyed = 0;
+
     while (pcursor->Valid()) {
         boost::this_thread::interruption_point();
         try {
@@ -127,6 +131,7 @@ bool CCoinsViewDB::GetStats(CCoinsStats &stats) {
             CDataStream ssKey(slKey.data(), slKey.data()+slKey.size(), SER_DISK, CLIENT_VERSION);
             char chType;
             ssKey >> chType;
+
             if (chType == 'c') {
                 leveldb::Slice slValue = pcursor->value();
                 CDataStream ssValue(slValue.data(), slValue.data()+slValue.size(), SER_DISK, CLIENT_VERSION);
@@ -136,7 +141,7 @@ bool CCoinsViewDB::GetStats(CCoinsStats &stats) {
                 ssKey >> txhash;
                 ss << txhash;
                 ss << VARINT(coins.nVersion);
-                ss << (coins.fCoinBase ? 'c' : 'n'); 
+                ss << (coins.fCoinBase ? 'c' : 'n');
                 ss << VARINT(coins.nHeight);
                 stats.nTransactions++;
                 for (unsigned int i=0; i<coins.vout.size(); i++) {
@@ -151,6 +156,7 @@ bool CCoinsViewDB::GetStats(CCoinsStats &stats) {
                 stats.nSerializedSize += 32 + slValue.size();
                 ss << VARINT(0);
             }
+
             pcursor->Next();
         } catch (std::exception &e) {
             return error("%s() : deserialize error", __PRETTY_FUNCTION__);
@@ -160,6 +166,33 @@ bool CCoinsViewDB::GetStats(CCoinsStats &stats) {
     stats.nHeight = GetBestBlock()->nHeight;
     stats.hashSerialized = ss.GetHash();
     stats.nTotalAmount = nTotalAmount;
+
+    if (fMoney)
+    {
+        CBlockIndex* pindex = pindexGenesisBlock;
+        {
+            LOCK(cs_wallet);
+            while (pindex)
+            {
+                CBlock block;
+                block.ReadFromDisk(pindex);
+
+                BOOST_FOREACH(CTransaction& tx, block.vtx)
+                {
+                    for (unsigned int i = 0; i < tx.vout.size(); i++)
+                    {
+                        const CTxOut& txout = tx.vout[i];
+                        CTxDestination address;
+                        if (ExtractDestination(txout.scriptPubKey, address) && CTalkcoinAddress(address).ToBase64() == GET_A_GENESIS())
+                            nTotalAmountDestroyed += txout.nValue;
+                    }
+                }
+                pindex = pindex->pnext;
+            }
+        }
+        stats.nTotalAmountDestroyed = nTotalAmountDestroyed;
+    }
+
     return true;
 }
 

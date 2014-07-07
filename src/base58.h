@@ -29,7 +29,7 @@ static const char* pszBase58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnop
 
 
 // Hard fork on block ...
-static const int HF1 = 230000;
+static const int HF1 = 241920;
 //
 inline std::string GET_A_GENESIS()              { return "VHBtZnVHcmp2Z240M0dvUjhNUlYzVUtmUEVaQnJzQlZHTg=="; }
 inline std::string GET_A_VOTE1(int nHeight=HF1) { return (nHeight<HF1)? "VHRENDZ6WmgxVEtqM0JaZHhLa0tzcmMyUHE3TDlqTUFxdw==" : GET_A_GENESIS(); }

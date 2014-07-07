@@ -63,6 +63,7 @@ Object blockToJSON(const CBlock& block, const CBlockIndex* blockindex)
     result.push_back(Pair("nonce", (boost::uint64_t)block.nNonce));
     result.push_back(Pair("bits", HexBits(block.nBits)));
     result.push_back(Pair("difficulty", GetDifficulty(blockindex)));
+    result.push_back(Pair("reward", ValueFromAmount(nSubsidy)));
 
     if (blockindex->pprev)
         result.push_back(Pair("previousblockhash", blockindex->pprev->GetBlockHash().GetHex()));
@@ -100,6 +101,16 @@ Value getdifficulty(const Array& params, bool fHelp)
             "Returns the proof-of-work difficulty as a multiple of the minimum difficulty.");
 
     return GetDifficulty();
+}
+
+Value getreward(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "getreward\n"
+            "Returns the block reward.");
+
+    return ValueFromAmount(nSubsidy);
 }
 
 
@@ -195,7 +206,7 @@ Value gettxoutsetinfo(const Array& params, bool fHelp)
     Object ret;
 
     CCoinsStats stats;
-    if (pcoinsTip->GetStats(stats)) {
+    if (pcoinsTip->GetStats(stats, false)) {
         ret.push_back(Pair("height", (boost::int64_t)stats.nHeight));
         ret.push_back(Pair("bestblock", stats.hashBlock.GetHex()));
         ret.push_back(Pair("transactions", (boost::int64_t)stats.nTransactions));
@@ -203,6 +214,24 @@ Value gettxoutsetinfo(const Array& params, bool fHelp)
         ret.push_back(Pair("bytes_serialized", (boost::int64_t)stats.nSerializedSize));
         ret.push_back(Pair("hash_serialized", stats.hashSerialized.GetHex()));
         ret.push_back(Pair("total_amount", ValueFromAmount(stats.nTotalAmount)));
+    }
+    return ret;
+}
+
+Value getmoneysupply(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "getmoneysupply\n"
+            "Returns statistics about the total TAC in circulation.");
+
+    Object ret;
+
+    CCoinsStats stats;
+    if (pcoinsTip->GetStats(stats, true)) {
+        ret.push_back(Pair("total_amount", ValueFromAmount(stats.nTotalAmount)));
+        ret.push_back(Pair("total_amount_destroyed", ValueFromAmount(stats.nTotalAmountDestroyed)));
+        ret.push_back(Pair("total_amount_in_circulation", ValueFromAmount(stats.nTotalAmount - stats.nTotalAmountDestroyed)));
     }
     return ret;
 }

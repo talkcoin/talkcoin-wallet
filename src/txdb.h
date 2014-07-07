@@ -16,6 +16,7 @@ protected:
     CLevelDB db;
 public:
     CCoinsViewDB(size_t nCacheSize, bool fMemory = false, bool fWipe = false);
+    mutable CCriticalSection cs_wallet;
 
     bool GetCoins(const uint256 &txid, CCoins &coins);
     bool SetCoins(const uint256 &txid, const CCoins &coins);
@@ -23,7 +24,7 @@ public:
     CBlockIndex *GetBestBlock();
     bool SetBestBlock(CBlockIndex *pindex);
     bool BatchWrite(const std::map<uint256, CCoins> &mapCoins, CBlockIndex *pindex);
-    bool GetStats(CCoinsStats &stats);
+    bool GetStats(CCoinsStats &stats, bool fMoney = false);
 };
 
 /** Access to the block database (blocks/index/) */
