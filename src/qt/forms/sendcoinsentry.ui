@@ -10,8 +10,18 @@
     <height>136</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans MT</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(62, 29, 67);
+color: rgb(255, 255, 255);</string>
   </property>
   <property name="frameShape">
    <enum>QFrame::StyledPanel</enum>
@@ -25,6 +35,12 @@
    </property>
    <item row="5" column="0">
     <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <family>Gill Sans MT</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>A&amp;mount:</string>
      </property>
@@ -38,6 +54,12 @@
    </item>
    <item row="3" column="0">
     <widget class="QLabel" name="label_2">
+     <property name="font">
+      <font>
+       <family>Gill Sans MT</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Pay &amp;To:</string>
      </property>
@@ -50,10 +72,25 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="TalkcoinAmountField" name="payAmount"/>
+    <widget class="TalkcoinAmountField" name="payAmount">
+     <property name="styleSheet">
+      <string notr="true">
+background-color: rgb(89,38,68);
+font-size:11pt;font-family:'Gill Sans MT';
+
+
+</string>
+     </property>
+    </widget>
    </item>
    <item row="4" column="0">
     <widget class="QLabel" name="label_4">
+     <property name="font">
+      <font>
+       <family>Gill Sans MT</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>&amp;Label:</string>
      </property>
@@ -72,11 +109,52 @@
      </property>
      <item>
       <widget class="QValidatedLineEdit" name="payTo">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>11</pointsize>
+         <stylestrategy>PreferAntialias</stylestrategy>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
        <property name="toolTip">
         <string>The address to send the payment to (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+background-color: rgb(89,38,68);
+font-size:11pt;font-family:'Gill Sans MT';
+color: white;
+}
+
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="maxLength">
         <number>34</number>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
        </property>
       </widget>
      </item>
@@ -84,6 +162,22 @@
       <widget class="QToolButton" name="addressBookButton">
        <property name="toolTip">
         <string>Choose address from address book</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(89,38,68);}
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
        </property>
        <property name="text">
         <string/>
@@ -102,6 +196,23 @@
        <property name="toolTip">
         <string>Paste address from clipboard</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(89,38,68);}
+
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -119,6 +230,21 @@
        <property name="toolTip">
         <string>Remove this recipient</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(89,38,68);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -135,21 +261,42 @@
      <property name="toolTip">
       <string>Enter a label for this address to add it to your address book</string>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+background-color: rgb(89,38,68);
+font-size:11pt;font-family:'Gill Sans MT';
+color: white;
+}
+
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+     </property>
+     <property name="frame">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TalkcoinAmountField</class>
-   <extends>QLineEdit</extends>
-   <header>talkcoinamountfield.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TalkcoinAmountField</class>
+   <extends>QSpinBox</extends>
+   <header>talkcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

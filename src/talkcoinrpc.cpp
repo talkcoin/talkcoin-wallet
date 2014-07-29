@@ -268,7 +268,8 @@ static const CRPCCommand vRPCCommands[] =
     { "lockunspent",            &lockunspent,            false,     false,      true },
     { "listlockunspent",        &listlockunspent,        false,     false,      true },
     { "verifychain",            &verifychain,            true,      false,      false },
-    { "votedev",                &vote2,                  false,     false,      true },
+    { "getchat",                &getchat,                false,     false,      false },
+    { "votedev",                &votedev,                false,     false,      true },
 };
 
 CRPCTable::CRPCTable()
@@ -1198,7 +1199,7 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "importprivkey"          && n > 2) ConvertTo<bool>(params[2]);
     if (strMethod == "verifychain"            && n > 0) ConvertTo<boost::int64_t>(params[0]);
     if (strMethod == "verifychain"            && n > 1) ConvertTo<boost::int64_t>(params[1]);
-    if (strMethod == "votedev"                  && n > 0) ConvertTo<double>(params[0]);
+    if (strMethod == "votedev"                && n > 0) ConvertTo<double>(params[0]);
 
     return params;
 }

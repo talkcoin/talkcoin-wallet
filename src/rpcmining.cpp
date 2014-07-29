@@ -278,7 +278,7 @@ Value getworkex(const Array& params, bool fHelp)
 
         // Byte reverse
         for (int i = 0; i < 128/4; i++)
-            ((unsigned int*)pdata)[i] = ByteReverse(((unsigned int*)pdata)[i]);
+            ((unsigned int*)pdata)[i] = ByteReverse_(((unsigned int*)pdata)[i]);
 
         // Get saved block
         if (!mapNewBlock.count(pdata->hashMerkleRoot))
@@ -396,7 +396,7 @@ Value getwork(const Array& params, bool fHelp)
 
         // Byte reverse
         for (int i = 0; i < 128/4; i++)
-            ((unsigned int*)pdata)[i] = ByteReverse(((unsigned int*)pdata)[i]);
+            ((unsigned int*)pdata)[i] = ByteReverse_(((unsigned int*)pdata)[i]);
 
         // Get saved block
         if (!mapNewBlock.count(pdata->hashMerkleRoot))

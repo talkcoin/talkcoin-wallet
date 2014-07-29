@@ -185,12 +185,11 @@ public:
     int64 GetUnconfirmedBalance() const;
     int64 GetImmatureBalance() const;
 
-#ifdef QT_GUI
-    std::string E64(const std::string str);
-    std::string D64(const std::string str);
-    bool checkVersion(const std::string str);
-    std::string getLang(const std::string str);
-#endif
+    // #talkcoin
+    bool checkTime(const int64 talktime);
+    bool checkVersion(const std::string data, bool base64=true);
+    bool checkCrypt(const std::string data, bool base64=true);
+    std::string getChan(const std::string data, bool base64=true);
 
     bool CreateTransaction(const std::vector<std::pair<CScript, int64> >& vecSend,
                            CWalletTx& wtxNew, CReserveKey& reservekey,

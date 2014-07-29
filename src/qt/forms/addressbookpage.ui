@@ -6,12 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>760</width>
+    <width>781</width>
     <height>380</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans MT</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Address Book</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(62, 29, 67);
+border-color: rgb(103, 47, 82);
+color: rgb(255, 255, 255);
+</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -26,11 +38,29 @@
    </item>
    <item>
     <widget class="QTableView" name="tableView">
+     <property name="font">
+      <font>
+       <family>Gill Sans MT</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="contextMenuPolicy">
       <enum>Qt::CustomContextMenu</enum>
      </property>
      <property name="toolTip">
       <string>Double-click to edit address or label</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
      </property>
      <property name="tabKeyNavigation">
       <bool>false</bool>
@@ -56,8 +86,28 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="newAddress">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
        <property name="toolTip">
         <string>Create a new address</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border-color: rgb(103, 47, 82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }
+</string>
        </property>
        <property name="text">
         <string>&amp;New Address</string>
@@ -70,8 +120,28 @@
      </item>
      <item>
       <widget class="QPushButton" name="copyAddress">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
        <property name="toolTip">
         <string>Copy the currently selected address to the system clipboard</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QToolButton{
+border-color: rgb(103, 47, 82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
        </property>
        <property name="text">
         <string>&amp;Copy Address</string>
@@ -84,6 +154,25 @@
      </item>
      <item>
       <widget class="QPushButton" name="showQRCode">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border-color: rgb(103, 47, 82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="text">
         <string>Show &amp;QR Code</string>
        </property>
@@ -95,8 +184,27 @@
      </item>
      <item>
       <widget class="QPushButton" name="signMessage">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
        <property name="toolTip">
         <string>Sign a message to prove you own a Talkcoin address</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border-color: rgb(103, 47, 82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
        </property>
        <property name="text">
         <string>Sign &amp;Message</string>
@@ -109,8 +217,27 @@
      </item>
      <item>
       <widget class="QPushButton" name="verifyMessage">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
        <property name="toolTip">
         <string>Verify a message to ensure it was signed with a specified Talkcoin address</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border-color: rgb(103, 47, 82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
        </property>
        <property name="text">
         <string>&amp;Verify Message</string>
@@ -123,8 +250,27 @@
      </item>
      <item>
       <widget class="QPushButton" name="deleteAddress">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
        <property name="toolTip">
         <string>Delete the currently selected address from the list</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border-color: rgb(103, 47, 82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
        </property>
        <property name="text">
         <string>&amp;Delete</string>
@@ -150,8 +296,27 @@
      </item>
      <item>
       <widget class="QPushButton" name="exportButton">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
        <property name="toolTip">
         <string>Export the data in the current tab to a file</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QToolButton{
+border-color: rgb(103, 47, 82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
        </property>
        <property name="text">
         <string>&amp;Export</string>
@@ -169,6 +334,26 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+QDialogButtonBox{
+border-color: rgb(103, 47, 82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
        </property>
        <property name="standardButtons">
         <set>QDialogButtonBox::Ok</set>

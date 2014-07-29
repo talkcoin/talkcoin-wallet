@@ -10,7 +10,7 @@
         <translation>À propos de Talkcoin</translation>
     </message>
     <message>
-        <location line="+39"/>
+        <location line="+43"/>
         <source>&lt;b&gt;Talkcoin&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Talkcoin&lt;/b&gt; version</translation>
     </message>
@@ -52,27 +52,27 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>AddressBookPage</name>
     <message>
-        <location filename="../forms/addressbookpage.ui" line="+14"/>
+        <location filename="../forms/addressbookpage.ui" line="+20"/>
         <source>Address Book</source>
         <translation>Carnet d&apos;adresses</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+31"/>
         <source>Double-click to edit address or label</source>
         <translation>Double cliquez afin de modifier l&apos;adresse ou l&apos;étiquette</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+45"/>
         <source>Create a new address</source>
         <translation>Créer une nouvelle adresse</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+34"/>
         <source>Copy the currently selected address to the system clipboard</source>
         <translation>Copier l&apos;adresse sélectionnée dans le presse-papiers</translation>
     </message>
     <message>
-        <location line="-11"/>
+        <location line="-17"/>
         <source>&amp;New Address</source>
         <translation>&amp;Nouvelle adresse</translation>
     </message>
@@ -82,52 +82,52 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Voici vos adresses Talkcoin qui vous permettent de recevoir des paiements. Vous pouvez donner une adresse différente à chaque expéditeur afin de savoir qui vous paye.</translation>
     </message>
     <message>
-        <location filename="../forms/addressbookpage.ui" line="+14"/>
+        <location filename="../forms/addressbookpage.ui" line="+34"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Copier l&apos;adresse</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+30"/>
         <source>Show &amp;QR Code</source>
         <translation>Afficher le &amp;QR Code</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+17"/>
         <source>Sign a message to prove you own a Talkcoin address</source>
         <translation>Signer un message pour prouver que vous détenez une adresse Talkcoin</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>Sign &amp;Message</source>
         <translation>Signer un &amp;message</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+50"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Effacer l&apos;adresse actuellement sélectionnée de la liste</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+46"/>
         <source>Export the data in the current tab to a file</source>
         <translation>Exporter les données de l&apos;onglet courant vers un fichier</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>&amp;Export</source>
         <translation>&amp;Exporter</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="-95"/>
         <source>Verify a message to ensure it was signed with a specified Talkcoin address</source>
         <translation>Vérifier un message pour vous assurer qu&apos;il a bien été signé avec l&apos;adresse Talkcoin spécifiée</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Vérifier un message</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+33"/>
         <source>&amp;Delete</source>
         <translation>&amp;Supprimer</translation>
     </message>
@@ -152,7 +152,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Envoyer des Bit&amp;coins</translation>
     </message>
     <message>
-        <location line="+265"/>
+        <location line="+274"/>
         <source>Export Address Book Data</source>
         <translation>Exporter les données du carnet d&apos;adresses</translation>
     </message>
@@ -198,17 +198,17 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Dialogue de phrase de passe</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+33"/>
         <source>Enter passphrase</source>
         <translation>Entrez la phrase de passe</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+249"/>
         <source>New passphrase</source>
         <translation>Nouvelle phrase de passe</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+40"/>
         <source>Repeat new passphrase</source>
         <translation>Répétez la phrase de passe</translation>
     </message>
@@ -342,37 +342,37 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+14"/>
+        <location filename="../forms/coincontroldialog.ui" line="+20"/>
         <source>Coin Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+154"/>
         <source>Quantity:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+268"/>
         <source>Bytes:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+284"/>
         <source>Amount:</source>
         <translation type="unfinished">Montant :</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+268"/>
         <source>Priority:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+284"/>
         <source>Fee:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+153"/>
         <source>Low Output:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -383,42 +383,42 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+147"/>
         <source>After Fee:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+153"/>
         <source>Change:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+69"/>
+        <location line="+289"/>
         <source>(un)select all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+16"/>
         <source>Tree mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+19"/>
         <source>List mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+10"/>
         <source>(1 locked)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+106"/>
         <source>Amount</source>
         <translation type="unfinished">Montant</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+23"/>
         <source>Address</source>
         <translation type="unfinished">Adresse</translation>
     </message>
@@ -612,12 +612,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+14"/>
+        <location filename="../forms/editaddressdialog.ui" line="+20"/>
         <source>Edit Address</source>
         <translation>Éditer l&apos;adresse</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+27"/>
         <source>&amp;Label</source>
         <translation>&amp;Étiquette</translation>
     </message>
@@ -627,7 +627,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>L’étiquette associée à cette entrée du carnet d&apos;adresses</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+39"/>
         <source>&amp;Address</source>
         <translation>&amp;Adresse</translation>
     </message>
@@ -737,12 +737,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+14"/>
+        <location filename="../forms/optionsdialog.ui" line="+20"/>
         <source>Options</source>
         <translation>Options</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+25"/>
         <source>&amp;Main</source>
         <translation>Réglages &amp;principaux</translation>
     </message>
@@ -752,17 +752,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Frais de transaction optionnel par ko qui aident à garantir un traitement rapide des transactions. La plupart des transactions utilisent 1 ko.</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+27"/>
         <source>Pay transaction &amp;fee</source>
         <translation>Payer des &amp;frais de transaction</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+44"/>
         <source>Automatically start Talkcoin after logging in to the system.</source>
         <translation>Démarrer Talkcoin automatiquement lors de l&apos;ouverture une session sur l&apos;ordinateur.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>&amp;Start Talkcoin on system login</source>
         <translation>&amp;Démarrer Talkcoin lors de l&apos;ouverture d&apos;une session</translation>
     </message>
@@ -772,7 +772,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Remettre toutes les options du client aux valeurs par défaut.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+29"/>
         <source>&amp;Reset Options</source>
         <translation>&amp;Remise à zéro des options</translation>
     </message>
@@ -787,7 +787,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Ouvrir le port du client Talkcoin automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l&apos;UPnP et si la fonctionnalité est activée.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>Map port using &amp;UPnP</source>
         <translation>Ouvrir le port avec l&apos;&amp;UPnP</translation>
     </message>
@@ -797,12 +797,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Connexion au réseau Talkcoin à travers un proxy SOCKS (par ex. lors d&apos;une connexion via Tor).</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>&amp;Connect through SOCKS proxy:</source>
         <translation>&amp;Connexion à travers un proxy SOCKS :</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+21"/>
         <source>Proxy &amp;IP:</source>
         <translation>&amp;IP du proxy :</translation>
     </message>
@@ -812,7 +812,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Adresse IP du proxy (par ex. 127.0.0.1)</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+19"/>
         <source>&amp;Port:</source>
         <translation>&amp;Port :</translation>
     </message>
@@ -822,7 +822,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Port du proxy (par ex. 9050)</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+31"/>
         <source>SOCKS &amp;Version:</source>
         <translation>&amp;Version SOCKS :</translation>
     </message>
@@ -832,7 +832,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Version SOCKS du serveur mandataire (par ex. 5)</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+49"/>
         <source>&amp;Window</source>
         <translation>&amp;Fenêtre</translation>
     </message>
@@ -842,7 +842,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Afficher uniquement une icône système après minimisation.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>&amp;Minimize to the tray instead of the taskbar</source>
         <translation>&amp;Minimiser dans la barre système au lieu de la barre des tâches</translation>
     </message>
@@ -852,7 +852,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Minimiser au lieu quitter l&apos;application lorsque la fenêtre est fermée. Lorsque cette option est activée, l&apos;application ne pourra être fermée qu&apos;en sélectionnant Quitter dans le menu déroulant.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>M&amp;inimize on close</source>
         <translation>M&amp;inimiser lors de la fermeture</translation>
     </message>
@@ -862,57 +862,57 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Affichage</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+26"/>
         <source>User Interface &amp;language:</source>
         <translation>&amp;Langue de l&apos;interface utilisateur :</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>The user interface language can be set here. This setting will take effect after restarting Talkcoin.</source>
         <translation>La langue de l&apos;interface utilisateur peut être définie ici. Ce réglage sera pris en compte après redémarrage de Talkcoin.</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+41"/>
         <source>&amp;Unit to show amounts in:</source>
         <translation>&amp;Unité d&apos;affichage des montants :</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>Choisissez la sous-unité par défaut pour l&apos;affichage dans l&apos;interface et lors de l&apos;envoi de pièces.</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+27"/>
         <source>Whether to show Talkcoin addresses in the transaction list or not.</source>
         <translation>Détermine si les adresses Talkcoin seront affichées sur la liste des transactions.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>&amp;Display addresses in transaction list</source>
         <translation>&amp;Afficher les adresses sur la liste des transactions</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+13"/>
         <source>Whether to show coin control features or not.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>Display coin &amp;control features (experts only!)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+92"/>
         <source>&amp;OK</source>
         <translation>&amp;Valider</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+28"/>
         <source>&amp;Cancel</source>
         <translation>A&amp;nnuler</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+31"/>
         <source>&amp;Apply</source>
         <translation>&amp;Appliquer</translation>
     </message>
@@ -957,104 +957,131 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+14"/>
+        <location filename="../forms/overviewpage.ui" line="+17"/>
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
     <message>
-        <location line="+79"/>
-        <location line="+194"/>
+        <location line="+84"/>
+        <location line="+556"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Les informations affichées peuvent être obsolètes. Votre porte-monnaie est automatiquement synchronisé avec le réseau Talkcoin lorsque la connexion s&apos;établit, or ce processus n&apos;est pas encore terminé.</translation>
     </message>
     <message>
-        <location line="-147"/>
+        <location line="-463"/>
         <source>Balance:</source>
         <translation>Solde :</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>Unconfirmed:</source>
         <translation>Non confirmé :</translation>
     </message>
     <message>
-        <location line="+204"/>
+        <location line="+165"/>
+        <source>  TAC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Current reward:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-81"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time to next vote:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+130"/>
         <source>lblInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="-81"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your vote:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+226"/>
+        <source>Recent transactions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+367"/>
+        <source>Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+394"/>
+        <source>List of emoticons
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-968"/>
         <source>lblVoteInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+25"/>
-        <source>Block Reward:</source>
+        <location line="+83"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#550000;&quot;&gt;Press the button to cast your vote&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <extracomment>Press the button to cast your vote</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source> TAC</source>
+        <location line="+3"/>
+        <source>blabla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+50"/>
         <source>Auto Voting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="-99"/>
+        <location line="+71"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+791"/>
-        <source>B</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+81"/>
-        <source>Send</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-1272"/>
+        <location line="-394"/>
         <source>Wallet</source>
         <translation>Porte-monnaie</translation>
     </message>
     <message>
-        <location line="+129"/>
+        <location line="+120"/>
         <source>Immature:</source>
         <translation>Immature :</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="-19"/>
         <source>Mined balance that has not yet matured</source>
         <translation>Le solde généré n&apos;est pas encore mûr</translation>
     </message>
     <message>
-        <location line="+51"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Transactions récentes&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Transactions récentes&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-118"/>
+        <location line="-77"/>
         <source>Your current balance</source>
         <translation>Votre solde actuel</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+37"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>Total des transactions qui doivent encore être confirmées et qui ne sont pas prises en compte dans le solde actuel</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+151"/>
+        <location filename="../overviewpage.cpp" line="+131"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>désynchronisé</translation>
     </message>
     <message>
-        <location line="+83"/>
+        <location line="+78"/>
         <source>Nickname</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1064,17 +1091,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+37"/>
-        <source>Current reward: </source>
+        <location line="+28"/>
+        <source> votes)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source> hours remaining before the voting begins</source>
+        <location line="+5"/>
+        <source> hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+0"/>
+        <source> hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Voting is open</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1084,11 +1116,16 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+135"/>
+        <location line="+12"/>
+        <source>To create your own chat room, start talkcoin-qt with the flag &lt;i&gt;-chan=#yourchan&lt;/i&gt; &lt;i&gt;-chanpassword=yourpassword&lt;/i&gt; (an associated password is optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+136"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
-        <location line="+102"/>
+        <location line="+76"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1096,7 +1133,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Envoyer des pièces</translation>
     </message>
     <message>
-        <location line="-133"/>
+        <location line="-107"/>
         <source>The amount to vote exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1116,7 +1153,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+102"/>
+        <location line="+76"/>
         <source>The amount to chat exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1136,7 +1173,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+166"/>
+        <location line="+141"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation type="unfinished">Le porte-monnaie est &lt;b&gt;chiffré&lt;/b&gt; et est actuellement &lt;b&gt;déverrouillé&lt;/b&gt;</translation>
     </message>
@@ -1146,8 +1183,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Le porte-monnaie est &lt;b&gt;chiffré&lt;/b&gt; et est actuellement &lt;b&gt;verrouillé&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+1145"/>
-        <location filename="../overviewpage.cpp" line="-384"/>
+        <location line="-338"/>
         <source>List of emoticons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1163,32 +1199,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+14"/>
+        <location filename="../forms/qrcodedialog.ui" line="+20"/>
         <source>QR Code Dialog</source>
         <translation>Dialogue de QR Code</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+87"/>
         <source>Request Payment</source>
         <translation>Demande de paiement</translation>
     </message>
     <message>
-        <location line="+56"/>
+        <location line="+137"/>
         <source>Amount:</source>
         <translation>Montant :</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="-113"/>
         <source>Label:</source>
         <translation>Étiquette :</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+55"/>
         <source>Message:</source>
         <translation>Message :</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+133"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Enregistrer sous...</translation>
     </message>
@@ -1221,7 +1257,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+46"/>
+        <location filename="../forms/rpcconsole.ui" line="+329"/>
         <source>Client name</source>
         <translation>Nom du client</translation>
     </message>
@@ -1295,7 +1331,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Horodatage du dernier bloc</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+69"/>
         <source>&amp;Open</source>
         <translation>&amp;Ouvrir</translation>
     </message>
@@ -1310,7 +1346,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Afficher le message d&apos;aide de Talkcoin-Qt pour obtenir la liste des options de ligne de commande disponibles pour Talkcoin.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+19"/>
         <source>&amp;Show</source>
         <translation>&amp;Afficher</translation>
     </message>
@@ -1320,17 +1356,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Console</translation>
     </message>
     <message>
-        <location line="-260"/>
+        <location line="-293"/>
         <source>Build date</source>
         <translation>Date de compilation</translation>
     </message>
     <message>
-        <location line="-104"/>
+        <location line="-381"/>
         <source>Talkcoin - Debug window</source>
         <translation>Talkcoin - Fenêtre de débogage</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+302"/>
         <source>Talkcoin Core</source>
         <translation>Noyau Talkcoin</translation>
     </message>
@@ -1345,7 +1381,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Ouvrir le journal de débogage de Talkcoin depuis le répertoire de données actuel. Cela peut prendre quelques secondes pour les journaux de grande taille.</translation>
     </message>
     <message>
-        <location line="+102"/>
+        <location line="+163"/>
         <source>Clear console</source>
         <translation>Nettoyer la console</translation>
     </message>
@@ -1368,7 +1404,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>SendCoinsDialog</name>
     <message>
-        <location filename="../forms/sendcoinsdialog.ui" line="+14"/>
+        <location filename="../forms/sendcoinsdialog.ui" line="+20"/>
         <location filename="../sendcoinsdialog.cpp" line="+179"/>
         <location line="+5"/>
         <location line="+5"/>
@@ -1380,27 +1416,27 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Envoyer des pièces</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+82"/>
         <source>Coin Control Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+38"/>
         <source>Inputs...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+13"/>
         <source>automatically selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+21"/>
         <source>Insufficient funds!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+77"/>
+        <location line="+86"/>
         <source>Quantity:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1450,17 +1486,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+59"/>
         <source>custom change address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+106"/>
+        <location line="+163"/>
         <source>Send to multiple recipients at once</source>
         <translation>Envoyer des pièces à plusieurs destinataires à la fois</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Add &amp;Recipient</source>
         <translation>Ajouter un &amp;destinataire</translation>
     </message>
@@ -1470,17 +1506,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Enlever tous les champs de transaction</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Clear &amp;All</source>
         <translation>&amp;Tout nettoyer</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+30"/>
         <source>Balance:</source>
         <translation>Solde :</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+18"/>
         <source>123.456 TAC</source>
         <translation type="unfinished">123.456 TAC</translation>
     </message>
@@ -1490,7 +1526,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Confirmer l’action d&apos;envoi</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>S&amp;end</source>
         <translation>E&amp;nvoyer</translation>
     </message>
@@ -1618,17 +1654,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>SendCoinsEntry</name>
     <message>
-        <location filename="../forms/sendcoinsentry.ui" line="+14"/>
+        <location filename="../forms/sendcoinsentry.ui" line="+20"/>
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+25"/>
         <source>A&amp;mount:</source>
         <translation>&amp;Montant :</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>Pay &amp;To:</source>
         <translation>Payer &amp;à :</translation>
     </message>
@@ -1637,28 +1673,28 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="obsolete">L&apos;adresse à laquelle le paiement sera envoyé (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
-        <location line="+94"/>
+        <location line="+198"/>
         <location filename="../sendcoinsentry.cpp" line="+26"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Entrez une étiquette pour cette adresse afin de l’ajouter à votre carnet d’adresses</translation>
     </message>
     <message>
-        <location line="-78"/>
+        <location line="-167"/>
         <source>&amp;Label:</source>
         <translation>&amp;Étiquette :</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+35"/>
         <source>The address to send the payment to (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+34"/>
         <source>Choose address from address book</source>
         <translation>Choisir une adresse dans le carnet d&apos;adresses</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+26"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
@@ -1668,7 +1704,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Coller une adresse depuis le presse-papiers</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+27"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
@@ -1690,12 +1726,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+14"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+20"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>Signatures - Signer / Vérifier un message</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+23"/>
         <source>&amp;Sign Message</source>
         <translation>&amp;Signer un message</translation>
     </message>
@@ -1710,24 +1746,24 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>L&apos;adresse avec laquelle le message sera signé (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
-        <location line="+10"/>
-        <location line="+213"/>
+        <location line="+30"/>
+        <location line="+329"/>
         <source>Choose an address from the address book</source>
         <translation>Choisir une adresse depuis le carnet d&apos;adresses</translation>
     </message>
     <message>
-        <location line="-203"/>
-        <location line="+213"/>
+        <location line="-306"/>
+        <location line="+329"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="-203"/>
+        <location line="-319"/>
         <source>Paste address from clipboard</source>
         <translation>Coller une adresse depuis le presse-papiers</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+23"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
@@ -1737,22 +1773,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Entrez ici le message que vous désirez signer</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+18"/>
         <source>Signature</source>
         <translation>Signature</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+47"/>
         <source>Copy the current signature to the system clipboard</source>
         <translation>Copier la signature actuelle dans le presse-papiers</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+34"/>
         <source>Sign the message to prove you own this Talkcoin address</source>
         <translation>Signer le message pour prouver que vous détenez cette adresse Talkcoin</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>Sign &amp;Message</source>
         <translation>Signer le &amp;message</translation>
     </message>
@@ -1762,13 +1798,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Remettre à zéro tous les champs de signature de message</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <location line="+146"/>
+        <location line="+16"/>
+        <location line="+238"/>
         <source>Clear &amp;All</source>
         <translation>&amp;Tout nettoyer</translation>
     </message>
     <message>
-        <location line="-87"/>
+        <location line="-179"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Vérifier un message</translation>
     </message>
@@ -1783,12 +1819,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>L&apos;adresse avec laquelle le message a été signé (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
-        <location line="+40"/>
+        <location line="+107"/>
         <source>Verify the message to ensure it was signed with the specified Talkcoin address</source>
         <translation>Vérifier le message pour vous assurer qu&apos;il a bien été signé par l&apos;adresse Talkcoin spécifiée</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>Verify &amp;Message</source>
         <translation>Vérifier un &amp;message</translation>
     </message>
@@ -1802,7 +1838,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="obsolete">Entrez une adresse Talkcoin (par ex. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+27"/>
+        <location filename="../signverifymessagedialog.cpp" line="+41"/>
         <location line="+3"/>
         <source>Enter a Talkcoin address (e.g. TityLcNJr19fC3GREkNbyi5YFpN26iLjEZ)</source>
         <translation type="unfinished"></translation>
@@ -1908,17 +1944,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TalkcoinGUI</name>
     <message>
-        <location filename="../talkcoingui.cpp" line="+248"/>
+        <location filename="../talkcoingui.cpp" line="+262"/>
         <source>Sign &amp;message...</source>
         <translation>Signer un &amp;message...</translation>
     </message>
     <message>
-        <location line="+305"/>
+        <location line="+340"/>
         <source>Synchronizing with network...</source>
         <translation>Synchronisation avec le réseau…</translation>
     </message>
     <message>
-        <location line="-383"/>
+        <location line="-419"/>
         <source>&amp;Overview</source>
         <translation>&amp;Vue d&apos;ensemble</translation>
     </message>
@@ -1928,7 +1964,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Afficher une vue d’ensemble du porte-monnaie</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+28"/>
         <source>&amp;Transactions</source>
         <translation>&amp;Transactions</translation>
     </message>
@@ -1993,7 +2029,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Modifier la phrase de passe...</translation>
     </message>
     <message>
-        <location line="+310"/>
+        <location line="+345"/>
         <source>Importing blocks from disk...</source>
         <translation>Importation des blocs depuis le disque...</translation>
     </message>
@@ -2003,7 +2039,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Réindexation des blocs sur le disque...</translation>
     </message>
     <message>
-        <location line="-374"/>
+        <location line="-409"/>
         <source>Send coins to a Talkcoin address</source>
         <translation>Envoyer des pièces à une adresse Talkcoin</translation>
     </message>
@@ -2038,18 +2074,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Vérifier un message...</translation>
     </message>
     <message>
-        <location line="-177"/>
-        <location line="+567"/>
+        <location line="-191"/>
+        <location line="+616"/>
         <source>Talkcoin</source>
         <translation>Talkcoin</translation>
     </message>
     <message>
-        <location line="-567"/>
+        <location line="-616"/>
         <source>Wallet</source>
         <translation>Porte-monnaie</translation>
     </message>
     <message>
-        <location line="+104"/>
+        <location line="+117"/>
         <source>&amp;Messaging</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2059,7 +2095,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>&amp;Send</source>
         <translation>&amp;Envoyer</translation>
     </message>
@@ -2104,27 +2140,27 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Vérifier les messages pour vous assurer qu&apos;ils ont bien été signés avec les adresses Talkcoin spécifiées</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+42"/>
         <source>&amp;File</source>
         <translation>&amp;Fichier</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>&amp;Settings</source>
         <translation>&amp;Réglages</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Tabs toolbar</source>
         <translation>Barre d&apos;outils des onglets</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+36"/>
         <location line="+10"/>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
@@ -2468,12 +2504,12 @@ Adresse : %4
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+14"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+20"/>
         <source>Transaction details</source>
         <translation>Détails de la transaction</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+17"/>
         <source>This pane shows a detailed description of the transaction</source>
         <translation>Ce panneau affiche une description détaillée de la transaction</translation>
     </message>
@@ -2605,7 +2641,7 @@ Adresse : %4
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+52"/>
+        <location filename="../transactionview.cpp" line="+57"/>
         <location line="+16"/>
         <source>All</source>
         <translation>Toutes</translation>
@@ -2666,7 +2702,7 @@ Adresse : %4
         <translation>Autres</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+11"/>
         <source>Enter address or label to search</source>
         <translation>Entrez une adresse ou une étiquette à rechercher</translation>
     </message>
@@ -2676,7 +2712,7 @@ Adresse : %4
         <translation>Montant min</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+39"/>
         <source>Copy address</source>
         <translation>Copier l’adresse</translation>
     </message>
@@ -2706,7 +2742,7 @@ Adresse : %4
         <translation>Afficher les détails de la transaction</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+153"/>
         <source>Export Transaction Data</source>
         <translation>Exporter les données des transactions</translation>
     </message>

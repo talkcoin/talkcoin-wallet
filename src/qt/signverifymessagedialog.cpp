@@ -22,6 +22,20 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->addressIn_SM->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+                                     alternate-background-color: blue; \
+                                     background-color: rgb(89,38,68); \
+                                     selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+    ui->signatureOut_SM->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+                                        background-color: rgb(89,38,68); \
+                                        selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+    ui->addressIn_VM->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+                                     background-color: rgb(89,38,68); \
+                                     selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+    ui->signatureIn_VM->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+                                       background-color: rgb(89,38,68); \
+                                       selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
     ui->addressIn_SM->setPlaceholderText(tr("Enter a Talkcoin address (e.g. TityLcNJr19fC3GREkNbyi5YFpN26iLjEZ)"));

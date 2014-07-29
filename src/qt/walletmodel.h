@@ -31,7 +31,6 @@ public:
     qint64 amount;
 
     int64 vote;
-
     QString nick;
     QString message;
     QString data;

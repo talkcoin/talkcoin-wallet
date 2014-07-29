@@ -10,8 +10,18 @@
     <height>126</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans MT</family>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Edit Address</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(103, 47, 82);
+color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -21,6 +31,18 @@
      </property>
      <item row="0" column="0">
       <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="text">
         <string>&amp;Label</string>
        </property>
@@ -34,10 +56,42 @@
        <property name="toolTip">
         <string>The label associated with this address book entry</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+background-color: rgb(103, 47, 82);
+border-color:rgb(255,255,255);
+border-width: 2px;
+color: rgb(255, 255, 255);
+}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="text">
         <string>&amp;Address</string>
        </property>
@@ -51,12 +105,38 @@
        <property name="toolTip">
         <string>The address associated with this address book entry. This can only be modified for sending addresses.</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+background-color: rgb(103, 47, 82);
+border-color:rgb(255,255,255);
+border-width: 2px;
+color: rgb(255, 255, 255);
+}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
     </layout>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(62,29,67);}</string>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>

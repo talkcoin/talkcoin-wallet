@@ -10,10 +10,20 @@
     <height>400</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans MT</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Send Coins</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0">
+  <property name="styleSheet">
+   <string notr="true">color: rgb(255, 255, 255);
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0,0">
    <property name="bottomMargin">
     <number>8</number>
    </property>
@@ -39,7 +49,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayoutCoinControl2">
       <property name="spacing">
-       <number>-1</number>
+       <number>6</number>
       </property>
       <property name="leftMargin">
        <number>0</number>
@@ -79,6 +89,8 @@
             </property>
             <property name="font">
              <font>
+              <family>Gill Sans MT</family>
+              <pointsize>10</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -103,8 +115,26 @@
           </property>
           <item>
            <widget class="QPushButton" name="pushButtonCoinControl">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(103,47,82);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
             </property>
             <property name="text">
              <string>Inputs...</string>
@@ -113,6 +143,12 @@
           </item>
           <item>
            <widget class="QLabel" name="labelCoinControlAutomaticallySelected">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>automatically selected</string>
             </property>
@@ -125,6 +161,8 @@
            <widget class="QLabel" name="labelCoinControlInsuffFunds">
             <property name="font">
              <font>
+              <family>Gill Sans MT</family>
+              <pointsize>10</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -173,7 +211,16 @@
            <string notr="true"/>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayoutCoinControl5">
-           <property name="margin">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
             <number>0</number>
            </property>
            <item>
@@ -555,6 +602,15 @@
           </property>
           <item>
            <widget class="QCheckBox" name="checkBoxCoinControlChange">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>custom change address</string>
             </property>
@@ -570,6 +626,41 @@
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+background-color: rgb(89,38,68);
+font-size:11pt;font-family:'Gill Sans MT';
+color: white;
+}
+QLineEdit:hover {
+background-color: rgb(89,38,68);
+font-size:11pt;font-family:'Gill Sans MT';
+color: white;
+}
+
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -626,11 +717,20 @@
         <x>0</x>
         <y>0</y>
         <width>830</width>
-        <height>165</height>
+        <height>113</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="margin">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>
@@ -658,11 +758,30 @@
     </widget>
    </item>
    <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="addButton">
        <property name="toolTip">
         <string>Send to multiple recipients at once</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(103,47,82);}</string>
        </property>
        <property name="text">
         <string>Add &amp;Recipient</string>
@@ -687,6 +806,12 @@
        <property name="toolTip">
         <string>Remove all transaction fields</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(103,47,82);}</string>
+       </property>
        <property name="text">
         <string>Clear &amp;All</string>
        </property>
@@ -709,6 +834,14 @@
        </property>
        <item>
         <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <family>Gill Sans MT</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Balance:</string>
          </property>
@@ -716,6 +849,14 @@
        </item>
        <item>
         <widget class="QLabel" name="labelBalance">
+         <property name="font">
+          <font>
+           <family>Gill Sans MT</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
          </property>
@@ -752,6 +893,12 @@
        </property>
        <property name="toolTip">
         <string>Confirm the send action</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(103,47,82);}</string>
        </property>
        <property name="text">
         <string>S&amp;end</string>

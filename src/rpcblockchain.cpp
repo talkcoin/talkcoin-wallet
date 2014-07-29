@@ -6,6 +6,7 @@
 
 #include "main.h"
 #include "talkcoinrpc.h"
+#include "base58.h"
 
 using namespace json_spirit;
 using namespace std;
@@ -298,3 +299,45 @@ Value verifychain(const Array& params, bool fHelp)
     return VerifyDB(nCheckLevel, nCheckDepth);
 }
 
+Value getchat(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "getchat <group>\n"
+            "Returns the latest messages in a chat room.\n"
+            "(room: #talkcoin or #yourchan)");
+
+    std::string strCommand = params[0].get_str();
+    Array ret;
+
+    const unsigned int tlk_size1 = sizeof(TLK_C1)/sizeof(TLK_C1[0]) - 1;
+    const unsigned int tlk_size2 = sizeof(TLK_C1[0])/sizeof(TLK_C1[0][0]);
+    std::string TLK___[tlk_size1][tlk_size2];
+
+    if (FormatChan(strCommand) == TLK_CHAN[0][0])
+        std::copy(&TLK_C1[0][0], &TLK_C1[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+    else if (FormatChan(strCommand) == TLK_CHAN[1][0])
+        std::copy(&TLK_C2[0][0], &TLK_C2[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+
+    for (unsigned int i = 0; i < tlk_size1; i++)
+    {
+        if (!TLK___[i][0].empty())
+        {
+            std::string time = TLK___[i][2];
+            std::string nick = TLK___[i][3];
+            std::string msg  = TLK___[i][4];
+
+            if (atoi(TLK___[i][1].c_str()) == GET_V_CHATB(nBestHeight))
+                msg = "<b>" + msg + "</b>";
+
+            Object obj;
+            obj.push_back(Pair("time", time));
+            obj.push_back(Pair("nick", nick));
+            obj.push_back(Pair("message", msg));
+
+            ret.push_back(obj);
+        }
+    }
+
+    return ret;
+}

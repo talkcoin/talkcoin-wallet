@@ -6,18 +6,47 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>620</width>
+    <width>700</width>
     <height>250</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans MT</family>
+    <pointsize>11</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Transaction details</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(103, 47, 82);
+color: rgb(255, 255, 255);
+selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100))</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTextEdit" name="detailText">
+     <property name="font">
+      <font>
+       <family>Gill Sans MT</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="toolTip">
       <string>This pane shows a detailed description of the transaction</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
      </property>
      <property name="readOnly">
       <bool>true</bool>
@@ -26,6 +55,27 @@
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="font">
+      <font>
+       <family>Gill Sans MT</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(62,29,67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>

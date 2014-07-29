@@ -49,6 +49,11 @@ TransactionView::TransactionView(QWidget *parent) :
 #else
     dateWidget->setFixedWidth(120);
 #endif
+
+    dateWidget->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+                               background-color: rgb(89,38,68); \
+                               selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+
     dateWidget->addItem(tr("All"), All);
     dateWidget->addItem(tr("Today"), Today);
     dateWidget->addItem(tr("This week"), ThisWeek);
@@ -73,6 +78,10 @@ TransactionView::TransactionView(QWidget *parent) :
     typeWidget->addItem(tr("To yourself"), TransactionFilterProxy::TYPE(TransactionRecord::SendToSelf));
     typeWidget->addItem(tr("Mined"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
     typeWidget->addItem(tr("Other"), TransactionFilterProxy::TYPE(TransactionRecord::Other));
+
+    typeWidget->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+                               background-color: rgb(89,38,68); \
+                               selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
 
     hlayout->addWidget(typeWidget);
 
@@ -117,6 +126,11 @@ TransactionView::TransactionView(QWidget *parent) :
     view->setTabKeyNavigation(false);
     view->setContextMenuPolicy(Qt::CustomContextMenu);
 
+    view->setStyleSheet("font-size:11pt;font-family:'Gill Sans MT'; \
+                         background-color: rgb(89,38,68); \
+                         alternate-background-color: rgb(103,47,82); \
+                         selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+
     transactionView = view;
 
     // Actions
@@ -128,6 +142,11 @@ TransactionView::TransactionView(QWidget *parent) :
     QAction *showDetailsAction = new QAction(tr("Show transaction details"), this);
 
     contextMenu = new QMenu();
+
+    contextMenu->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+                                background-color: rgb(89,38,68); \
+                                selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+
     contextMenu->addAction(copyAddressAction);
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(copyAmountAction);
@@ -191,6 +210,11 @@ void TransactionView::chooseDate(int idx)
         return;
     QDate current = QDate::currentDate();
     dateRangeWidget->setVisible(false);
+
+    dateRangeWidget->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+                                    background-color: rgb(89,38,68); \
+                                    selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+
     switch(dateWidget->itemData(idx).toInt())
     {
     case All:

@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = talkcoin-qt
 macx:TARGET = "Talkcoin-Qt"
-VERSION = 1.3.1.0
+VERSION = 1.4.0.0
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -101,6 +101,25 @@ contains(TALKCOIN_NEED_QT_PLUGINS, 1) {
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
 
+# CryptoPP
+LIBS += $$PWD/src/cryptopp/libcryptopp.a
+!win32 {
+    gencryptopp.commands = cd $$PWD/src/cryptopp && CC=$$QMAKE_CC CXX=$$QMAKE_CXX $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" static
+} else {
+    # make an educated guess about what the ranlib command is called
+    isEmpty(QMAKE_RANLIB) {
+        QMAKE_RANLIB = $$replace(QMAKE_STRIP, strip, ranlib)
+    }
+    LIBS += -lshlwapi
+    gencryptopp.commands = cd $$PWD/src/cryptopp && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" static && $$QMAKE_RANLIB $$PWD/src/cryptopp/libcryptopp.a
+}
+gencryptopp.target = $$PWD/src/cryptopp/libcryptopp.a
+gencryptopp.depends = FORCE
+PRE_TARGETDEPS += $$PWD/src/cryptopp/libcryptopp.a
+QMAKE_EXTRA_TARGETS += gencryptopp
+QMAKE_CLEAN += $$PWD/src/cryptopp/libcryptopp.a; cd $$PWD/src/cryptopp ; $(MAKE) clean
+
+# LevelDB
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
 !win32 {
@@ -225,7 +244,8 @@ HEADERS += src/qt/talkcoingui.h \
     src/sph_groestl.h \
     src/sph_jh.h \
     src/sph_keccak.h \
-    src/sph_skein.h
+    src/sph_skein.h \
+    src/xtalk.h
 
 SOURCES += src/qt/talkcoin.cpp \
     src/qt/talkcoingui.cpp \
@@ -301,7 +321,8 @@ SOURCES += src/qt/talkcoin.cpp \
     src/groestl.c \
     src/jh.c \
     src/keccak.c \
-    src/skein.c
+    src/skein.c \
+    src/xtalk.cpp
 
 RESOURCES += src/qt/talkcoin.qrc
 
@@ -431,7 +452,7 @@ macx:QMAKE_INFO_PLIST = share/qt/Info.plist
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
 INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
 LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
-LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
+LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX ./src/cryptopp/libcryptopp.a
 # -lgdi32 has to happen after -lcrypto (see  #681)
 win32:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
 LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_THREAD_LIB_SUFFIX

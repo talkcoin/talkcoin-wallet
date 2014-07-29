@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>About Talkcoin</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(103, 47, 82);
+color: rgb(255, 255, 255);</string>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
     <widget class="QLabel" name="label_4">

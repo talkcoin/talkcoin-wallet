@@ -10,8 +10,18 @@
     <height>530</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans MT</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>QR Code Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(103, 47, 82);
+color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -53,6 +63,18 @@
        <height>50</height>
       </size>
      </property>
+     <property name="styleSheet">
+      <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+     </property>
      <property name="tabChangesFocus">
       <bool>true</bool>
      </property>
@@ -69,6 +91,18 @@
         <property name="enabled">
          <bool>true</bool>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+        </property>
         <property name="text">
          <string>Request Payment</string>
         </property>
@@ -81,6 +115,18 @@
         </property>
         <item row="1" column="0">
          <widget class="QLabel" name="lblLabel">
+          <property name="styleSheet">
+           <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+          </property>
           <property name="text">
            <string>Label:</string>
           </property>
@@ -96,10 +142,46 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lnLabel"/>
+         <widget class="QLineEdit" name="lnLabel">
+          <property name="font">
+           <font>
+            <family>Gill Sans MT</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit{
+background-color: rgb(62,29,67);
+}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="lblMessage">
+          <property name="styleSheet">
+           <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+          </property>
           <property name="text">
            <string>Message:</string>
           </property>
@@ -115,7 +197,28 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="lnMessage"/>
+         <widget class="QLineEdit" name="lnMessage">
+          <property name="styleSheet">
+           <string notr="true">QLineEdit
+{
+background-color: rgb(62,29,67);
+}
+
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+          </property>
+          <property name="frame">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item row="0" column="0">
          <widget class="QLabel" name="lblAmount">
@@ -124,6 +227,18 @@
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
           </property>
           <property name="text">
            <string>Amount:</string>
@@ -150,6 +265,20 @@
             <height>0</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">TalkcoinAmountField{
+border-color: rgb(62,29,67);}
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+          </property>
          </widget>
         </item>
        </layout>
@@ -171,6 +300,21 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnSaveAs">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(62,29,67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+          </property>
           <property name="text">
            <string>&amp;Save As...</string>
           </property>
@@ -188,6 +332,7 @@
    <class>TalkcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>talkcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -10,7 +10,7 @@
         <translation>Σχετικά με το Talkcoin</translation>
     </message>
     <message>
-        <location line="+39"/>
+        <location line="+43"/>
         <source>&lt;b&gt;Talkcoin&lt;/b&gt; version</source>
         <translation>Έκδοση Talkcoin</translation>
     </message>
@@ -52,27 +52,27 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>AddressBookPage</name>
     <message>
-        <location filename="../forms/addressbookpage.ui" line="+14"/>
+        <location filename="../forms/addressbookpage.ui" line="+20"/>
         <source>Address Book</source>
         <translation>Βιβλίο Διευθύνσεων</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+31"/>
         <source>Double-click to edit address or label</source>
         <translation>Διπλό-κλικ για επεξεργασία της διεύθυνσης ή της ετικέτας</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+45"/>
         <source>Create a new address</source>
         <translation>Δημιούργησε νέα διεύθυνση</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+34"/>
         <source>Copy the currently selected address to the system clipboard</source>
         <translation>Αντέγραψε την επιλεγμένη διεύθυνση στο πρόχειρο του συστήματος</translation>
     </message>
     <message>
-        <location line="-11"/>
+        <location line="-17"/>
         <source>&amp;New Address</source>
         <translation>&amp;Νέα διεύθυνση</translation>
     </message>
@@ -82,52 +82,52 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Αυτές είναι οι Talkcoin διευθύνσεις σας για να λαμβάνετε πληρωμές. Δίνοντας μία ξεχωριστή διεύθυνση σε κάθε αποστολέα, θα μπορείτε να ελέγχετε ποιος σας πληρώνει.</translation>
     </message>
     <message>
-        <location filename="../forms/addressbookpage.ui" line="+14"/>
+        <location filename="../forms/addressbookpage.ui" line="+34"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Αντιγραφή διεύθυνσης</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+30"/>
         <source>Show &amp;QR Code</source>
         <translation>Δείξε &amp;QR κωδικα</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+17"/>
         <source>Sign a message to prove you own a Talkcoin address</source>
         <translation>Υπογράψτε ένα μήνυμα για ν&apos; αποδείξετε πως σας ανήκει μια συγκεκριμένη διεύθυνση Talkcoin</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>Sign &amp;Message</source>
         <translation>&amp;Υπέγραψε το μήνυμα</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+50"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Αντιγραφη της επιλεγμενης διεύθυνσης στο πρόχειρο του συστηματος</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+46"/>
         <source>Export the data in the current tab to a file</source>
         <translation>Εξαγωγή δεδομένων καρτέλας σε αρχείο</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>&amp;Export</source>
         <translation>&amp;Εξαγωγή</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="-95"/>
         <source>Verify a message to ensure it was signed with a specified Talkcoin address</source>
         <translation>Υπογράψτε ένα μήνυμα για ν&apos; αποδείξετε πως ανήκει μια συγκεκριμένη διεύθυνση Talkcoin</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Επιβεβαίωση μηνύματος</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+33"/>
         <source>&amp;Delete</source>
         <translation>&amp;Διαγραφή</translation>
     </message>
@@ -152,7 +152,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Αποστολή νομισμάτων</translation>
     </message>
     <message>
-        <location line="+265"/>
+        <location line="+274"/>
         <source>Export Address Book Data</source>
         <translation>Εξαγωγή Δεδομενων Βιβλίου Διευθύνσεων</translation>
     </message>
@@ -198,17 +198,17 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Φράση πρόσβασης </translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+33"/>
         <source>Enter passphrase</source>
         <translation>Βάλτε κωδικό πρόσβασης</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+249"/>
         <source>New passphrase</source>
         <translation>Νέος κωδικός πρόσβασης</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+40"/>
         <source>Repeat new passphrase</source>
         <translation>Επανέλαβε τον νέο κωδικό πρόσβασης</translation>
     </message>
@@ -343,37 +343,37 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+14"/>
+        <location filename="../forms/coincontroldialog.ui" line="+20"/>
         <source>Coin Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+154"/>
         <source>Quantity:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+268"/>
         <source>Bytes:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+284"/>
         <source>Amount:</source>
         <translation type="unfinished">Ποσό:</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+268"/>
         <source>Priority:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+284"/>
         <source>Fee:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+153"/>
         <source>Low Output:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -384,42 +384,42 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+147"/>
         <source>After Fee:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+153"/>
         <source>Change:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+69"/>
+        <location line="+289"/>
         <source>(un)select all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+16"/>
         <source>Tree mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+19"/>
         <source>List mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+10"/>
         <source>(1 locked)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+106"/>
         <source>Amount</source>
         <translation type="unfinished">Ποσό</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+23"/>
         <source>Address</source>
         <translation type="unfinished">Διεύθυνση</translation>
     </message>
@@ -613,12 +613,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+14"/>
+        <location filename="../forms/editaddressdialog.ui" line="+20"/>
         <source>Edit Address</source>
         <translation>Επεξεργασία Διεύθυνσης</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+27"/>
         <source>&amp;Label</source>
         <translation>&amp;Επιγραφή</translation>
     </message>
@@ -628,7 +628,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Η επιγραφή που σχετίζεται με αυτή την καταχώρηση του βιβλίου διευθύνσεων</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+39"/>
         <source>&amp;Address</source>
         <translation>&amp;Διεύθυνση</translation>
     </message>
@@ -738,12 +738,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+14"/>
+        <location filename="../forms/optionsdialog.ui" line="+20"/>
         <source>Options</source>
         <translation>Ρυθμίσεις</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+25"/>
         <source>&amp;Main</source>
         <translation>&amp;Κύριο</translation>
     </message>
@@ -753,17 +753,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Η προαιρετική αμοιβή για κάθε kB επισπεύδει την επεξεργασία των συναλλαγών σας. Οι περισσότερες συναλλαγές είναι 1 kB. </translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+27"/>
         <source>Pay transaction &amp;fee</source>
         <translation>Αμοιβή &amp;συναλλαγής</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+44"/>
         <source>Automatically start Talkcoin after logging in to the system.</source>
         <translation>Αυτόματη εκκίνηση του Talkcoin μετά την εισαγωγή στο σύστημα</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>&amp;Start Talkcoin on system login</source>
         <translation>&amp;Έναρξη του Βιtcoin κατά την εκκίνηση του συστήματος</translation>
     </message>
@@ -773,7 +773,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Επαναφορα όλων των επιλογων του πελάτη σε default.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+29"/>
         <source>&amp;Reset Options</source>
         <translation>Επαναφορα ρυθμίσεων</translation>
     </message>
@@ -788,7 +788,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Αυτόματο άνοιγμα των θυρών Talkcoin στον δρομολογητή. Λειτουργεί μόνο αν ο δρομολογητής σας υποστηρίζει τη λειτουργία UPnP.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>Map port using &amp;UPnP</source>
         <translation>Απόδοση θυρών με χρήστη &amp;UPnP</translation>
     </message>
@@ -798,12 +798,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Σύνδεση στο Talkcoin δίκτυο μέσω διαμεσολαβητή SOCKS4 (π.χ. για σύνδεση μέσω Tor)</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>&amp;Connect through SOCKS proxy:</source>
         <translation>&amp;Σύνδεση μέσω διαμεσολαβητή SOCKS</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+21"/>
         <source>Proxy &amp;IP:</source>
         <translation>&amp;IP διαμεσολαβητή:</translation>
     </message>
@@ -813,7 +813,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Διεύθυνση IP του διαμεσολαβητή (π.χ. 127.0.0.1)</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+19"/>
         <source>&amp;Port:</source>
         <translation>&amp;Θύρα:</translation>
     </message>
@@ -823,7 +823,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Θύρα διαμεσολαβητή</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+31"/>
         <source>SOCKS &amp;Version:</source>
         <translation>SOCKS &amp;Έκδοση:</translation>
     </message>
@@ -833,7 +833,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>SOCKS εκδοση του διαμεσολαβητη (e.g. 5)</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+49"/>
         <source>&amp;Window</source>
         <translation>&amp;Παράθυρο</translation>
     </message>
@@ -843,7 +843,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Εμφάνιση  μόνο εικονιδίου στην περιοχή ειδοποιήσεων κατά την ελαχιστοποίηση</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>&amp;Minimize to the tray instead of the taskbar</source>
         <translation>&amp;Ελαχιστοποίηση στην περιοχή ειδοποιήσεων αντί της γραμμής εργασιών</translation>
     </message>
@@ -853,7 +853,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Ελαχιστοποίηση αντί για έξοδο κατά το κλείσιμο του παραθύρου</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>M&amp;inimize on close</source>
         <translation>Ε&amp;λαχιστοποίηση κατά το κλείσιμο</translation>
     </message>
@@ -863,57 +863,57 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>%Απεικόνιση</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+26"/>
         <source>User Interface &amp;language:</source>
         <translation>Γλώσσα περιβάλλοντος εργασίας: </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>The user interface language can be set here. This setting will take effect after restarting Talkcoin.</source>
         <translation>Εδώ μπορεί να ρυθμιστεί η γλώσσα διεπαφής χρήστη. Αυτή η ρύθμιση θα ισχύσει μετά την επανεκκίνηση του Talkcoin.</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+41"/>
         <source>&amp;Unit to show amounts in:</source>
         <translation>&amp;Μονάδα μέτρησης:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>Διαλέξτε την προεπιλεγμένη υποδιαίρεση που θα εμφανίζεται όταν στέλνετε νομίσματα.</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+27"/>
         <source>Whether to show Talkcoin addresses in the transaction list or not.</source>
         <translation>Επιλέξτε αν θέλετε να εμφανίζονται οι διευθύνσεις Talkcoin στη λίστα συναλλαγών.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>&amp;Display addresses in transaction list</source>
         <translation>Εμφάνιση διευθύνσεων στη λίστα συναλλαγών</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+13"/>
         <source>Whether to show coin control features or not.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+15"/>
         <source>Display coin &amp;control features (experts only!)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+92"/>
         <source>&amp;OK</source>
         <translation>&amp;ΟΚ</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+28"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+31"/>
         <source>&amp;Apply</source>
         <translation>&amp;Εφαρμογή</translation>
     </message>
@@ -958,104 +958,131 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+14"/>
+        <location filename="../forms/overviewpage.ui" line="+17"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location line="+79"/>
-        <location line="+194"/>
+        <location line="+84"/>
+        <location line="+556"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Οι πληροφορίες που εμφανίζονται μπορεί να είναι ξεπερασμένες. Το πορτοφόλι σας συγχρονίζεται αυτόματα με το δίκτυο Talkcoin μετά από μια σύνδεση, αλλά αυτή η διαδικασία δεν έχει ακόμη ολοκληρωθεί. </translation>
     </message>
     <message>
-        <location line="-147"/>
+        <location line="-463"/>
         <source>Balance:</source>
         <translation>Υπόλοιπο</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>Unconfirmed:</source>
         <translation>Ανεπιβεβαίωτες</translation>
     </message>
     <message>
-        <location line="+204"/>
+        <location line="+165"/>
+        <source>  TAC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Current reward:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-81"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time to next vote:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+130"/>
         <source>lblInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="-81"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your vote:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+226"/>
+        <source>Recent transactions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+367"/>
+        <source>Chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+394"/>
+        <source>List of emoticons
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-968"/>
         <source>lblVoteInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+25"/>
-        <source>Block Reward:</source>
+        <location line="+83"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#550000;&quot;&gt;Press the button to cast your vote&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <extracomment>Press the button to cast your vote</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source> TAC</source>
+        <location line="+3"/>
+        <source>blabla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+50"/>
         <source>Auto Voting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="-99"/>
+        <location line="+71"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+791"/>
-        <source>B</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+81"/>
-        <source>Send</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-1272"/>
+        <location line="-394"/>
         <source>Wallet</source>
         <translation>Πορτοφόλι</translation>
     </message>
     <message>
-        <location line="+129"/>
+        <location line="+120"/>
         <source>Immature:</source>
         <translation>Ανώριμος</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="-19"/>
         <source>Mined balance that has not yet matured</source>
         <translation>Εξορυγμενο υπόλοιπο που δεν έχει ακόμα ωριμάσει </translation>
     </message>
     <message>
-        <location line="+51"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Πρόσφατες συναλλαγές&lt;/b&gt;</translation>
+        <translation type="obsolete">&lt;b&gt;Πρόσφατες συναλλαγές&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-118"/>
+        <location line="-77"/>
         <source>Your current balance</source>
         <translation>Το τρέχον υπόλοιπο</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+37"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>Το άθροισμα των συναλλαγών που δεν έχουν ακόμα επιβεβαιωθεί και δεν προσμετρώνται στο τρέχον υπόλοιπό σας</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+151"/>
+        <location filename="../overviewpage.cpp" line="+131"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>εκτός συγχρονισμού</translation>
     </message>
     <message>
-        <location line="+83"/>
+        <location line="+78"/>
         <source>Nickname</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1065,17 +1092,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+37"/>
-        <source>Current reward: </source>
+        <location line="+28"/>
+        <source> votes)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source> hours remaining before the voting begins</source>
+        <location line="+5"/>
+        <source> hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+0"/>
+        <source> hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>Voting is open</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1085,11 +1117,16 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+135"/>
+        <location line="+12"/>
+        <source>To create your own chat room, start talkcoin-qt with the flag &lt;i&gt;-chan=#yourchan&lt;/i&gt; &lt;i&gt;-chanpassword=yourpassword&lt;/i&gt; (an associated password is optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+136"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
-        <location line="+102"/>
+        <location line="+76"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1097,7 +1134,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Αποστολή νομισμάτων</translation>
     </message>
     <message>
-        <location line="-133"/>
+        <location line="-107"/>
         <source>The amount to vote exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1117,7 +1154,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+102"/>
+        <location line="+76"/>
         <source>The amount to chat exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1137,7 +1174,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+166"/>
+        <location line="+141"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation type="unfinished">Το πορτοφόλι είναι &lt;b&gt;κρυπτογραφημένο&lt;/b&gt; και &lt;b&gt;ξεκλείδωτο&lt;/b&gt;</translation>
     </message>
@@ -1147,8 +1184,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Το πορτοφόλι είναι &lt;b&gt;κρυπτογραφημένο&lt;/b&gt; και &lt;b&gt;κλειδωμένο&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+1145"/>
-        <location filename="../overviewpage.cpp" line="-384"/>
+        <location line="-338"/>
         <source>List of emoticons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1164,32 +1200,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+14"/>
+        <location filename="../forms/qrcodedialog.ui" line="+20"/>
         <source>QR Code Dialog</source>
         <translation>Κώδικας QR</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+87"/>
         <source>Request Payment</source>
         <translation>Αίτηση πληρωμής</translation>
     </message>
     <message>
-        <location line="+56"/>
+        <location line="+137"/>
         <source>Amount:</source>
         <translation>Ποσό:</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="-113"/>
         <source>Label:</source>
         <translation>Επιγραφή:</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+55"/>
         <source>Message:</source>
         <translation>Μήνυμα:</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+133"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Αποθήκευση ως...</translation>
     </message>
@@ -1222,7 +1258,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+46"/>
+        <location filename="../forms/rpcconsole.ui" line="+329"/>
         <source>Client name</source>
         <translation>Όνομα Πελάτη</translation>
     </message>
@@ -1296,7 +1332,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Χρόνος τελευταίου μπλοκ</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+69"/>
         <source>&amp;Open</source>
         <translation>&amp;Άνοιγμα</translation>
     </message>
@@ -1311,7 +1347,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Εμφανιση του Talkcoin-Qt μήνυματος βοήθειας για να πάρετε μια λίστα με τις πιθανές επιλογές Talkcoin γραμμής εντολών.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+19"/>
         <source>&amp;Show</source>
         <translation>&amp;Εμφάνιση</translation>
     </message>
@@ -1321,17 +1357,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Κονσόλα</translation>
     </message>
     <message>
-        <location line="-260"/>
+        <location line="-293"/>
         <source>Build date</source>
         <translation>Ημερομηνία κατασκευής</translation>
     </message>
     <message>
-        <location line="-104"/>
+        <location line="-381"/>
         <source>Talkcoin - Debug window</source>
         <translation>Talkcoin - Παράθυρο αποσφαλμάτωσης</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+302"/>
         <source>Talkcoin Core</source>
         <translation>Talkcoin Core</translation>
     </message>
@@ -1346,7 +1382,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Ανοίξτε το αρχείο καταγραφής εντοπισμού σφαλμάτων από τον τρέχοντα κατάλογο δεδομένων. Αυτό μπορεί να πάρει μερικά δευτερόλεπτα για τα μεγάλα αρχεία καταγραφής. </translation>
     </message>
     <message>
-        <location line="+102"/>
+        <location line="+163"/>
         <source>Clear console</source>
         <translation>Καθαρισμός κονσόλας</translation>
     </message>
@@ -1369,7 +1405,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>SendCoinsDialog</name>
     <message>
-        <location filename="../forms/sendcoinsdialog.ui" line="+14"/>
+        <location filename="../forms/sendcoinsdialog.ui" line="+20"/>
         <location filename="../sendcoinsdialog.cpp" line="+179"/>
         <location line="+5"/>
         <location line="+5"/>
@@ -1381,27 +1417,27 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Αποστολή νομισμάτων</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+82"/>
         <source>Coin Control Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+38"/>
         <source>Inputs...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+13"/>
         <source>automatically selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+21"/>
         <source>Insufficient funds!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+77"/>
+        <location line="+86"/>
         <source>Quantity:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1451,17 +1487,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+59"/>
         <source>custom change address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+106"/>
+        <location line="+163"/>
         <source>Send to multiple recipients at once</source>
         <translation>Αποστολή σε πολλούς αποδέκτες ταυτόχρονα</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Add &amp;Recipient</source>
         <translation>&amp;Προσθήκη αποδέκτη</translation>
     </message>
@@ -1471,17 +1507,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Διαγραφή όλων των πεδίων συναλλαγής</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Clear &amp;All</source>
         <translation>Καθαρισμός &amp;Όλων</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+30"/>
         <source>Balance:</source>
         <translation>Υπόλοιπο:</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+18"/>
         <source>123.456 TAC</source>
         <translation type="unfinished">123,456 TAC</translation>
     </message>
@@ -1491,7 +1527,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Επιβεβαίωση αποστολής</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>S&amp;end</source>
         <translation>Αποστολη</translation>
     </message>
@@ -1619,17 +1655,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>SendCoinsEntry</name>
     <message>
-        <location filename="../forms/sendcoinsentry.ui" line="+14"/>
+        <location filename="../forms/sendcoinsentry.ui" line="+20"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+25"/>
         <source>A&amp;mount:</source>
         <translation>&amp;Ποσό:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>Pay &amp;To:</source>
         <translation>Πληρωμή &amp;σε:</translation>
     </message>
@@ -1638,28 +1674,28 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="obsolete">Διεύθυνση αποστολής της πληρωμής  (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
-        <location line="+94"/>
+        <location line="+198"/>
         <location filename="../sendcoinsentry.cpp" line="+26"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Εισάγετε μια επιγραφή για αυτή τη διεύθυνση ώστε να καταχωρηθεί στο βιβλίο διευθύνσεων</translation>
     </message>
     <message>
-        <location line="-78"/>
+        <location line="-167"/>
         <source>&amp;Label:</source>
         <translation>&amp;Επιγραφή</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+35"/>
         <source>The address to send the payment to (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+34"/>
         <source>Choose address from address book</source>
         <translation>Επιλογή διεύθυνσης από το βιβλίο διευθύνσεων</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+26"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
@@ -1669,7 +1705,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Επικόλληση διεύθυνσης από το πρόχειρο</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+27"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
@@ -1691,12 +1727,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+14"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+20"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>Υπογραφές - Είσοδος / Επαλήθευση μήνυματος </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+23"/>
         <source>&amp;Sign Message</source>
         <translation>&amp;Υπογραφή Μηνύματος</translation>
     </message>
@@ -1711,24 +1747,24 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Εισάγετε μια διεύθυνση Talkcoin (π.χ. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
-        <location line="+10"/>
-        <location line="+213"/>
+        <location line="+30"/>
+        <location line="+329"/>
         <source>Choose an address from the address book</source>
         <translation>Επιλογή διεύθυνσης από το βιβλίο διευθύνσεων</translation>
     </message>
     <message>
-        <location line="-203"/>
-        <location line="+213"/>
+        <location line="-306"/>
+        <location line="+329"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="-203"/>
+        <location line="-319"/>
         <source>Paste address from clipboard</source>
         <translation>Επικόλληση διεύθυνσης από το βιβλίο διευθύνσεων</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+23"/>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
@@ -1738,22 +1774,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Εισάγετε εδώ το μήνυμα που θέλετε να υπογράψετε</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+18"/>
         <source>Signature</source>
         <translation>Υπογραφή</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+47"/>
         <source>Copy the current signature to the system clipboard</source>
         <translation>Αντέγραφη της επιλεγμενης διεύθυνσης στο πρόχειρο του συστηματος</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+34"/>
         <source>Sign the message to prove you own this Talkcoin address</source>
         <translation>Υπογράψτε ένα μήνυμα για ν&apos; αποδείξετε πως σας ανήκει μια συγκεκριμένη διεύθυνση Talkcoin</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>Sign &amp;Message</source>
         <translation>Υπογραφη μήνυματος</translation>
     </message>
@@ -1763,13 +1799,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Επαναφορά όλων των πεδίων μήνυματος</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <location line="+146"/>
+        <location line="+16"/>
+        <location line="+238"/>
         <source>Clear &amp;All</source>
         <translation>Καθαρισμός &amp;Όλων</translation>
     </message>
     <message>
-        <location line="-87"/>
+        <location line="-179"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Επιβεβαίωση μηνύματος</translation>
     </message>
@@ -1784,12 +1820,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Εισάγετε μια διεύθυνση Talkcoin (π.χ. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
-        <location line="+40"/>
+        <location line="+107"/>
         <source>Verify the message to ensure it was signed with the specified Talkcoin address</source>
         <translation>Υπογράψτε ένα μήνυμα για ν&apos; αποδείξετε πως υπογραφθηκε απο μια συγκεκριμένη διεύθυνση Talkcoin</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+16"/>
         <source>Verify &amp;Message</source>
         <translation>Επιβεβαίωση μηνύματος</translation>
     </message>
@@ -1803,7 +1839,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="obsolete">Εισάγετε μια διεύθυνση Talkcoin (π.χ. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+27"/>
+        <location filename="../signverifymessagedialog.cpp" line="+41"/>
         <location line="+3"/>
         <source>Enter a Talkcoin address (e.g. TityLcNJr19fC3GREkNbyi5YFpN26iLjEZ)</source>
         <translation type="unfinished"></translation>
@@ -1909,17 +1945,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TalkcoinGUI</name>
     <message>
-        <location filename="../talkcoingui.cpp" line="+248"/>
+        <location filename="../talkcoingui.cpp" line="+262"/>
         <source>Sign &amp;message...</source>
         <translation>Υπογραφή &amp;Μηνύματος...</translation>
     </message>
     <message>
-        <location line="+305"/>
+        <location line="+340"/>
         <source>Synchronizing with network...</source>
         <translation>Συγχρονισμός με το δίκτυο...</translation>
     </message>
     <message>
-        <location line="-383"/>
+        <location line="-419"/>
         <source>&amp;Overview</source>
         <translation>&amp;Επισκόπηση</translation>
     </message>
@@ -1929,7 +1965,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Εμφάνισε γενική εικονα του πορτοφολιού</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+28"/>
         <source>&amp;Transactions</source>
         <translation>&amp;Συναλλαγές</translation>
     </message>
@@ -1994,7 +2030,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Άλλαξε κωδικο πρόσβασης</translation>
     </message>
     <message>
-        <location line="+310"/>
+        <location line="+345"/>
         <source>Importing blocks from disk...</source>
         <translation>Εισαγωγή μπλοκ από τον σκληρο δίσκο ... </translation>
     </message>
@@ -2004,7 +2040,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Φόρτωση ευρετηρίου μπλοκ στον σκληρο δισκο...</translation>
     </message>
     <message>
-        <location line="-374"/>
+        <location line="-409"/>
         <source>Send coins to a Talkcoin address</source>
         <translation>Στείλε νομισματα σε μια διεύθυνση talkcoin</translation>
     </message>
@@ -2039,18 +2075,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Επιβεβαίωση μηνύματος</translation>
     </message>
     <message>
-        <location line="-177"/>
-        <location line="+567"/>
+        <location line="-191"/>
+        <location line="+616"/>
         <source>Talkcoin</source>
         <translation>Talkcoin</translation>
     </message>
     <message>
-        <location line="-567"/>
+        <location line="-616"/>
         <source>Wallet</source>
         <translation>Πορτοφόλι</translation>
     </message>
     <message>
-        <location line="+104"/>
+        <location line="+117"/>
         <source>&amp;Messaging</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2060,7 +2096,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>&amp;Send</source>
         <translation>&amp;Αποστολή</translation>
     </message>
@@ -2105,27 +2141,27 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Υπογράψτε ένα μήνυμα για ν&apos; αποδείξετε πως ανήκει μια συγκεκριμένη διεύθυνση Talkcoin</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+42"/>
         <source>&amp;File</source>
         <translation>&amp;Αρχείο</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>&amp;Settings</source>
         <translation>&amp;Ρυθμίσεις</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>&amp;Help</source>
         <translation>&amp;Βοήθεια</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Tabs toolbar</source>
         <translation>Εργαλειοθήκη καρτελών</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+36"/>
         <location line="+10"/>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
@@ -2471,12 +2507,12 @@ Address: %4
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+14"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+20"/>
         <source>Transaction details</source>
         <translation>Λεπτομέρειες συναλλαγής</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+17"/>
         <source>This pane shows a detailed description of the transaction</source>
         <translation>Αυτό το παράθυρο δείχνει μια λεπτομερή περιγραφή της συναλλαγής</translation>
     </message>
@@ -2608,7 +2644,7 @@ Address: %4
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+52"/>
+        <location filename="../transactionview.cpp" line="+57"/>
         <location line="+16"/>
         <source>All</source>
         <translation>Όλα</translation>
@@ -2669,7 +2705,7 @@ Address: %4
         <translation>Άλλο</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+11"/>
         <source>Enter address or label to search</source>
         <translation>Αναζήτηση με βάση τη διεύθυνση ή την επιγραφή</translation>
     </message>
@@ -2679,7 +2715,7 @@ Address: %4
         <translation>Ελάχιστο ποσό</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+39"/>
         <source>Copy address</source>
         <translation>Αντιγραφή διεύθυνσης</translation>
     </message>
@@ -2709,7 +2745,7 @@ Address: %4
         <translation>Εμφάνιση λεπτομερειών συναλλαγής</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+153"/>
         <source>Export Transaction Data</source>
         <translation>Εξαγωγή Στοιχείων Συναλλαγών</translation>
     </message>

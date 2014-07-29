@@ -88,6 +88,7 @@ OBJS= \
     obj/bloom.o \
     obj/leveldb.o \
     obj/txdb.o \
+    obj/xtalk.o \
     obj/blake.o \
     obj/groestl.o \
     obj/jh.o \

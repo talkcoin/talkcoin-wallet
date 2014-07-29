@@ -75,6 +75,19 @@ inline int64 pVal(int64 nValue, int64 p) { return nValue * (((double)p/COIN)/100
 extern CScript COINBASE_FLAGS;
 
 
+// Vote
+extern int nBestHeight;
+extern int64 nSubsidy;
+extern int V_BlockInterval;
+extern int V_BlockInit;
+extern int V_Blocks;
+extern int V_Total;
+
+// Chat
+extern std::string TLK_CHAN[2][2];
+extern std::string TLK_C1[51][6];
+extern std::string TLK_C2[51][6];
+
 
 extern CCriticalSection cs_main;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;

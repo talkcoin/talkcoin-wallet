@@ -42,6 +42,8 @@ namespace boost {
 #include <openssl/rand.h>
 #include <stdarg.h>
 
+#include <boost/algorithm/string.hpp>
+
 #ifdef WIN32
 #ifdef _MSC_VER
 #pragma warning(disable:4786)
@@ -582,6 +584,16 @@ void ParseParameters(int argc, const char* const argv[])
         // interpret -nofoo as -foo=0 (and -nofoo=0 as -foo=1) as long as -foo not set
         InterpretNegativeSetting(name, mapArgs);
     }
+}
+
+std::string FormatChan(std::string chan)
+{
+    boost::trim(chan);
+    boost::to_lower(chan);
+    if (chan.substr(0,1) == "#")
+        return chan;
+    else
+        return "#" + chan;
 }
 
 std::string GetArg(const std::string& strArg, const std::string& strDefault)

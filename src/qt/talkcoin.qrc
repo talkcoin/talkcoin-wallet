@@ -42,20 +42,15 @@
         <file alias="filesave">res/icons/filesave.png</file>
         <file alias="qrcode">res/icons/qrcode.png</file>
         <file alias="debugwindow">res/icons/debugwindow.png</file>
-        <file alias="smiley-button">res/icons/smiley-button.png</file>
-        <file alias="chat-bubble">res/icons/chat-bubble.png</file>
-        <file alias="chat-translate">res/icons/chat-translate.png</file>
-        <file alias="flag_en">res/icons/flags/flag_en.png</file>
-        <file alias="flag_de">res/icons/flags/flag_de.png</file>
-        <file alias="flag_fr">res/icons/flags/flag_fr.png</file>
-        <file alias="flag_es">res/icons/flags/flag_es.png</file>
-        <file alias="flag_it">res/icons/flags/flag_it.png</file>
-        <file alias="flag_pt">res/icons/flags/flag_pt.png</file>
-        <file alias="flag_tr">res/icons/flags/flag_tr.png</file>
-        <file alias="flag_ru">res/icons/flags/flag_ru.png</file>
-        <file alias="flag_cn">res/icons/flags/flag_cn.png</file>
-        <file alias="flag_jp">res/icons/flags/flag_jp.png</file>
-        <file alias="flag_kr">res/icons/flags/flag_kr.png</file>
+        <file alias="expand">res/icons/expand.png</file>
+        <file alias="chat_bubble">res/icons/chat_bubble.png</file>
+        <file alias="chat_translate">res/icons/chat_translate.png</file>
+        <file alias="chat_encrypted">res/icons/chat_encrypted.png</file>
+        <file alias="chat_bold">res/icons/chat_bold.png</file>
+        <file alias="chat_smiley">res/icons/chat_smiley.png</file>
+        <file alias="chat_send">res/icons/chat_send.png</file>
+        <file alias="flag_c1">res/icons/flags/flag_c1.png</file>
+        <file alias="flag_c2">res/icons/flags/flag_c2.png</file>
     </qresource>
     <qresource prefix="/smileys">
         <file alias="icon_smile">res/icons/smileys/icon_smile.png</file>
@@ -76,7 +71,6 @@
         <file alias="splash_testnet">res/images/splash_testnet.png</file>
         <file alias="logo">res/images/logo.png</file>
         <file alias="p2p">res/images/p2p.png</file>
-        <file alias="coming">res/images/coming.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>
@@ -132,5 +126,8 @@
         <file alias="uk">locale/talkcoin_uk.qm</file>
         <file alias="zh_CN">locale/talkcoin_zh_CN.qm</file>
         <file alias="zh_TW">locale/talkcoin_zh_TW.qm</file>
+    </qresource>
+    <qresource prefix="/text">
+        <file>res/text/style.qss</file>
     </qresource>
 </RCC>

@@ -1,13 +1,16 @@
-Talkcoin 1.3.1.0
+Talkcoin 1.4.0.0
 ====================
 
-Copyright (c) 2009-2013 Bitcoin Developers
 Copyright (c) 2014 Talkcoin Developers
+Copyright (c) 2009-2012 Bitcoin Developers
 
-Distributed under the MIT/X11 software license, see the accompanying
-file COPYING or http://www.opensource.org/licenses/mit-license.php.
-This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](http://www.openssl.org/). This product includes
-cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.
+Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/).
+
+This product includes cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.
+
+This product includes software developed by [Crypto++] (http://www.cryptopp.com/) which is released under the Boost Software License 1.0.
 
 
 Intro

@@ -95,6 +95,19 @@ TalkcoinGUI::TalkcoinGUI(QWidget *parent) :
     // Create the toolbars
     createToolBars();
 
+    // Talkcoin Style
+    /*QPalette p;
+    p.setColor(QPalette::Window, QColor(62,29,67));
+    p.setColor(QPalette::Button, QColor(0x22, 0x10, 0x22));
+    p.setColor(QPalette::Mid, QColor(0x22, 0x22, 0x10));
+    p.setColor(QPalette::Base, QColor(255, 204, 255));
+    p.setColor(QPalette::AlternateBase, QColor(255, 255, 255));
+    p.setColor(QPalette::Highlight, QColor(255,102,255));
+    setPalette(p);*/
+    QFile style(":/text/res/text/style.qss");
+    style.open(QFile::ReadOnly);
+    setStyleSheet(QString::fromUtf8(style.readAll()));
+
     // Create system tray icon and notification
     createTrayIcon();
 
@@ -179,6 +192,7 @@ void TalkcoinGUI::createActions()
     messagingAction->setToolTip(messagingAction->statusTip());
     messagingAction->setCheckable(true);
     messagingAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
+    messagingAction->setVisible(false);
     tabGroup->addAction(messagingAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send"), this);
@@ -275,8 +289,23 @@ void TalkcoinGUI::createMenuBar()
     appMenuBar = menuBar();
 #endif
 
+    appMenuBar->setStyleSheet("QMenuBar { border:rgb(116,69,116); background-color:rgb(64,30,68); \
+                               color:rgb(64,30,68); \
+                               font-weight:600;font-size:12px;font-family:'Gill Sans MT'; } \
+                               QMenuBar::item { \
+                               padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px; width:100%; \
+                               background:rgb(64,30,68); \
+                               color: white; text-align: center; } \
+                               QMenuBar::item:selected { \
+                               background:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100)); } \
+                              ");
+    QString MenuStyle("color: white; font-size:10pt;font-family:'Gill Sans MT'; \
+                       background-color: rgb(64,30,68); \
+                       selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+
     // Configure the menus
     QMenu *file = appMenuBar->addMenu(tr("&File"));
+    file->setStyleSheet(MenuStyle);
     file->addAction(backupWalletAction);
     file->addAction(signMessageAction);
     file->addAction(verifyMessageAction);
@@ -284,12 +313,14 @@ void TalkcoinGUI::createMenuBar()
     file->addAction(quitAction);
 
     QMenu *settings = appMenuBar->addMenu(tr("&Settings"));
+    settings->setStyleSheet(MenuStyle);
     settings->addAction(encryptWalletAction);
     settings->addAction(changePassphraseAction);
     settings->addSeparator();
     settings->addAction(optionsAction);
 
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
+    help->setStyleSheet(MenuStyle);
     help->addAction(openRPCConsoleAction);
     help->addSeparator();
     help->addAction(aboutAction);
@@ -300,6 +331,24 @@ void TalkcoinGUI::createToolBars()
 {
     QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+
+    toolbar->setStyleSheet("");
+    toolbar->setObjectName("toolbar");
+    addToolBar(Qt::LeftToolBarArea,toolbar);
+    toolbar->setOrientation(Qt::Vertical);
+    toolbar->setMovable( false );
+    //stop: 0 rgb(88,51,89)
+    toolbar->setStyleSheet("#toolbar { border:none;height:100%;padding-top:5px; \
+						                background:QLinearGradient(x1: 1, y1: 0, x2: 0.7, y2: 0,stop: 0 rgb(19,7,54), stop: 1 rgb(64,30,68)); \
+						                text-align: left; color: white;min-width:200px;max-width:200px; } \
+						                QToolBar QToolButton:hover { background:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100)); } \
+						                QToolBar QToolButton:checked { background:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100)); } \
+						                QToolBar QToolButton:pressed { background:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100)); } \
+						                QToolBar QToolButton { font-weight:600;font-size:9px;font-family:'Gill Sans MT'; \
+						                padding-left:10px;padding-right:30px;padding-top:5px;padding-bottom:5px; width:110%; \
+						                color: white; text-align: left; background:transparent;text-transform:uppercase; } \
+						               ");
+
     toolbar->addAction(overviewAction);
     toolbar->addAction(messagingAction);
     toolbar->addAction(sendCoinsAction);

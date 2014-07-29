@@ -12,11 +12,10 @@
 #include "coincontrol.h"
 #include <boost/algorithm/string/replace.hpp>
 
-#ifdef QT_GUI
-#include <QStringList>
-#include <talkcoinunits.h>
-#include <QMessageBox>
-#endif
+#include <boost/algorithm/string.hpp>
+#include "xtalk.h"
+
+//#include <QMessageBox>
 
 using namespace std;
 
@@ -1167,51 +1166,71 @@ bool CWallet::SelectCoins(int64 nTargetValue, set<pair<const CWalletTx*,unsigned
             SelectCoinsMinConf(nTargetValue, 0, 1, vCoins, setCoinsRet, nValueRet));
 }
 
-#ifdef QT_GUI
-std::string CWallet::E64(const std::string str)
+// #talkcoin
+bool CWallet::checkTime(const int64 talktime)
 {
-    if (QString(str.c_str()).trimmed().isEmpty())
-    {
-        return NULL;
-    }
-    else
-    {
-        QByteArray data = qCompress(QString(str.c_str()).trimmed().toUtf8(), 9).toBase64();
-        return QString::fromUtf8(data.data(), data.size()).toStdString();
-    }
+    return (talktime > GetAdjustedTime() - (60*60*24*31));
 }
 
-std::string CWallet::D64(const std::string str)
+bool EraseChar(char c) { return !std::isdigit(c); }
+bool CWallet::checkVersion(const std::string data, bool base64)
 {
-    QByteArray data = QByteArray(QString(str.c_str()).toUtf8());
-    return data.isEmpty() ? NULL : QString::fromUtf8(qUncompress(QByteArray::fromBase64(data))).trimmed().toStdString();
-}
-
-bool CWallet::checkVersion(const std::string str)
-{
-    QStringList data1 = QString(CWallet::D64(str).c_str()).split(";");
-    for (unsigned int i = 0; i < data1.count(); i++)
+    const std::string str = base64? DecodeBase64(data) : data;
+    std::vector<std::string> strs, strs2;
+    boost::split(strs, str, boost::is_any_of(";"));
+    for (unsigned int i = 0; i < strs.size(); i++)
     {
-        QStringList data2 = data1[i].split("=");
-        if (data2.count() == 2 && data2[0] == "version")
-            if (data2[1].indexOf("talkcoin") != -1)
-                return true;
+        boost::split(strs2, strs.at(i), boost::is_any_of("="));
+        if (strs2.size() == 2 && strs2.at(0) == "version")
+        {
+            std::string version = strs2.at(1);
+            if (version.find("talkcoin") != std::string::npos)
+            {
+                version.erase(std::remove_if(version.begin(), version.end(), EraseChar), version.end());
+                if (atoi(version.c_str()) >= 140)
+                    return true;
+                else
+                    return false;
+            }
+        }
     }
     return false;
 }
 
-std::string CWallet::getLang(const std::string str)
+bool CWallet::checkCrypt(const std::string data, bool base64)
 {
-    QStringList data1 = QString(CWallet::D64(str).c_str()).split(";");
-    for (unsigned int i = 0; i < data1.count(); i++)
+    const std::string str = base64? DecodeBase64(data) : data;
+    std::vector<std::string> strs, strs2;
+    boost::split(strs, str, boost::is_any_of(";"));
+    for (unsigned int i = 0; i < strs.size(); i++)
     {
-        QStringList data2 = data1[i].split("=");
-        if (data2.count() == 2 && data2[0] == "lang")
-            return data2[1].toStdString();
+        boost::split(strs2, strs.at(i), boost::is_any_of("="));
+        if (strs2.size() == 2 && strs2.at(0) == "encrypted")
+        {
+            if (strs2.at(1) == "true")
+                return true;
+            else
+                return false;
+        }
     }
-    return "en";
+    return false;
 }
-#endif
+
+std::string CWallet::getChan(const std::string data, bool base64)
+{
+    const std::string str = base64? DecodeBase64(data) : data;
+    std::vector<std::string> strs, strs2;
+    boost::split(strs, str, boost::is_any_of(";"));
+    for (unsigned int i = 0; i < strs.size(); i++)
+    {
+        boost::split(strs2, strs.at(i), boost::is_any_of("="));
+        if (strs2.size() == 2 && strs2.at(0) == "chan")
+        {
+            return strs2.at(1);
+        }
+    }
+    return "";
+}
 
 // #talkcoin
 bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
@@ -1237,25 +1256,29 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
 
     wtxNew.BindWallet(this);
 
-#ifdef QT_GUI
     if (vote >= GET_V_REWARDMIN() && vote <= GET_V_REWARDMAX())
         wtxNew.nVote = vote;
-#endif
-
-    if (vote2 >= 0 && vote2 <= 10*COIN)
+    if (vote2 >= 0 && vote2 <= 5*COIN)
         wtxNew.nVote2 = vote2;
 
-#ifdef QT_GUI
     if (!chat_nick.empty() && chat_nick.length() <= 20
         && !chat_message.empty() && chat_message.length() <= 140
         && chat_data.length() <= 100)
     {
         wtxNew.TLKtime = GetAdjustedTime();
-        wtxNew.TLKnick = E64(chat_nick);
-        wtxNew.TLKmsg = E64(chat_message);
-        wtxNew.TLKdata = E64(chat_data);
+        if (this->getChan(chat_data, false) == TLK_CHAN[1][0] && !TLK_CHAN[1][1].empty())
+        {
+            wtxNew.TLKnick = XTALK::EncryptString(chat_nick.c_str(), TLK_CHAN[1][1].c_str());
+            wtxNew.TLKmsg  = XTALK::EncryptString(chat_message.c_str(), TLK_CHAN[1][1].c_str());
+            wtxNew.TLKdata = EncodeBase64(chat_data + "encrypted=true;");
+        }
+        else
+        {
+            wtxNew.TLKnick = EncodeBase64(chat_nick);
+            wtxNew.TLKmsg  = EncodeBase64(chat_message);
+            wtxNew.TLKdata = EncodeBase64(chat_data);
+        }
     }
-#endif
 
     {
         LOCK2(cs_main, cs_wallet);

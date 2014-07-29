@@ -1611,7 +1611,7 @@ Value listlockunspent(const Array& params, bool fHelp)
     return ret;
 }
 
-Value vote2(const Array& params, bool fHelp)
+Value votedev(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(

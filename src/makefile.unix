@@ -112,6 +112,7 @@ xLDFLAGS=$(LDHARDENING) $(LDFLAGS)
 
 OBJS= \
     leveldb/libleveldb.a \
+    cryptopp/libcryptopp.a \
     obj/alert.o \
     obj/version.o \
     obj/checkpoints.o \
@@ -142,6 +143,7 @@ OBJS= \
     obj/noui.o \
     obj/leveldb.o \
     obj/txdb.o \
+    obj/xtalk.o \
     obj/blake.o \
     obj/groestl.o \
     obj/jh.o \
@@ -157,7 +159,7 @@ test check: test_talkcoin FORCE
 # LevelDB support
 #
 MAKEOVERRIDES =
-LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
+LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a $(CURDIR)/cryptopp/libcryptopp.a
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
 leveldb/libleveldb.a:
@@ -193,6 +195,9 @@ obj/%.o: %.c
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
+cryptopp/libcryptopp.a:
+	@$(MAKE) -C cryptopp static
+
 talkcoind: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
@@ -216,5 +221,6 @@ clean:
 	-rm -f obj-test/*.P
 	-rm -f obj/build.h
 	-cd leveldb && $(MAKE) clean || true
+	-cd cryptopp && $(MAKE) clean || true
 
 FORCE:

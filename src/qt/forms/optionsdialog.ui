@@ -10,8 +10,20 @@
     <height>380</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans MT</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Options</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(103, 47, 82);
+color: rgb(255, 255, 255);
+alternate-background-color: rgb(89, 38, 68);
+selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100))</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -22,8 +34,11 @@
      <property name="tabPosition">
       <enum>QTabWidget::North</enum>
      </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Triangular</enum>
+     </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tabMain">
       <attribute name="title">
@@ -47,6 +62,18 @@
         <layout class="QHBoxLayout" name="horizontalLayout_1_Main">
          <item>
           <widget class="QLabel" name="transactionFeeLabel">
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="text">
             <string>Pay transaction &amp;fee</string>
            </property>
@@ -59,7 +86,20 @@
           </widget>
          </item>
          <item>
-          <widget class="TalkcoinAmountField" name="transactionFee"/>
+          <widget class="TalkcoinAmountField" name="transactionFee">
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacer_1_Main">
@@ -80,6 +120,18 @@
         <widget class="QCheckBox" name="talkcoinAtStartup">
          <property name="toolTip">
           <string>Automatically start Talkcoin after logging in to the system.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
          </property>
          <property name="text">
           <string>&amp;Start Talkcoin on system login</string>
@@ -119,6 +171,32 @@
            <property name="toolTip">
             <string>Reset all client options to default.</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">
+QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(62,29,67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="text">
             <string>&amp;Reset Options</string>
            </property>
@@ -141,6 +219,18 @@
          <property name="toolTip">
           <string>Automatically open the Talkcoin client port on the router. This only works when your router supports UPnP and it is enabled.</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+         </property>
          <property name="text">
           <string>Map port using &amp;UPnP</string>
          </property>
@@ -151,6 +241,18 @@
          <property name="toolTip">
           <string>Connect to the Talkcoin network through a SOCKS proxy (e.g. when connecting through Tor).</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+         </property>
          <property name="text">
           <string>&amp;Connect through SOCKS proxy:</string>
          </property>
@@ -160,6 +262,18 @@
         <layout class="QHBoxLayout" name="horizontalLayout_Network">
          <item>
           <widget class="QLabel" name="proxyIpLabel">
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="text">
             <string>Proxy &amp;IP:</string>
            </property>
@@ -181,6 +295,18 @@
            </property>
            <property name="toolTip">
             <string>IP address of the proxy (e.g. 127.0.0.1)</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
           </widget>
          </item>
@@ -208,10 +334,34 @@
            <property name="toolTip">
             <string>Port of the proxy (e.g. 9050)</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="socksVersionLabel">
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="text">
             <string>SOCKS &amp;Version:</string>
            </property>
@@ -227,6 +377,19 @@
           <widget class="QValueComboBox" name="socksVersion">
            <property name="toolTip">
             <string>SOCKS version of the proxy (e.g. 5)</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+border-color: rgb(62, 29, 67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
           </widget>
          </item>
@@ -270,6 +433,18 @@
          <property name="toolTip">
           <string>Show only a tray icon after minimizing the window.</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+         </property>
          <property name="text">
           <string>&amp;Minimize to the tray instead of the taskbar</string>
          </property>
@@ -279,6 +454,18 @@
         <widget class="QCheckBox" name="minimizeOnClose">
          <property name="toolTip">
           <string>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
          </property>
          <property name="text">
           <string>M&amp;inimize on close</string>
@@ -309,6 +496,24 @@
         <layout class="QHBoxLayout" name="horizontalLayout_1_Display">
          <item>
           <widget class="QLabel" name="langLabel">
+           <property name="font">
+            <font>
+             <family>Gill Sans MT</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="text">
             <string>User Interface &amp;language:</string>
            </property>
@@ -322,8 +527,26 @@
          </item>
          <item>
           <widget class="QValueComboBox" name="lang">
+           <property name="font">
+            <font>
+             <family>Gill Sans MT</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
            <property name="toolTip">
             <string>The user interface language can be set here. This setting will take effect after restarting Talkcoin.</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
           </widget>
          </item>
@@ -333,6 +556,24 @@
         <layout class="QHBoxLayout" name="horizontalLayout_2_Display">
          <item>
           <widget class="QLabel" name="unitLabel">
+           <property name="font">
+            <font>
+             <family>Gill Sans MT</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="text">
             <string>&amp;Unit to show amounts in:</string>
            </property>
@@ -346,8 +587,26 @@
          </item>
          <item>
           <widget class="QValueComboBox" name="unit">
+           <property name="font">
+            <font>
+             <family>Gill Sans MT</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
            <property name="toolTip">
             <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
           </widget>
          </item>
@@ -355,8 +614,26 @@
        </item>
        <item>
         <widget class="QCheckBox" name="displayAddresses">
+         <property name="font">
+          <font>
+           <family>Gill Sans MT</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
          <property name="toolTip">
           <string>Whether to show Talkcoin addresses in the transaction list or not.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>
@@ -365,8 +642,26 @@
        </item>
        <item>
         <widget class="QCheckBox" name="coinControlFeatures">
+         <property name="font">
+          <font>
+           <family>Gill Sans MT</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
          <property name="toolTip">
           <string>Whether to show coin control features or not.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
          </property>
          <property name="text">
           <string>Display coin &amp;control features (experts only!)</string>
@@ -439,6 +734,27 @@
      </item>
      <item>
       <widget class="QPushButton" name="okButton">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(62,29,67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="text">
         <string>&amp;OK</string>
        </property>
@@ -446,6 +762,27 @@
      </item>
      <item>
       <widget class="QPushButton" name="cancelButton">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(62,29,67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="text">
         <string>&amp;Cancel</string>
        </property>
@@ -456,6 +793,27 @@
      </item>
      <item>
       <widget class="QPushButton" name="applyButton">
+       <property name="font">
+        <font>
+         <family>Gill Sans MT</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+border: 4px solid;
+border-radius: 13px;
+border-color: rgb(62,29,67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+       </property>
        <property name="text">
         <string>&amp;Apply</string>
        </property>
@@ -470,19 +828,20 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>QValidatedLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>qvalidatedlineedit.h</header>
+  </customwidget>
+  <customwidget>
    <class>TalkcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>talkcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QValueComboBox</class>
    <extends>QComboBox</extends>
    <header>qvaluecombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>QValidatedLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qvalidatedlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

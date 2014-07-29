@@ -210,6 +210,7 @@ extern json_spirit::Value getmoneysupply(const json_spirit::Array& params, bool 
 extern json_spirit::Value gettxout(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value verifychain(const json_spirit::Array& params, bool fHelp);
 
-extern json_spirit::Value vote2(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value getchat(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value votedev(const json_spirit::Array& params, bool fHelp);
 
 #endif

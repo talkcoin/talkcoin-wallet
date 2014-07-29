@@ -375,6 +375,8 @@ inline bool IsSwitchChar(char c)
 #endif
 }
 
+std::string FormatChan(std::string chan);
+
 /**
  * Return string argument or default value
  *
@@ -546,7 +548,7 @@ inline void ExitThread(size_t nExitCode)
 
 void RenameThread(const char* name);
 
-inline uint32_t ByteReverse(uint32_t value)
+inline uint32_t ByteReverse_(uint32_t value)
 {
     value = ((value & 0xFF00FF00) >> 8) | ((value & 0x00FF00FF) << 8);
     return (value<<16) | (value>>16);

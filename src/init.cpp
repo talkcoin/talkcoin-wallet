@@ -371,6 +371,11 @@ std::string HelpMessage()
         "  -reindex               " + _("Rebuild block chain index from current blk000??.dat files") + "\n" +
         "  -par=<n>               " + _("Set the number of script verification threads (up to 16, 0 = auto, <0 = leave that many cores free, default: 0)") + "\n" +
 
+        "\n" + _("Chat options:")   + "\n" +
+        "  -chat                  " + _("Scan the chat for messages (default: 1)") + "\n" +
+        "  -chan=<#yourchan>      " + _("Create a chan") + "\n" +
+        "  -chanpassword=<#pw>    " + _("Password for chan") + "\n" +
+
         "\n" + _("Block creation options:") + "\n" +
         "  -blockminsize=<n>      "   + _("Set minimum block size in bytes (default: 0)") + "\n" +
         "  -blockmaxsize=<n>      "   + _("Set maximum block size in bytes (default: 250000)") + "\n" +
@@ -552,6 +557,9 @@ bool AppInit2(boost::thread_group& threadGroup)
         nMaxConnections = nFD - MIN_CORE_FILEDESCRIPTORS;
 
     // ********************************************************* Step 3: parameter-to-internal-flags
+
+    TLK_CHAN[1][0] = { FormatChan(GetArg("-chan", "#")) };
+    TLK_CHAN[1][1] = { GetArg("-chanpassword", "") };
 
     fDebug = GetBoolArg("-debug");
     fBenchmark = GetBoolArg("-benchmark");

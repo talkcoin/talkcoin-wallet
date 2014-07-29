@@ -10,8 +10,21 @@
     <height>380</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Gill Sans MT</family>
+    <pointsize>9</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Signatures - Sign / Verify a Message</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+background-color: rgb(103, 47, 82);
+color: rgb(255, 255, 255);
+
+</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -19,8 +32,11 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="tabShape">
+      <enum>QTabWidget::Triangular</enum>
+     </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabSignMessage">
       <attribute name="title">
@@ -50,8 +66,28 @@
            <property name="toolTip">
             <string>The address to sign the message with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QValidatedLineEdit {
+background-color: rgb(103, 47, 82);
+border-color:rgb(255,255,255);
+border-width: 2px;
+color: rgb(255, 255, 255);
+}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="maxLength">
             <number>34</number>
+           </property>
+           <property name="frame">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -59,6 +95,19 @@
           <widget class="QPushButton" name="addressBookButton_SM">
            <property name="toolTip">
             <string>Choose an address from the address book</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+border-color: rgb(62, 29, 67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
            <property name="text">
             <string/>
@@ -79,6 +128,19 @@
           <widget class="QPushButton" name="pasteButton_SM">
            <property name="toolTip">
             <string>Paste address from clipboard</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+border-color: rgb(62, 29, 67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
            <property name="text">
             <string/>
@@ -101,6 +163,17 @@
         <widget class="QPlainTextEdit" name="messageIn_SM">
          <property name="toolTip">
           <string>Enter the message you want to sign here</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
          </property>
         </widget>
        </item>
@@ -126,6 +199,26 @@
              <italic>true</italic>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QValidatedLineEdit {
+background-color: rgb(103, 47, 82);
+border-color:rgb(255,255,255);
+border-width: 2px;
+color: rgb(255, 255, 255);
+}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
+           <property name="frame">
+            <bool>false</bool>
+           </property>
            <property name="readOnly">
             <bool>true</bool>
            </property>
@@ -135,6 +228,19 @@
           <widget class="QPushButton" name="copySignatureButton_SM">
            <property name="toolTip">
             <string>Copy the current signature to the system clipboard</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+border-color: rgb(62, 29, 67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
            <property name="text">
             <string/>
@@ -157,6 +263,19 @@
            <property name="toolTip">
             <string>Sign the message to prove you own this Talkcoin address</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+border-color: rgb(62, 29, 67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="text">
             <string>Sign &amp;Message</string>
            </property>
@@ -173,6 +292,19 @@
           <widget class="QPushButton" name="clearButton_SM">
            <property name="toolTip">
             <string>Reset all sign message fields</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+border-color: rgb(62, 29, 67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>
@@ -263,8 +395,28 @@
            <property name="toolTip">
             <string>The address the message was signed with (e.g. Ler4HNAEfwYhBmGXcFP2Po1NpRUEiK8km2)</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QValidatedLineEdit {
+background-color: rgb(103, 47, 82);
+border-color:rgb(255,255,255);
+border-width: 2px;
+color: rgb(255, 255, 255);
+}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+           </property>
            <property name="maxLength">
             <number>34</number>
+           </property>
+           <property name="frame">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -272,6 +424,19 @@
           <widget class="QPushButton" name="addressBookButton_VM">
            <property name="toolTip">
             <string>Choose an address from the address book</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton{
+border-color: rgb(62, 29, 67);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
            <property name="text">
             <string/>
@@ -291,10 +456,44 @@
         </layout>
        </item>
        <item>
-        <widget class="QPlainTextEdit" name="messageIn_VM"/>
+        <widget class="QPlainTextEdit" name="messageIn_VM">
+         <property name="styleSheet">
+          <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QValidatedLineEdit" name="signatureIn_VM"/>
+        <widget class="QValidatedLineEdit" name="signatureIn_VM">
+         <property name="styleSheet">
+          <string notr="true">QValidatedLineEdit {
+background-color: rgb(103, 47, 82);
+border-color:rgb(255,255,255);
+border-width: 2px;
+color: rgb(255, 255, 255);
+}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
+         </property>
+         <property name="frame">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2_VM">
@@ -302,6 +501,19 @@
           <widget class="QPushButton" name="verifyMessageButton_VM">
            <property name="toolTip">
             <string>Verify the message to ensure it was signed with the specified Talkcoin address</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
            <property name="text">
             <string>Verify &amp;Message</string>
@@ -319,6 +531,18 @@
           <widget class="QPushButton" name="clearButton_VM">
            <property name="toolTip">
             <string>Reset all verify message fields</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Gill Sans MT';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(89,38,68);
+     background-color: rgb(62,29,67);
+ }</string>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>

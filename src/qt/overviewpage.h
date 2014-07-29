@@ -68,19 +68,11 @@ private slots:
     void on_btnChatSend_clicked();
     void on_txtChatNick_textChanged(const QString &arg1);
     void on_txtChatMsg_textChanged(const QString &arg1);
-    void on_rbLang_en_clicked();
-    void on_rbLang_de_clicked();
-    void on_rbLang_fr_clicked();
-    void on_rbLang_es_clicked();
-    void on_rbLang_it_clicked();
-    void on_rbLang_pt_clicked();
-    void on_rbLang_tr_clicked();
-    void on_rbLang_ru_clicked();
-    void on_rbLang_cn_clicked();
-    void on_rbLang_jp_clicked();
-    void on_rbLang_kr_clicked();
+    void on_rbChan1_clicked();
+    void on_rbChan2_clicked();
     void on_btnWallet_clicked();
     void setWalletStatus();
+    void on_btnExpand_clicked();
 };
 
 #endif // OVERVIEWPAGE_H

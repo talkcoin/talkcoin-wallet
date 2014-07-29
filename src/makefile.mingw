@@ -29,11 +29,13 @@ INCLUDEPATHS= \
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
+ -L"$(CURDIR)/cryptopp" \
  -L"$(DEPSDIR)/lib"
 
 LIBS= \
  -l leveldb \
  -l memenv \
+ -l cryptopp \
  -l boost_system$(BOOST_SUFFIX) \
  -l boost_filesystem$(BOOST_SUFFIX) \
  -l boost_program_options$(BOOST_SUFFIX) \
@@ -100,6 +102,7 @@ OBJS= \
     obj/noui.o \
     obj/leveldb.o \
     obj/txdb.o \
+    obj/xtalk.o \
     obj/blake.o \
     obj/groestl.o \
     obj/jh.o \
@@ -119,6 +122,9 @@ DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
 
 leveldb/libleveldb.a:
 	cd leveldb && $(MAKE) CC=$(CC) CXX=$(CXX) OPT="$(CFLAGS)" TARGET_OS=NATIVE_WINDOWS libleveldb.a libmemenv.a && cd ..
+
+cryptopp/libcryptopp.a:
+	$(MAKE) -C cryptopp CC=$(CC) CXX=$(CXX) OPT="$(CFLAGS)" TARGET_OS=NATIVE_WINDOWS static
 
 obj/%-sse2.o: %-sse2.cpp
 	$(CXX) -c $(CFLAGS) -msse2 -mstackrealign -o $@ $<
@@ -145,5 +151,6 @@ clean:
 	rm -f obj/*
 	rm -f obj-test/*
 	cd leveldb && $(MAKE) TARGET_OS=NATIVE_WINDOWS clean && cd ..
+	cd cryptopp && $(MAKE) TARGET_OS=NATIVE_WINDOWS clean && cd ..
 
 FORCE:

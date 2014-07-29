@@ -423,7 +423,13 @@ public:
 inline bool validNick (std::string nick)
 {
     std::transform(nick.begin(), nick.end(), nick.begin(), tolower);
-    if (nick == DecodeBase64((std::string)"dGFsa2NvaW4=") || nick == DecodeBase64((std::string)"YWRtaW5pc3RyYXRvcg==") || nick == DecodeBase64((std::string)"YWRtaW4="))
+    if (nick == DecodeBase64((std::string)"dGFsa2NvaW4=") ||
+    	  nick == DecodeBase64((std::string)"YWRtaW5pc3RyYXRvcg==") ||
+    	  nick == DecodeBase64((std::string)"YWRtaW4=") ||
+    	  nick == DecodeBase64((std::string)"ZGV2") ||
+    	  nick == DecodeBase64((std::string)"dGFsa2NvaW5kZXY=") ||
+    	  nick == DecodeBase64((std::string)"dGFsa2Rldg==")
+    	 )
         return false;
     return true;
 }

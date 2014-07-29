@@ -17,6 +17,9 @@
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 
+#include <boost/lexical_cast.hpp>
+#include "xtalk.h"
+
 using namespace std;
 using namespace boost;
 
@@ -392,7 +395,12 @@ bool CTransaction::IsStandard(string& strReason) const
     }
 
     // Chat
-    if (TLKnick.length() + TLKmsg.length() + TLKdata.length() > MAX_TX_TLKDATA) {
+    int chatsize = TLKnick.length() + TLKmsg.length() + TLKdata.length();
+    if (chatsize > MAX_TX_TLKDATA) {
+        strReason = "chat";
+        return false;
+    }
+    else if (chatsize && !pwalletMain->checkVersion(TLKdata)) {
         strReason = "chat";
         return false;
     }
@@ -2198,20 +2206,9 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 }
 
 // #talkcoin Chat
-#ifdef QT_GUI
-std::string TLK___[50 + 1][6];
-std::string TLK_en[50 + 1][6];
-std::string TLK_de[50 + 1][6];
-std::string TLK_fr[50 + 1][6];
-std::string TLK_es[50 + 1][6];
-std::string TLK_it[50 + 1][6];
-std::string TLK_pt[50 + 1][6];
-std::string TLK_tr[50 + 1][6];
-std::string TLK_ru[50 + 1][6];
-std::string TLK_cn[50 + 1][6];
-std::string TLK_jp[50 + 1][6];
-std::string TLK_kr[50 + 1][6];
-#endif
+std::string TLK_CHAN[2][2] = { {"#talkcoin", ""}, {"#", ""} };
+std::string TLK_C1[51][6];
+std::string TLK_C2[51][6];
 
 bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerkleRoot) const
 {
@@ -2288,16 +2285,20 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
 
 
 // #talkcoin
-#ifdef QT_GUI
-    unsigned int tlk_size1 = sizeof(TLK___)/sizeof(TLK___[0]);
-    unsigned int tlk_size2 = sizeof(TLK___[0])/sizeof(TLK___[0][0]);
+    if (!GetBoolArg("-chat", true))
+        return true;
+
     BOOST_FOREACH(const CTransaction& tx, vtx)
     {
-        if (tx.TLKtime > 0 && !tx.TLKnick.empty() && !tx.TLKmsg.empty() && pwalletMain->checkVersion(tx.TLKdata) && tx.vout.size() == 2)
+        if (pwalletMain->checkTime(tx.TLKtime) && !tx.TLKnick.empty() && !tx.TLKmsg.empty() && pwalletMain->checkVersion(tx.TLKdata) && tx.vout.size() == 2)
         {
+            const unsigned int tlk_size1 = sizeof(TLK_C1)/sizeof(TLK_C1[0]);
+            const unsigned int tlk_size2 = sizeof(TLK_C1[0])/sizeof(TLK_C1[0][0]);
+            std::string TLK___[tlk_size1][tlk_size2];
+
             bool bTX = false;
             int64 nValue = 0;
-            std::string lang;
+            std::string chan;
 
             for (unsigned int i = 0; i < tx.vout.size(); i++)
             {
@@ -2310,38 +2311,23 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                     if (mi != mapBlockIndex.end()) { pindexPrev = (*mi).second; nHeight = pindexPrev->nHeight+1; }
                     if (CTalkcoinAddress(address).ToBase64() == GET_A_CHAT(nHeight) && (txout.nValue == GET_V_CHAT(nHeight) || txout.nValue == GET_V_CHATB(nHeight)))
                     {
-                        bTX = true;
-                        nValue = txout.nValue;
-                        lang = pwalletMain->getLang(tx.TLKdata);
-                        break;
+                        chan = pwalletMain->getChan(tx.TLKdata);
+                        if (chan == TLK_CHAN[0][0] || chan == TLK_CHAN[1][0])
+                        {
+                            nValue = txout.nValue;
+                            bTX = true;
+                            break;
+                        }
                     }
                 }
             }
 
             if (bTX)
             {
-                if (lang == "en")
-                    std::copy(&TLK_en[0][0], &TLK_en[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "de")
-                    std::copy(&TLK_de[0][0], &TLK_de[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "fr")
-                    std::copy(&TLK_fr[0][0], &TLK_fr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "es")
-                    std::copy(&TLK_es[0][0], &TLK_es[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "it")
-                    std::copy(&TLK_it[0][0], &TLK_it[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "pt")
-                    std::copy(&TLK_pt[0][0], &TLK_pt[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "tr")
-                    std::copy(&TLK_tr[0][0], &TLK_tr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "ru")
-                    std::copy(&TLK_ru[0][0], &TLK_ru[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "cn")
-                    std::copy(&TLK_cn[0][0], &TLK_cn[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "jp")
-                    std::copy(&TLK_jp[0][0], &TLK_jp[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
-                else if (lang == "kr")
-                    std::copy(&TLK_kr[0][0], &TLK_kr[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                if (chan == TLK_CHAN[0][0])
+                    std::copy(&TLK_C1[0][0], &TLK_C1[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
+                else if (chan == TLK_CHAN[1][0])
+                    std::copy(&TLK_C2[0][0], &TLK_C2[0][0]+tlk_size1*tlk_size2, &TLK___[0][0]);
 
                 // Check double
                 for (unsigned int i = 0; i < tlk_size1; i++)
@@ -2351,11 +2337,24 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
             if (bTX)
             {
                 std::string tmp0 = tx.GetHash().ToString();
-                std::string tmp1 = QString::number(nValue).toStdString();
-                std::string tmp2 = QString::number(tx.TLKtime).toStdString();
-                std::string tmp3 = pwalletMain->D64(tx.TLKnick);
-                std::string tmp4 = pwalletMain->D64(tx.TLKmsg);
-                std::string tmp5 = pwalletMain->D64(tx.TLKdata);
+                std::string tmp1 = boost::lexical_cast<std::string>(nValue);
+                std::string tmp2 = boost::lexical_cast<std::string>(tx.TLKtime);
+                std::string tmp3;
+                std::string tmp4;
+                if (pwalletMain->checkCrypt(tx.TLKdata))
+                {
+                    tmp3 = XTALK::Decode(tx.TLKnick, TLK_CHAN[1][1]);
+                    tmp4 = XTALK::Decode(tx.TLKmsg, TLK_CHAN[1][1]);
+                }
+                else
+                {
+                    tmp3 = DecodeBase64(tx.TLKnick);
+                    tmp4 = DecodeBase64(tx.TLKmsg);
+                }
+                std::string tmp5 = DecodeBase64(tx.TLKdata);
+
+                if (tmp3.empty() || tmp4.empty())
+                    continue;
 
                 if (TLK___[tlk_size1-2][0].empty())
                 {
@@ -2401,33 +2400,13 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                     }
                 }
 
-                if (lang == "en")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_en[0][0]);
-                else if (lang == "de")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_de[0][0]);
-                else if (lang == "fr")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_fr[0][0]);
-                else if (lang == "es")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_es[0][0]);
-                else if (lang == "it")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_it[0][0]);
-                else if (lang == "pt")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_pt[0][0]);
-                else if (lang == "tr")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_tr[0][0]);
-                else if (lang == "ru")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_ru[0][0]);
-                else if (lang == "cn")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_cn[0][0]);
-                else if (lang == "jp")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_jp[0][0]);
-                else if (lang == "kr")
-                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_kr[0][0]);
-
+                if (chan == TLK_CHAN[0][0])
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_C1[0][0]);
+                else if (chan == TLK_CHAN[1][0])
+                    std::copy(&TLK___[0][0], &TLK___[0][0]+tlk_size1*tlk_size2, &TLK_C2[0][0]);
             }
         }
     }
-#endif
 
 
     return true;
@@ -4425,7 +4404,7 @@ void SHA256Transform(void* pstate, void* pinput, const void* pinit)
     SHA256_Init(&ctx);
 
     for (int i = 0; i < 16; i++)
-        ((uint32_t*)data)[i] = ByteReverse(((uint32_t*)pinput)[i]);
+        ((uint32_t*)data)[i] = ByteReverse_(((uint32_t*)pinput)[i]);
 
     for (int i = 0; i < 8; i++)
         ctx.h[i] = ((uint32_t*)pinit)[i];
@@ -4793,7 +4772,7 @@ void FormatHashBuffers(CBlock* pblock, char* pmidstate, char* pdata, char* phash
 
     // Byte swap all the input buffer
     for (unsigned int i = 0; i < sizeof(tmp)/4; i++)
-        ((unsigned int*)&tmp)[i] = ByteReverse(((unsigned int*)&tmp)[i]);
+        ((unsigned int*)&tmp)[i] = ByteReverse_(((unsigned int*)&tmp)[i]);
 
     // Precalc the first half of the first hash, which stays constant
     SHA256Transform(pmidstate, &tmp.block, pSHA256InitState);
@@ -4950,11 +4929,11 @@ void static TalkcoinMiner(CWallet *pwallet)
 
             // Update nTime every few seconds
             pblock->UpdateTime(pindexPrev);
-            nBlockTime = ByteReverse(pblock->nTime);
+            nBlockTime = ByteReverse_(pblock->nTime);
             if (fTestNet)
             {
                 // Changing pblock->nTime can change work required on testnet:
-                nBlockBits = ByteReverse(pblock->nBits);
+                nBlockBits = ByteReverse_(pblock->nBits);
                 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
             }
         }
