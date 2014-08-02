@@ -12,7 +12,7 @@
   </property>
   <property name="font">
    <font>
-    <family>Gill Sans MT</family>
+    <family>Lato</family>
     <pointsize>9</pointsize>
    </font>
   </property>
@@ -75,7 +75,7 @@ color: rgb(255, 255, 255);
 }
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -101,7 +101,7 @@ QToolTip {
 border-color: rgb(62, 29, 67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -134,7 +134,7 @@ QToolTip {
 border-color: rgb(62, 29, 67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -167,7 +167,7 @@ QToolTip {
          <property name="styleSheet">
           <string notr="true">QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -208,7 +208,7 @@ color: rgb(255, 255, 255);
 }
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -234,7 +234,7 @@ QToolTip {
 border-color: rgb(62, 29, 67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -268,7 +268,7 @@ QToolTip {
 border-color: rgb(62, 29, 67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -298,7 +298,7 @@ QToolTip {
 border-color: rgb(62, 29, 67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -404,7 +404,7 @@ color: rgb(255, 255, 255);
 }
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -430,7 +430,7 @@ QToolTip {
 border-color: rgb(62, 29, 67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -461,7 +461,7 @@ QToolTip {
           <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -482,7 +482,7 @@ color: rgb(255, 255, 255);
 }
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -507,7 +507,7 @@ QToolTip {
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -536,7 +536,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;

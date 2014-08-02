@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1379</width>
-    <height>692</height>
+    <width>1057</width>
+    <height>655</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
   <property name="styleSheet">
    <string notr="true">QToolTip {
      color: white;
-     font-size:9pt;font-family:'Lato';
+     font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -45,23 +45,23 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_TopLeft">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <property name="spacing">
         <number>6</number>
        </property>
        <item>
         <widget class="QFrame" name="topleftframe">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="minimumSize">
           <size>
-           <width>600</width>
+           <width>388</width>
            <height>0</height>
           </size>
          </property>
@@ -74,7 +74,7 @@ background-color: rgb(103, 47, 82);
 alternate-background-color: rgb(89, 38, 68);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Lato';
+     font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -83,208 +83,76 @@ QToolTip {
  }</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="4" column="2" alignment="Qt::AlignTop">
-           <widget class="QLabel" name="labelImmature">
+          <item row="0" column="2">
+           <widget class="QLabel" name="labelWalletStatus">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="font">
              <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
+              <family>Gill Sans MT</family>
+              <pointsize>10</pointsize>
              </font>
             </property>
             <property name="toolTip">
-             <string>Mined balance that has not yet matured</string>
+             <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel { color: red; }</string>
             </property>
             <property name="text">
-             <string notr="true">0 TAC</string>
+             <string notr="true">(out of sync)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="4" alignment="Qt::AlignRight">
+           <widget class="QLabel" name="lblLogo">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../talkcoin.qrc">:/images/logo</pixmap>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
             </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-            <property name="textInteractionFlags">
-             <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-            </property>
            </widget>
           </item>
-          <item row="4" column="1" alignment="Qt::AlignTop">
-           <widget class="QLabel" name="labelImmatureText">
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_5">
             <property name="font">
              <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
+              <family>Gill Sans MT</family>
+              <pointsize>22</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
              </font>
             </property>
             <property name="text">
-             <string>Immature:</string>
+             <string>Wallet</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1" colspan="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0,0,0,0">
-            <property name="bottomMargin">
-             <number>9</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_5">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Lato</family>
-                <pointsize>23</pointsize>
-                <weight>50</weight>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Wallet</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="labelWalletStatus">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Lato</family>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="toolTip">
-               <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</string>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QLabel { color: red; }</string>
-              </property>
-              <property name="text">
-               <string notr="true">(out of sync)</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnWallet">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>40</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>50</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton 
-{
-border:none;
-background-color: transparent;
-}</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="../talkcoin.qrc">
-                <normaloff>:/icons/lock_none</normaloff>:/icons/lock_none</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>32</width>
-                <height>32</height>
-               </size>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="lblLogo">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="pixmap">
-               <pixmap resource="../talkcoin.qrc">:/images/logo</pixmap>
-              </property>
-              <property name="scaledContents">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="3" column="1" alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_3">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Unconfirmed:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
+          <item row="1" column="2">
            <widget class="QLabel" name="labelBalance">
             <property name="minimumSize">
              <size>
@@ -294,11 +162,10 @@ background-color: transparent;
             </property>
             <property name="font">
              <font>
-              <family>Lato</family>
+              <family>Gill Sans MT</family>
               <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
-              <kerning>true</kerning>
              </font>
             </property>
             <property name="cursor">
@@ -310,25 +177,16 @@ background-color: transparent;
             <property name="text">
              <string notr="true">0 TAC</string>
             </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
+          <item row="1" column="1">
            <widget class="QLabel" name="label">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
             <property name="font">
              <font>
-              <family>Lato</family>
+              <family>Gill Sans MT</family>
               <pointsize>11</pointsize>
              </font>
             </property>
@@ -337,21 +195,14 @@ background-color: transparent;
             </property>
            </widget>
           </item>
-          <item row="3" column="2" alignment="Qt::AlignTop">
+          <item row="2" column="2" alignment="Qt::AlignTop">
            <widget class="QLabel" name="labelUnconfirmed">
-            <property name="minimumSize">
-             <size>
-              <width>90</width>
-              <height>0</height>
-             </size>
-            </property>
             <property name="font">
              <font>
-              <family>Lato</family>
+              <family>Gill Sans MT</family>
               <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
-              <kerning>true</kerning>
              </font>
             </property>
             <property name="cursor">
@@ -363,11 +214,97 @@ background-color: transparent;
             <property name="text">
              <string notr="true">0 TAC</string>
             </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            <property name="textInteractionFlags">
+             <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" alignment="Qt::AlignTop">
+           <widget class="QLabel" name="label_3">
+            <property name="minimumSize">
+             <size>
+              <width>89</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Unconfirmed:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2" alignment="Qt::AlignTop">
+           <widget class="QLabel" name="labelImmature">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Mined balance that has not yet matured</string>
+            </property>
+            <property name="text">
+             <string notr="true">0 TAC</string>
             </property>
             <property name="textInteractionFlags">
              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" alignment="Qt::AlignTop">
+           <widget class="QLabel" name="labelImmatureText">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Immature:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QPushButton" name="btnWallet">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton 
+{
+border:none;
+background-color: transparent;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../talkcoin.qrc">
+              <normaloff>:/icons/lock_none</normaloff>:/icons/lock_none</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -377,14 +314,14 @@ background-color: transparent;
        <item>
         <widget class="QFrame" name="bottomleftframe">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="minimumSize">
           <size>
-           <width>500</width>
+           <width>388</width>
            <height>0</height>
           </size>
          </property>
@@ -398,7 +335,7 @@ color: rgb(255, 255, 255);
 alternate-background-color: rgb(89,38,68);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Lato';
+     font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -420,89 +357,92 @@ QToolTip {
                             }</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="9" column="1" colspan="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_9">
-            <item>
-             <widget class="QPushButton" name="btnVote">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>11</pointsize>
-                <weight>75</weight>
-                <italic>false</italic>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="toolTip">
-               <string extracomment="Press the button to cast your vote">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#550000;&quot;&gt;Press the button to cast your vote&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="whatsThis">
-               <string>blabla</string>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-                            QPushButton {
-                            border-style: outset;
-                            border-width: 1px;
-                            border-radius: 12px;
-                            border-color: rgb(62,29,67);
-                            font: bold 11pt;
-                            min-width: 5em;
-                            padding: 3px;
-							background-color:rgb(62,29,67);
-							color: white;
-                            }
-                            QPushButton:pressed {
-                            background-color:  rgb(103,47,82);
-                            border-style: inset;
-                            }
-                          </string>
-              </property>
-              <property name="text">
-               <string>Vote</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QRadioButton" name="chkAutoVote">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Lato</family>
-                <pointsize>11</pointsize>
-                <kerning>true</kerning>
-               </font>
-              </property>
-              <property name="layoutDirection">
-               <enum>Qt::LeftToRight</enum>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">padding-right: 15px;
-color: white;
-</string>
-              </property>
-              <property name="text">
-               <string>Auto Vote</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time to next vote:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
           </item>
-          <item row="2" column="1">
+          <item row="4" column="2">
+           <widget class="QDoubleSpinBox" name="spbVote">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 11pt &quot;Gill Sans MT&quot;;
+border-style: outset;
+background-color: rgb(103,47,82);
+color: white;
+                            border-width: 2px;
+                            border-radius: 9px;
+                            border-color: white;
+                            font: bold 11pt;
+                            min-width: 2em;
+
+                            
+                            
+                            </string>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::NoButtons</enum>
+            </property>
+            <property name="suffix">
+             <string>  TAC</string>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your vote:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QLabel" name="lblVoteInfo">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 11pt &quot;Gill Sans MT&quot;;</string>
+            </property>
+            <property name="text">
+             <string>lblVoteInfo</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
            <widget class="QLabel" name="lblReward">
             <property name="font">
              <font>
-              <family>Lato</family>
+              <family>Gill Sans MT</family>
               <pointsize>11</pointsize>
              </font>
             </property>
@@ -514,8 +454,54 @@ color: white;
             </property>
            </widget>
           </item>
-          <item row="4" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
-           <widget class="QSpinBox" name="spbVote">
+          <item row="1" column="0" alignment="Qt::AlignBottom">
+           <widget class="QLabel" name="label_2">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>20</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Vote</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::AutoText</enum>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="lblInfo">
+            <property name="font">
+             <font>
+              <family>Gill Sans MT</family>
+              <pointsize>11</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 11pt &quot;Gill Sans MT&quot;;</string>
+            </property>
+            <property name="text">
+             <string>lblInfo</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="4">
+           <widget class="QPushButton" name="btnVote">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -524,143 +510,82 @@ color: white;
             </property>
             <property name="font">
              <font>
-              <family>Lato</family>
               <pointsize>11</pointsize>
               <weight>75</weight>
               <italic>false</italic>
               <bold>true</bold>
-              <kerning>true</kerning>
              </font>
             </property>
+            <property name="toolTip">
+             <string extracomment="Press the button to cast your vote">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#550000;&quot;&gt;Press the button to cast your vote&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="whatsThis">
+             <string>blabla</string>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Lato&quot;;
-border-style: outset;
-background-color: white;
-color: rgb(103,47,82);
+             <string notr="true">
+                            QPushButton {
+                            border-style: outset;
                             border-width: 2px;
                             border-radius: 9px;
                             border-color: white;
                             font: bold 11pt;
-                            min-width: 2em;
-
-                            
-                            
-                            </string>
-            </property>
-            <property name="wrapping">
-             <bool>false</bool>
-            </property>
-            <property name="frame">
-             <bool>true</bool>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
-            </property>
-            <property name="specialValueText">
-             <string notr="true"/>
-            </property>
-            <property name="suffix">
-             <string notr="true">  TAC</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1" alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_9">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-             </font>
+                            min-width: 5em;
+                            padding: 3px;
+background-color: rgb(103,47,82);
+color: white;
+                            }
+                            QPushButton:pressed {
+                            background-color: green;
+                            border-style: inset;
+                            }
+                          </string>
             </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time to next vote:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>Vote</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="1" alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_8">
+          <item row="5" column="4">
+           <widget class="QRadioButton" name="chkAutoVote">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="font">
              <font>
-              <family>Lato</family>
+              <family>Gill Sans MT</family>
               <pointsize>11</pointsize>
+              <kerning>true</kerning>
              </font>
             </property>
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your vote:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" colspan="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_7">
-            <item>
-             <widget class="QLabel" name="label_2">
-              <property name="minimumSize">
-               <size>
-                <width>180</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Lato</family>
-                <pointsize>23</pointsize>
-                <weight>50</weight>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Vote</string>
-              </property>
-              <property name="textFormat">
-               <enum>Qt::AutoText</enum>
-              </property>
-              <property name="margin">
-               <number>0</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="2" column="2" alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="lblInfo">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <italic>false</italic>
-              <bold>true</bold>
-             </font>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
             </property>
             <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Lato&quot;;font: bold 11pt;</string>
+             <string notr="true">padding-right: 15px;
+color: white;
+</string>
             </property>
             <property name="text">
-             <string>lblInfo</string>
+             <string>Auto Voting</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
-           <widget class="QLabel" name="lblVoteInfo">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
+          <item row="4" column="1">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Lato&quot;;</string>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
             </property>
-            <property name="text">
-             <string>lblVoteInfo</string>
-            </property>
-           </widget>
+           </spacer>
           </item>
          </layout>
         </widget>
@@ -668,7 +593,7 @@ color: rgb(103,47,82);
       </layout>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_TopRight">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QFrame" name="toprightframe">
          <property name="minimumSize">
@@ -678,18 +603,11 @@ color: rgb(103,47,82);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">QFrame {color: rgb(255, 255, 255);
-background-color: rgb(103, 47, 82);
-alternate-background-color: rgb(89, 38, 68);}
-QToolTip {
-     color: white;
-     font-size:9pt;font-family:'Lato';
-     border: 4px solid ;
-     border-radius: 13px;
-     opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
- }</string>
+          <string notr="true">color: rgb(255, 255, 255);
+
+alternate-background-color: rgb(89, 38, 68);
+
+background-color:  rgb(103, 47, 82);</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -700,21 +618,12 @@ QToolTip {
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>9</number>
-            </property>
             <item>
              <widget class="QLabel" name="label_4">
               <property name="font">
                <font>
-                <family>Lato</family>
-                <pointsize>23</pointsize>
+                <family>Gill Sans MT</family>
+                <pointsize>20</pointsize>
                 <weight>50</weight>
                 <italic>false</italic>
                 <bold>false</bold>
@@ -723,7 +632,7 @@ QToolTip {
               <property name="styleSheet">
                <string notr="true">color: rgb(255, 255, 255);
 background-color: transparent;
-font: 23pt &quot;Lato&quot;;</string>
+font: 20pt &quot;Gill Sans MT&quot;;</string>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Sunken</enum>
@@ -740,7 +649,7 @@ font: 23pt &quot;Lato&quot;;</string>
              <widget class="QLabel" name="labelTransactionsStatus">
               <property name="font">
                <font>
-                <family>Lato</family>
+                <family>Gill Sans MT</family>
                 <pointsize>10</pointsize>
                </font>
               </property>
@@ -802,7 +711,7 @@ font: 23pt &quot;Lato&quot;;</string>
             </property>
             <property name="font">
              <font>
-              <family>Lato</family>
+              <family>Gill Sans MT</family>
               <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -813,12 +722,12 @@ font: 23pt &quot;Lato&quot;;</string>
              <bool>false</bool>
             </property>
             <property name="styleSheet">
-             <string notr="true">QListView {font: 11pt &quot;Lato&quot;;
+             <string notr="true">QListView {font: 11pt &quot;Gill Sans MT&quot;;
  background: rgb(103,47,82);
 alternate-background-color: rgb(89,38,68); }
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Lato';
+     font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -851,7 +760,7 @@ QToolTip {
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_BottomChat">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QFrame" name="bottomframe">
        <property name="font">
@@ -905,6 +814,21 @@ alternate-background-color: rgb(89,38,68);</string>
           </property>
           <item>
            <widget class="QPushButton" name="btnExpand">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
             <property name="styleSheet">
              <string notr="true">QPushButton 
 {
@@ -918,6 +842,15 @@ background-color: transparent;
             <property name="icon">
              <iconset resource="../talkcoin.qrc">
               <normaloff>:/icons/expand</normaloff>:/icons/expand</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -1070,7 +1003,7 @@ background-color: transparent;
             </property>
             <property name="font">
              <font>
-              <family>Lato</family>
+              <family>Gill Sans MT</family>
               <pointsize>22</pointsize>
              </font>
             </property>
@@ -1092,70 +1025,63 @@ background-color: transparent;
             </property>
            </spacer>
           </item>
-          <item alignment="Qt::AlignVCenter">
-           <widget class="QLabel" name="label_7">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>15</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>Group Chat:</string>
-            </property>
-           </widget>
-          </item>
           <item>
            <widget class="QRadioButton" name="rbChan1">
+            <property name="minimumSize">
+             <size>
+              <width>48</width>
+              <height>44</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>48</width>
+              <height>44</height>
+             </size>
+            </property>
             <property name="styleSheet">
              <string notr="true">QRadioButton::indicator {
 	subcontrol-position: top center;
-	image: url(:/icons/chan1);
+	image: url(:/icons/flag_c1);
  }
 
  QRadioButton::indicator::unchecked {
-	width: 22px;
-	height: 16px;
+	width: 45px;
+	height: 41px;
  }
 
  QRadioButton::indicator:unchecked:hover {
-	background-color: blue;
-	width: 25px;
-	height: 19px;
+	background-color: rgb(69, 31, 55);
+	width: 48px;
+	height: 44px;
  }
 
  QRadioButton::indicator:unchecked:pressed {
-	background-color: blue;
-	width: 25px;
-	height: 19px;
+	background-color: rgb(69, 31, 55);
+	width: 48px;
+	height: 44px;
  }
 
  QRadioButton::indicator::checked {
-	background-color: rgb(62,29,67);
-	width: 25px;
-	height: 19px;
+	background-color: rgb(175, 80, 139);
+	width: 48px;
+	height: 44px;
  }
 
  QRadioButton::indicator:checked:hover {
-	background-color: blue;
-	width: 25px;
-	height: 19px;
+	background-color: rgb(69, 31, 55);
+	width: 48px;
+	height: 44px;
  }
 
  QRadioButton::indicator:checked:pressed {
-	background-color: blue;
-	width: 25px;
-	height: 19px;
+	background-color: rgb(69, 31, 55);
+	width: 48px;
+	height: 44px;
  }</string>
             </property>
             <property name="text">
-             <string notr="true"/>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
+             <string/>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -1166,55 +1092,55 @@ background-color: transparent;
            <widget class="QRadioButton" name="rbChan2">
             <property name="minimumSize">
              <size>
-              <width>25</width>
-              <height>19</height>
+              <width>48</width>
+              <height>44</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>25</width>
-              <height>19</height>
+              <width>48</width>
+              <height>44</height>
              </size>
             </property>
             <property name="styleSheet">
              <string notr="true">QRadioButton::indicator {
 	subcontrol-position: top center;
-	image: url(:/icons/chan2);
+	image: url(:/icons/flag_c2);
  }
 
  QRadioButton::indicator::unchecked {
-	width: 22px;
-	height: 16px;
+	width: 45px;
+	height: 41px;
  }
 
  QRadioButton::indicator:unchecked:hover {
-	background-color: blue;
-	width: 25px;
-	height: 19px;
+	background-color: rgb(69, 31, 55);
+	width: 48px;
+	height: 44px;
  }
 
  QRadioButton::indicator:unchecked:pressed {
-	background-color: blue;
-	width: 25px;
-	height: 19px;
+	background-color: rgb(69, 31, 55);
+	width: 48px;
+	height: 44px;
  }
 
  QRadioButton::indicator::checked {
-	background-color: rgb(62,29,67);
-	width: 25px;
-	height: 19px;
+	background-color: rgb(175, 80, 139);
+	width: 48px;
+	height: 44px;
  }
 
  QRadioButton::indicator:checked:hover {
-	background-color: blue;
-	width: 25px;
-	height: 19px;
+	background-color: rgb(69, 31, 55);
+	width: 48px;
+	height: 44px;
  }
 
  QRadioButton::indicator:checked:pressed {
-	background-color: blue;
-	width: 25px;
-	height: 19px;
+	background-color: rgb(69, 31, 55);
+	width: 48px;
+	height: 44px;
  }</string>
             </property>
             <property name="text">
@@ -1252,10 +1178,7 @@ background-color: transparent;
              </property>
              <property name="font">
               <font>
-               <family>Lato</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
+               <pointsize>11</pointsize>
               </font>
              </property>
              <property name="styleSheet">
@@ -1265,7 +1188,7 @@ background-repeat: no-repeat;
 background-attachment:fixed;
 background-position: center;
 alternate-background-color: rgb(211, 211, 211);
-color: black</string>
+color: black;</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::Box</enum>
@@ -1283,8 +1206,8 @@ color: black</string>
               <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lato'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="openExternalLinks">
               <bool>true</bool>
@@ -1299,8 +1222,23 @@ p, li { white-space: pre-wrap; }
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>6</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>6</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
             <widget class="QLineEdit" name="txtChatNick">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1322,10 +1260,9 @@ p, li { white-space: pre-wrap; }
              </property>
              <property name="font">
               <font>
-               <family>Lato</family>
                <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
+               <weight>75</weight>
+               <bold>true</bold>
               </font>
              </property>
              <property name="toolTip">
@@ -1346,7 +1283,7 @@ background-repeat: no-repeat;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
+           <item>
             <widget class="QLineEdit" name="txtChatMsg">
              <property name="minimumSize">
               <size>
@@ -1356,17 +1293,13 @@ background-repeat: no-repeat;</string>
              </property>
              <property name="font">
               <font>
-               <family>Lato</family>
                <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
+               <weight>75</weight>
+               <bold>true</bold>
               </font>
              </property>
              <property name="toolTip">
               <string/>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
              </property>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);
@@ -1380,17 +1313,17 @@ background-repeat: no-repeat;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="2">
+           <item>
             <widget class="QPushButton" name="btnChatBold">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
              <property name="minimumSize">
               <size>
-               <width>30</width>
+               <width>0</width>
                <height>30</height>
               </size>
              </property>
@@ -1418,7 +1351,7 @@ background-color: rgb(255,255,255);
 color :rgb(126, 126, 126);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Lato';
+     font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -1443,11 +1376,11 @@ QToolTip {
               <string notr="true"/>
              </property>
              <property name="checkable">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item row="0" column="3">
+           <item>
             <widget class="QPushButton" name="btnChatSmiley">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1457,7 +1390,7 @@ QToolTip {
              </property>
              <property name="minimumSize">
               <size>
-               <width>30</width>
+               <width>0</width>
                <height>30</height>
               </size>
              </property>
@@ -1480,7 +1413,7 @@ background-color: rgb(255,255,255);
 color :rgb(126, 126, 126);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Lato';
+     font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -1500,17 +1433,17 @@ QToolTip {
              </property>
             </widget>
            </item>
-           <item row="0" column="4">
+           <item>
             <widget class="QPushButton" name="btnChatSend">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
              <property name="minimumSize">
               <size>
-               <width>30</width>
+               <width>0</width>
                <height>30</height>
               </size>
              </property>
@@ -1532,7 +1465,7 @@ background-color: rgb(255,255,255);
 color :rgb(126, 126, 126);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Lato';
+     font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;

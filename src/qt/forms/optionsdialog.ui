@@ -12,7 +12,7 @@
   </property>
   <property name="font">
    <font>
-    <family>Gill Sans MT</family>
+    <family>Lato</family>
     <pointsize>9</pointsize>
    </font>
   </property>
@@ -66,7 +66,7 @@ selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -91,7 +91,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -125,7 +125,7 @@ QToolTip {
           <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -179,7 +179,7 @@ border-radius: 13px;
 border-color: rgb(62,29,67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -189,7 +189,7 @@ QToolTip {
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -223,7 +223,7 @@ QToolTip {
           <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -245,7 +245,7 @@ QToolTip {
           <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -266,7 +266,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -300,7 +300,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -338,7 +338,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -354,7 +354,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -383,7 +383,7 @@ QToolTip {
 border-color: rgb(62, 29, 67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -437,7 +437,7 @@ QToolTip {
           <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -459,7 +459,7 @@ QToolTip {
           <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -498,7 +498,7 @@ QToolTip {
           <widget class="QLabel" name="langLabel">
            <property name="font">
             <font>
-             <family>Gill Sans MT</family>
+             <family>Lato</family>
              <pointsize>9</pointsize>
             </font>
            </property>
@@ -506,7 +506,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -529,7 +529,7 @@ QToolTip {
           <widget class="QValueComboBox" name="lang">
            <property name="font">
             <font>
-             <family>Gill Sans MT</family>
+             <family>Lato</family>
              <pointsize>9</pointsize>
             </font>
            </property>
@@ -540,7 +540,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -558,7 +558,7 @@ QToolTip {
           <widget class="QLabel" name="unitLabel">
            <property name="font">
             <font>
-             <family>Gill Sans MT</family>
+             <family>Lato</family>
              <pointsize>9</pointsize>
             </font>
            </property>
@@ -566,7 +566,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -589,7 +589,7 @@ QToolTip {
           <widget class="QValueComboBox" name="unit">
            <property name="font">
             <font>
-             <family>Gill Sans MT</family>
+             <family>Lato</family>
              <pointsize>9</pointsize>
             </font>
            </property>
@@ -600,7 +600,7 @@ QToolTip {
             <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -616,7 +616,7 @@ QToolTip {
         <widget class="QCheckBox" name="displayAddresses">
          <property name="font">
           <font>
-           <family>Gill Sans MT</family>
+           <family>Lato</family>
            <pointsize>9</pointsize>
           </font>
          </property>
@@ -627,7 +627,7 @@ QToolTip {
           <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -644,7 +644,7 @@ QToolTip {
         <widget class="QCheckBox" name="coinControlFeatures">
          <property name="font">
           <font>
-           <family>Gill Sans MT</family>
+           <family>Lato</family>
            <pointsize>9</pointsize>
           </font>
          </property>
@@ -655,7 +655,7 @@ QToolTip {
           <string notr="true">
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -736,7 +736,7 @@ QToolTip {
       <widget class="QPushButton" name="okButton">
        <property name="font">
         <font>
-         <family>Gill Sans MT</family>
+         <family>Lato</family>
          <pointsize>9</pointsize>
         </font>
        </property>
@@ -747,7 +747,7 @@ border-radius: 13px;
 border-color: rgb(62,29,67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -764,7 +764,7 @@ QToolTip {
       <widget class="QPushButton" name="cancelButton">
        <property name="font">
         <font>
-         <family>Gill Sans MT</family>
+         <family>Lato</family>
          <pointsize>9</pointsize>
         </font>
        </property>
@@ -775,7 +775,7 @@ border-radius: 13px;
 border-color: rgb(62,29,67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -795,7 +795,7 @@ QToolTip {
       <widget class="QPushButton" name="applyButton">
        <property name="font">
         <font>
-         <family>Gill Sans MT</family>
+         <family>Lato</family>
          <pointsize>9</pointsize>
         </font>
        </property>
@@ -806,7 +806,7 @@ border-radius: 13px;
 border-color: rgb(62,29,67);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;

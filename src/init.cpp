@@ -558,8 +558,8 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     // ********************************************************* Step 3: parameter-to-internal-flags
 
-    TLK_CHAN[1][0] = { FormatChan(GetArg("-chan", "#")) };
-    TLK_CHAN[1][1] = { GetArg("-chanpassword", "") };
+    TLK_CHAN[1][0] = FormatChan(GetArg("-chan", "#"));
+    TLK_CHAN[1][1] = GetArg("-chanpassword", "");
 
     fDebug = GetBoolArg("-debug");
     fBenchmark = GetBoolArg("-benchmark");

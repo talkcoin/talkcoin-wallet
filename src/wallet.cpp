@@ -1173,11 +1173,11 @@ bool CWallet::checkTime(const int64 talktime)
 }
 
 bool EraseChar(char c) { return !std::isdigit(c); }
-bool CWallet::checkVersion(const std::string data, bool base64)
+bool CWallet::checkVersion(const std::string data)
 {
-    const std::string str = base64? DecodeBase64(data) : data;
+    const std::string xdata = DecodeBase64(data);
     std::vector<std::string> strs, strs2;
-    boost::split(strs, str, boost::is_any_of(";"));
+    boost::split(strs, xdata, boost::is_any_of(";"));
     for (unsigned int i = 0; i < strs.size(); i++)
     {
         boost::split(strs2, strs.at(i), boost::is_any_of("="));
@@ -1197,11 +1197,29 @@ bool CWallet::checkVersion(const std::string data, bool base64)
     return false;
 }
 
-bool CWallet::checkCrypt(const std::string data, bool base64)
+std::string CWallet::getChan(const std::string data, bool base64)
 {
-    const std::string str = base64? DecodeBase64(data) : data;
+    const std::string xdata = base64? DecodeBase64(data) : data;
     std::vector<std::string> strs, strs2;
-    boost::split(strs, str, boost::is_any_of(";"));
+    boost::split(strs, xdata, boost::is_any_of(";"));
+    for (unsigned int i = 0; i < strs.size(); i++)
+    {
+        boost::split(strs2, strs.at(i), boost::is_any_of("="));
+        if (strs2.size() == 2 && strs2.at(0) == "chan")
+        {
+            if (!TLK_CHAN[1][1].empty() && !XTALK::Decode(strs2.at(1), TLK_CHAN[1][1]).empty())
+                return XTALK::Decode(strs2.at(1), TLK_CHAN[1][1]);
+            else
+                return strs2.at(1);
+        }
+    }
+    return "";
+}
+
+bool CWallet::checkCrypt(const std::string data)
+{
+    std::vector<std::string> strs, strs2;
+    boost::split(strs, data, boost::is_any_of(";"));
     for (unsigned int i = 0; i < strs.size(); i++)
     {
         boost::split(strs2, strs.at(i), boost::is_any_of("="));
@@ -1214,22 +1232,6 @@ bool CWallet::checkCrypt(const std::string data, bool base64)
         }
     }
     return false;
-}
-
-std::string CWallet::getChan(const std::string data, bool base64)
-{
-    const std::string str = base64? DecodeBase64(data) : data;
-    std::vector<std::string> strs, strs2;
-    boost::split(strs, str, boost::is_any_of(";"));
-    for (unsigned int i = 0; i < strs.size(); i++)
-    {
-        boost::split(strs2, strs.at(i), boost::is_any_of("="));
-        if (strs2.size() == 2 && strs2.at(0) == "chan")
-        {
-            return strs2.at(1);
-        }
-    }
-    return "";
 }
 
 // #talkcoin
@@ -1266,18 +1268,20 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
         && chat_data.length() <= 100)
     {
         wtxNew.TLKtime = GetAdjustedTime();
-        if (this->getChan(chat_data, false) == TLK_CHAN[1][0] && !TLK_CHAN[1][1].empty())
+        if (!TLK_CHAN[1][1].empty() && this->getChan(chat_data, false) == TLK_CHAN[1][0])
         {
             wtxNew.TLKnick = XTALK::EncryptString(chat_nick.c_str(), TLK_CHAN[1][1].c_str());
             wtxNew.TLKmsg  = XTALK::EncryptString(chat_message.c_str(), TLK_CHAN[1][1].c_str());
-            wtxNew.TLKdata = EncodeBase64(chat_data + "encrypted=true;");
+            boost::replace_all(chat_data,
+                               "chan=" + TLK_CHAN[1][0],
+                               "chan=" + XTALK::EncryptString(TLK_CHAN[1][0].c_str(), TLK_CHAN[1][1].c_str()));
         }
         else
         {
             wtxNew.TLKnick = EncodeBase64(chat_nick);
             wtxNew.TLKmsg  = EncodeBase64(chat_message);
-            wtxNew.TLKdata = EncodeBase64(chat_data);
         }
+        wtxNew.TLKdata = EncodeBase64(chat_data);
     }
 
     {

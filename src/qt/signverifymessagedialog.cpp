@@ -22,17 +22,17 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->addressIn_SM->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+    ui->addressIn_SM->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
                                      alternate-background-color: blue; \
                                      background-color: rgb(89,38,68); \
                                      selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
-    ui->signatureOut_SM->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+    ui->signatureOut_SM->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
                                         background-color: rgb(89,38,68); \
                                         selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
-    ui->addressIn_VM->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+    ui->addressIn_VM->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
                                      background-color: rgb(89,38,68); \
                                      selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
-    ui->signatureIn_VM->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+    ui->signatureIn_VM->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
                                        background-color: rgb(89,38,68); \
                                        selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
 

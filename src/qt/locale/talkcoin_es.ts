@@ -15,7 +15,7 @@
         <translation>Versión de &lt;b&gt;Talkcoin&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+58"/>
+        <location line="+71"/>
         <source>
 This is experimental software.
 
@@ -211,7 +211,7 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
         <translation>Nueva contraseña</translation>
     </message>
     <message>
-        <location line="+40"/>
+        <location line="+43"/>
         <source>Repeat new passphrase</source>
         <translation>Repita la nueva contraseña</translation>
     </message>
@@ -965,69 +965,74 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Desde</translation>
     </message>
     <message>
-        <location line="+84"/>
-        <location line="+556"/>
+        <location line="+156"/>
+        <location line="+575"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red Talkcoin después de que se haya establecido una conexión , pero este proceso aún no se ha completado.</translation>
     </message>
     <message>
-        <location line="-463"/>
+        <location line="-412"/>
         <source>Balance:</source>
         <translation>Saldo:</translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="-53"/>
         <source>Unconfirmed:</source>
         <translation>No confirmado(s):</translation>
     </message>
     <message>
-        <location line="+165"/>
-        <source>  TAC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+48"/>
+        <location line="+227"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Current reward:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-81"/>
+        <location line="+69"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time to next vote:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+130"/>
+        <location line="+63"/>
         <source>lblInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-81"/>
+        <location line="-50"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your vote:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+226"/>
+        <location line="-97"/>
+        <source>Auto Vote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+240"/>
         <source>Recent transactions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+367"/>
+        <location line="+343"/>
         <source>Chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+394"/>
+        <location line="+29"/>
+        <source>Group Chat:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+365"/>
         <source>List of emoticons
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-968"/>
+        <location line="-811"/>
         <source>lblVoteInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+83"/>
+        <location line="-219"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#550000;&quot;&gt;Press the button to cast your vote&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <extracomment>Press the button to cast your vote</extracomment>
         <translation type="unfinished"></translation>
@@ -1038,28 +1043,23 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+50"/>
-        <source>Auto Voting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-99"/>
-        <location line="+71"/>
+        <location line="+22"/>
+        <location line="+148"/>
         <source>Vote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-394"/>
+        <location line="-461"/>
         <source>Wallet</source>
         <translation>Monedero</translation>
     </message>
     <message>
-        <location line="+120"/>
+        <location line="-32"/>
         <source>Immature:</source>
         <translation>No disponible:</translation>
     </message>
     <message>
-        <location line="-19"/>
+        <location line="-25"/>
         <source>Mined balance that has not yet matured</source>
         <translation>Saldo recién minado que aún no está disponible.</translation>
     </message>
@@ -1068,12 +1068,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="obsolete">&lt;b&gt;Movimientos recientes&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-77"/>
+        <location line="+211"/>
         <source>Your current balance</source>
         <translation>Su saldo actual</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+53"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation>Total de las transacciones que faltan por confirmar y que no contribuyen al saldo actual</translation>
     </message>
@@ -1124,7 +1124,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+136"/>
+        <location line="+138"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1186,7 +1186,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">El monedero está &lt;b&gt;cifrado&lt;/b&gt; y actualmente &lt;b&gt;bloqueado&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-338"/>
+        <location line="-340"/>
         <source>List of emoticons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1439,7 +1439,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+77"/>
         <source>Quantity:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1494,7 +1494,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+163"/>
+        <location line="+161"/>
         <source>Send to multiple recipients at once</source>
         <translation>Enviar a multiples destinatarios de una vez</translation>
     </message>
@@ -1504,7 +1504,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Añadir &amp;destinatario</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+27"/>
         <source>Remove all transaction fields</source>
         <translation>Eliminar todos los campos de las transacciones</translation>
     </message>
@@ -1524,7 +1524,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">123.456 TAC</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+38"/>
         <source>Confirm the send action</source>
         <translation>Confirmar el envío</translation>
     </message>
@@ -1947,7 +1947,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TalkcoinGUI</name>
     <message>
-        <location filename="../talkcoingui.cpp" line="+262"/>
+        <location filename="../talkcoingui.cpp" line="+275"/>
         <source>Sign &amp;message...</source>
         <translation>Firmar &amp;mensaje...</translation>
     </message>
@@ -2077,18 +2077,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Verificar mensaje...</translation>
     </message>
     <message>
-        <location line="-191"/>
-        <location line="+616"/>
+        <location line="-199"/>
+        <location line="+624"/>
         <source>Talkcoin</source>
         <translation>Talkcoin</translation>
     </message>
     <message>
-        <location line="-616"/>
+        <location line="-624"/>
         <source>Wallet</source>
         <translation>Monedero</translation>
     </message>
     <message>
-        <location line="+117"/>
+        <location line="+125"/>
         <source>&amp;Messaging</source>
         <translation type="unfinished"></translation>
     </message>

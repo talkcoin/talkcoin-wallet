@@ -49,8 +49,8 @@
         <file alias="chat_bold">res/icons/chat_bold.png</file>
         <file alias="chat_smiley">res/icons/chat_smiley.png</file>
         <file alias="chat_send">res/icons/chat_send.png</file>
-        <file alias="flag_c1">res/icons/flags/flag_c1.png</file>
-        <file alias="flag_c2">res/icons/flags/flag_c2.png</file>
+        <file alias="chan1">res/icons/chan1.png</file>
+        <file alias="chan2">res/icons/chan2.png</file>
     </qresource>
     <qresource prefix="/smileys">
         <file alias="icon_smile">res/icons/smileys/icon_smile.png</file>
@@ -129,5 +129,9 @@
     </qresource>
     <qresource prefix="/text">
         <file>res/text/style.qss</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file alias="latolig">res/fonts/Lato-Lig.ttf</file>
+        <file alias="latoreg">res/fonts/Lato-Reg.ttf</file>
     </qresource>
 </RCC>

@@ -187,9 +187,9 @@ public:
 
     // #talkcoin
     bool checkTime(const int64 talktime);
-    bool checkVersion(const std::string data, bool base64=true);
-    bool checkCrypt(const std::string data, bool base64=true);
+    bool checkVersion(const std::string data);
     std::string getChan(const std::string data, bool base64=true);
+    bool checkCrypt(const std::string data);
 
     bool CreateTransaction(const std::vector<std::pair<CScript, int64> >& vecSend,
                            CWalletTx& wtxNew, CReserveKey& reservekey,

@@ -2341,17 +2341,18 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                 std::string tmp2 = boost::lexical_cast<std::string>(tx.TLKtime);
                 std::string tmp3;
                 std::string tmp4;
-                if (pwalletMain->checkCrypt(tx.TLKdata))
-                {
-                    tmp3 = XTALK::Decode(tx.TLKnick, TLK_CHAN[1][1]);
-                    tmp4 = XTALK::Decode(tx.TLKmsg, TLK_CHAN[1][1]);
-                }
-                else
+                std::string tmp5 = DecodeBase64(tx.TLKdata);
+                if (XTALK::Decode(tx.TLKnick, TLK_CHAN[1][1]).empty())
                 {
                     tmp3 = DecodeBase64(tx.TLKnick);
                     tmp4 = DecodeBase64(tx.TLKmsg);
                 }
-                std::string tmp5 = DecodeBase64(tx.TLKdata);
+                else
+                {
+                    tmp3 = XTALK::Decode(tx.TLKnick, TLK_CHAN[1][1]);
+                    tmp4 = XTALK::Decode(tx.TLKmsg, TLK_CHAN[1][1]);
+                    tmp5 += "encrypted=true;";
+                }
 
                 if (tmp3.empty() || tmp4.empty())
                     continue;

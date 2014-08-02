@@ -12,7 +12,7 @@
   </property>
   <property name="font">
    <font>
-    <family>Gill Sans MT</family>
+    <family>Lato</family>
     <pointsize>11</pointsize>
    </font>
   </property>
@@ -33,7 +33,7 @@ stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));</string>
     <widget class="QTabWidget" name="tabWidget">
      <property name="font">
       <font>
-       <family>Gill Sans MT</family>
+       <family>Lato</family>
        <pointsize>9</pointsize>
       </font>
      </property>
@@ -616,7 +616,7 @@ border-color: rgb(62,29,67);}
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -658,7 +658,7 @@ border-color: rgb(62,29,67);}
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -735,7 +735,7 @@ QToolTip {
           <widget class="QLineEdit" name="lineEdit">
            <property name="font">
             <font>
-             <family>Gill Sans MT</family>
+             <family>Lato</family>
              <pointsize>11</pointsize>
             </font>
            </property>
@@ -746,7 +746,7 @@ background-color: rgb(62,29,67);
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -778,7 +778,7 @@ border-color: rgb(62,29,67);}
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;

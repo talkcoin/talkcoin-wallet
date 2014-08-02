@@ -1,4 +1,4 @@
-Talkcoin 1.4.0.0
+Talkcoin 1.4.1.0
 ====================
 
 Copyright (c) 2014 Talkcoin Developers

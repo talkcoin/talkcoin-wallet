@@ -297,7 +297,7 @@ background-color: rgb(103, 47, 82);</string>
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -565,7 +565,7 @@ background-color: rgb(103, 47, 82);</string>
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -849,7 +849,7 @@ background-color: rgb(103, 47, 82);</string>
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -1117,7 +1117,7 @@ background-color: rgb(103, 47, 82);</string>
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -1401,7 +1401,7 @@ background-color: rgb(103, 47, 82);</string>
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -1439,7 +1439,7 @@ background-color: rgb(103, 47, 82);</string>
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -1723,7 +1723,7 @@ background-color: rgb(103, 47, 82);</string>
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -1761,7 +1761,7 @@ background-color: rgb(103, 47, 82);</string>
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
           </font>
          </property>

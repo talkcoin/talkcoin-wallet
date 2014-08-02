@@ -12,7 +12,7 @@
   </property>
   <property name="font">
    <font>
-    <family>Gill Sans MT</family>
+    <family>Lato</family>
     <pointsize>10</pointsize>
    </font>
   </property>
@@ -37,7 +37,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label">
      <property name="font">
       <font>
-       <family>Gill Sans MT</family>
+       <family>Lato</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -56,7 +56,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label_2">
      <property name="font">
       <font>
-       <family>Gill Sans MT</family>
+       <family>Lato</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -76,7 +76,7 @@ color: rgb(255, 255, 255);</string>
      <property name="styleSheet">
       <string notr="true">
 background-color: rgb(89,38,68);
-font-size:11pt;font-family:'Gill Sans MT';
+font-size:11pt;font-family:'Lato';
 
 
 </string>
@@ -87,7 +87,7 @@ font-size:11pt;font-family:'Gill Sans MT';
     <widget class="QLabel" name="label_4">
      <property name="font">
       <font>
-       <family>Gill Sans MT</family>
+       <family>Lato</family>
        <pointsize>10</pointsize>
       </font>
      </property>
@@ -111,7 +111,7 @@ font-size:11pt;font-family:'Gill Sans MT';
       <widget class="QValidatedLineEdit" name="payTo">
        <property name="font">
         <font>
-         <family>Gill Sans MT</family>
+         <family>Lato</family>
          <pointsize>11</pointsize>
          <stylestrategy>PreferAntialias</stylestrategy>
          <kerning>true</kerning>
@@ -132,14 +132,14 @@ font-size:11pt;font-family:'Gill Sans MT';
        <property name="styleSheet">
         <string notr="true">QLineEdit {
 background-color: rgb(89,38,68);
-font-size:11pt;font-family:'Gill Sans MT';
+font-size:11pt;font-family:'Lato';
 color: white;
 }
 
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -171,7 +171,7 @@ border-color: rgb(89,38,68);}
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -205,7 +205,7 @@ border-color: rgb(89,38,68);}
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -237,7 +237,7 @@ border-radius: 13px;
 border-color: rgb(89,38,68);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -264,14 +264,14 @@ QToolTip {
      <property name="styleSheet">
       <string notr="true">QLineEdit {
 background-color: rgb(89,38,68);
-font-size:11pt;font-family:'Gill Sans MT';
+font-size:11pt;font-family:'Lato';
 color: white;
 }
 
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;

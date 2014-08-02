@@ -12,7 +12,7 @@
   </property>
   <property name="font">
    <font>
-    <family>Gill Sans MT</family>
+    <family>Lato</family>
     <pointsize>10</pointsize>
    </font>
   </property>
@@ -89,7 +89,7 @@
             </property>
             <property name="font">
              <font>
-              <family>Gill Sans MT</family>
+              <family>Lato</family>
               <pointsize>10</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -117,7 +117,7 @@
            <widget class="QPushButton" name="pushButtonCoinControl">
             <property name="font">
              <font>
-              <family>Gill Sans MT</family>
+              <family>Lato</family>
               <pointsize>10</pointsize>
              </font>
             </property>
@@ -128,7 +128,7 @@ border-radius: 13px;
 border-color: rgb(103,47,82);}
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -145,7 +145,7 @@ QToolTip {
            <widget class="QLabel" name="labelCoinControlAutomaticallySelected">
             <property name="font">
              <font>
-              <family>Gill Sans MT</family>
+              <family>Lato</family>
               <pointsize>10</pointsize>
              </font>
             </property>
@@ -161,7 +161,7 @@ QToolTip {
            <widget class="QLabel" name="labelCoinControlInsuffFunds">
             <property name="font">
              <font>
-              <family>Gill Sans MT</family>
+              <family>Lato</family>
               <pointsize>10</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -211,16 +211,7 @@ QToolTip {
            <string notr="true"/>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayoutCoinControl5">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
+           <property name="margin">
             <number>0</number>
            </property>
            <item>
@@ -268,7 +259,7 @@ QToolTip {
                 <widget class="QLabel" name="labelCoinControlQuantity">
                  <property name="font">
                   <font>
-                   <family>Monospace</family>
+                   <family>Lato</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -303,7 +294,7 @@ QToolTip {
                 <widget class="QLabel" name="labelCoinControlBytes">
                  <property name="font">
                   <font>
-                   <family>Monospace</family>
+                   <family>Lato</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -357,7 +348,7 @@ QToolTip {
                 <widget class="QLabel" name="labelCoinControlAmount">
                  <property name="font">
                   <font>
-                   <family>Monospace</family>
+                   <family>Lato</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -389,7 +380,7 @@ QToolTip {
                 <widget class="QLabel" name="labelCoinControlPriority">
                  <property name="font">
                   <font>
-                   <family>Monospace</family>
+                   <family>Lato</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -443,7 +434,7 @@ QToolTip {
                 <widget class="QLabel" name="labelCoinControlFee">
                  <property name="font">
                   <font>
-                   <family>Monospace</family>
+                   <family>Lato</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -475,7 +466,7 @@ QToolTip {
                 <widget class="QLabel" name="labelCoinControlLowOutput">
                  <property name="font">
                   <font>
-                   <family>Monospace</family>
+                   <family>Lato</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -529,7 +520,7 @@ QToolTip {
                 <widget class="QLabel" name="labelCoinControlAfterFee">
                  <property name="font">
                   <font>
-                   <family>Monospace</family>
+                   <family>Lato</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -561,7 +552,7 @@ QToolTip {
                 <widget class="QLabel" name="labelCoinControlChange">
                  <property name="font">
                   <font>
-                   <family>Monospace</family>
+                   <family>Lato</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -604,7 +595,7 @@ QToolTip {
            <widget class="QCheckBox" name="checkBoxCoinControlChange">
             <property name="font">
              <font>
-              <family>Gill Sans MT</family>
+              <family>Lato</family>
               <pointsize>10</pointsize>
              </font>
             </property>
@@ -629,7 +620,7 @@ QToolTip {
             </property>
             <property name="font">
              <font>
-              <family>Gill Sans MT</family>
+              <family>Lato</family>
               <pointsize>11</pointsize>
              </font>
             </property>
@@ -639,19 +630,19 @@ QToolTip {
             <property name="styleSheet">
              <string notr="true">QLineEdit {
 background-color: rgb(89,38,68);
-font-size:11pt;font-family:'Gill Sans MT';
+font-size:11pt;font-family:'Lato';
 color: white;
 }
 QLineEdit:hover {
 background-color: rgb(89,38,68);
-font-size:11pt;font-family:'Gill Sans MT';
+font-size:11pt;font-family:'Lato';
 color: white;
 }
 
 
 QToolTip {
      color: white;
-     font-size:9pt;font-family:'Gill Sans MT';
+     font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
@@ -716,21 +707,12 @@ QToolTip {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>830</width>
-        <height>113</height>
+        <width>828</width>
+        <height>111</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
+       <property name="margin">
         <number>0</number>
        </property>
        <item>
@@ -774,6 +756,13 @@ QToolTip {
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="addButton">
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="toolTip">
         <string>Send to multiple recipients at once</string>
        </property>
@@ -802,6 +791,13 @@ border-color: rgb(103,47,82);}</string>
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="toolTip">
         <string>Remove all transaction fields</string>
@@ -836,7 +832,7 @@ border-color: rgb(103,47,82);}</string>
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
-           <family>Gill Sans MT</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
            <weight>75</weight>
            <bold>true</bold>
@@ -851,7 +847,7 @@ border-color: rgb(103,47,82);}</string>
         <widget class="QLabel" name="labelBalance">
          <property name="font">
           <font>
-           <family>Gill Sans MT</family>
+           <family>Lato</family>
            <pointsize>10</pointsize>
            <weight>75</weight>
            <bold>true</bold>
@@ -890,6 +886,13 @@ border-color: rgb(103,47,82);}</string>
          <width>150</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>DejaVu Sans</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="toolTip">
         <string>Confirm the send action</string>

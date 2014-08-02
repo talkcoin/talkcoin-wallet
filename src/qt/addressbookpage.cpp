@@ -79,7 +79,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     // Build context menu
     contextMenu = new QMenu();
 
-    contextMenu->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+    contextMenu->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
                                 background-color: rgb(89,38,68); \
                                 selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
 
@@ -114,7 +114,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     // Pass through accept action from button box
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
 
-    ui->buttonBox->setStyleSheet("color: white; font-size:11pt;font-family:'Gill Sans MT'; \
+    ui->buttonBox->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
                                   background-color: rgb(89,38,68); \
                                   selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
 }

@@ -310,15 +310,15 @@ void OverviewPage::showChat()
             std::string translate = "<a href =\"https://translate.google.com/m?sl=auto&tl=auto&ie=UTF-8&prev=_m&q=" + QString(QUrl::toPercentEncoding(style.c_str())).toStdString() + "\"><img src=\":/icons/chat_translate\"></a>&nbsp;";
             style = getSmileys(style);
             std::string nick = QString(TLK___[i][3].c_str()).remove(QRegExp("<[^>]*>")).trimmed().toStdString();
-            std::string encrypted = wallet->checkCrypt(TLK___[i][5], false)? "&nbsp;<img src=\":/icons/chat_encrypted\">" : "";
+            std::string encrypted = wallet->checkCrypt(TLK___[i][5])? "&nbsp;<img src=\":/icons/chat_encrypted\">" : "";
 
             if (atoi(TLK___[i][1].c_str()) == GET_V_CHATB(nBestHeight))
                 style = "<b>" + style + "</b>";
 
-            tlk += (std::string)"<table style=\"margin-bottom:15px;\"><tr><td width=\"35\">"
+            tlk += (std::string)"<table style=\"margin-bottom:10px;\"><tr><td width=\"35\">"
                    + (nickx!=nick? "<img src=\":/icons/chat_bubble\">" : "") + "</td>"
-                   + "<td style=\"font-size:12pt; text-align:center; color:blue;\">" + nick + " <span style=\"font-size:small; color:#808080;\">(" + GUIUtil::dateTimeStr(atoi(TLK___[i][2].c_str())).toStdString() + ")</span>" + encrypted + "</td></tr>"
-                   + "<tr><td></td><td style=\"font-size:12pt; text-align:center;\">" + translate + style + "</td></tr></table>";
+                   + "<td style=\"font-size:12pt; color:blue;\">" + nick + " <span style=\"font-size:small; color:#808080;\">(" + GUIUtil::dateTimeStr(atoi(TLK___[i][2].c_str())).toStdString() + ")</span>" + encrypted + "</td></tr>"
+                   + "<tr><td></td><td style=\"font-size:12pt;\">" + translate + style + "</td></tr></table>";
 
             nickx = nick;
         }
@@ -337,20 +337,22 @@ void OverviewPage::on_btnChatSmiley_clicked()
     msgBox->setWindowTitle(tr("List of emoticons"));
 
     msgBox->setText(
-                    (QString)"<table align=\"center\" width=\"100%\"><tr><td><img src=\":/smileys/icon_smile\"></td><td><b>:)</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_biggrin\"></td><td><b>:D</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_sad\"></td><td><b>:(</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_surprised\"></td><td><b>:o</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_eek\"></td><td><b>8O</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_confused\"></td><td><b>:?</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_cool\"></td><td><b>8)</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_mad\"></td><td><b>:x</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_razz\"></td><td><b>:P</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_neutral\"></td><td><b>:|</b></td></tr>"
-                    + "<tr><td><img src=\":/smileys/icon_wink\"></td><td><b>;)</b></td></tr></table>"
+                    (QString)"<table align=\"center\" width=\"100%\">"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_smile\"></td><td style=\"vertical-align:middle;\"><b>:)</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_biggrin\"></td><td style=\"vertical-align:middle;\"><b>:D</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_sad\"></td><td style=\"vertical-align:middle;\"><b>:(</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_surprised\"></td><td style=\"vertical-align:middle;\"><b>:o</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_eek\"></td><td style=\"vertical-align:middle;\"><b>8O</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_confused\"></td><td style=\"vertical-align:middle;\"><b>:?</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_cool\"></td><td style=\"vertical-align:middle;\"><b>8)</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_mad\"></td><td style=\"vertical-align:middle;\"><b>:x</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_razz\"></td><td style=\"vertical-align:middle;\"><b>:P</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_neutral\"></td><td style=\"vertical-align:middle;\"><b>:|</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_wink\"></td><td style=\"vertical-align:middle;\"><b>;)</b></td></tr>"
+                    + "</table>"
                    );
 
-    msgBox->setStyleSheet("font-size:10pt;font-family:'Gill Sans MT'; \
+    msgBox->setStyleSheet("font-size:10pt;font-family:'Lato'; \
                            color: white; \
                            background-color: rgb(103,47,82); \
                            alternate-background-color: rgb(89,38,68);");
@@ -545,7 +547,7 @@ void OverviewPage::on_txtChatNick_textChanged(const QString &arg1)
     background-color: rgb(255, 255, 255); \
     QToolTip { \
          color: white; \
-         font-size:9pt;font-family:'Gill Sans MT'; \
+         font-size:9pt;font-family:'Lato'; \
          border: 4px solid; \
          border-radius: 13px; \
          opacity: 700; \
@@ -560,7 +562,7 @@ void OverviewPage::on_txtChatMsg_textChanged(const QString &arg1)
     background-color: rgb(255, 255, 255); \
     QToolTip { \
          color: white; \
-         font-size:9pt;font-family:'Gill Sans MT'; \
+         font-size:9pt;font-family:'Lato'; \
          border: 4px solid; \
          border-radius: 13px; \
          opacity: 700; \
