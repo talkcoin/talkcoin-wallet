@@ -80,8 +80,8 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     contextMenu = new QMenu();
 
     contextMenu->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
-                                background-color: rgb(89,38,68); \
-                                selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+                                background-color: rgb(30, 51, 105); \
+                                selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));");
 
     contextMenu->addAction(copyAddressAction);
     contextMenu->addAction(copyLabelAction);
@@ -115,8 +115,8 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
 
     ui->buttonBox->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
-                                  background-color: rgb(89,38,68); \
-                                  selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+                                  background-color: rgb(30, 51, 105); \
+                                  selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));");
 }
 
 AddressBookPage::~AddressBookPage()

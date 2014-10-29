@@ -2,21 +2,21 @@
 QLineEdit, QLineEdit:selected {
 border-width: 1px;
 border-color: white;
-background-color: rgb(89,38,68);
-alternate-background-color: rgb(103,47,82);
+background-color: rgb(30, 51, 105);
+alternate-background-color: rgb(38, 61, 121);
 color: white;
 selection-color: white;
 }
 
 QValidateLineEdit:hover, QLineEdit:hover {
-background-color: rgb(103,47,82);
-alternate-background-color: rgb(103,47,82);
+background-color: rgb(38, 61, 121);
+alternate-background-color: rgb(38, 61, 121);
 color: black;
 }
 
 QLineEdit#txtChatNick,QLineEdit#txtChatMsg {
 border-width: 2px;
-border-color: rgb(154,154,154);
+border-color: rgb(154, 154, 154);
 margin: 0px;
 padding: 0px;
 background-color: white;
@@ -26,30 +26,30 @@ color: black;
 
 QHeaderView {
 font-size:11pt;font-family:'Lato';
-alternate-background-color: rgb(103,47,82);
-background-color: rgb(103,47,82);
+alternate-background-color: rgb(38, 61, 121);
+background-color: rgb(38, 61, 121);
 color: #caa100;
 }
 
 QHeaderView::section:checked {
 font-size:11pt;font-family:'Lato';
-background-color: rgb(103,47,82);
+background-color: rgb(38, 61, 121);
 color: #caa100 ;}
 
 QTableView {
-background: rgb(103,47,82);
+background: rgb(38, 61, 121);
 color: white;
 border-style: none;
-alternate-background-color: rgb(89,38,68);
-selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0,stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));
+alternate-background-color: rgb(30, 51, 105);
+selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0,stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));
 selection-color: white;
 }
 
 QHeaderView::section {
 color:#caa100;
 font-size:11pt;font-family:'Lato';
-background-color: rgb(103,47,82);
-selection-background-color: rgb(62,29,67);
+background-color: rgb(38, 61, 121);
+selection-background-color: rgb(23, 39, 79);
 }
 
 QToolTip {
@@ -58,15 +58,15 @@ font-size:9pt;font-family:'Lato';
 border: 4px solid ;
 border-radius: 13px;
 opacity: 700;
-border-color: rgb(103,47,82);
-alternate-background-color: rgb(89,38,68);
-background-color: rgb(62,29,67);
+border-color: rgb(38, 61, 121);
+alternate-background-color: rgb(30, 51, 105);
+background-color: rgb(23, 39, 79);
 }
 
 QDialog, QMainWindow, QFrame {
 	color: white;
-	background-color: rgb(62,29,67);
-	alternate-background-color: rgb(89,38,68);
+	background-color: rgb(23, 39, 79);
+	alternate-background-color: rgb(30, 51, 105);
         border-width: -20px;
 }
 
@@ -79,24 +79,24 @@ QCheckBox {
 }
 
 QFrame#central {
-background-color: rgb(62,29,67);
+background-color: rgb(23, 39, 79);
 border: none;
 }
 QFrame#topleftframe, QFrame#bottomleftframe, QFrame#middleframe,QFrame#bottomframe, QFrame#frame, QFrame#frame_3 {
-	background-color: rgb(103,47,82);
+	background-color: rgb(38, 61, 121);
 	border-style: plain;
 	border-width: 20px;
         border-radius: 25px;
-	border-color: rgb(103,47,82);
+	border-color: rgb(38, 61, 121);
 	min-width: 10em;
 	padding: 0px;
 }
 QFrame#toprightframe {
-background-color: rgb(103,47,82);
+background-color: rgb(38, 61, 121);
 border-style: plain;
 border-width: 20px;
 border-radius: 25px;
-border-color: rgb(103,47,82);
+border-color: rgb(38, 61, 121);
 min-width: 10em;
 padding: 10px;
 }
@@ -105,7 +105,7 @@ QFrame#messageframe, QFrame#txtframe {
 border-style: plain;
 border-width: 15px;
 border-radius: 25px;
-border-color: rgb(103,47,82);
+border-color: rgb(38, 61, 121);
 margin: 0px;
 min-width: 10em;
 padding: 0px;
@@ -121,7 +121,7 @@ QLabel[openExternalLinks=true], QHeaderView { color: #cca000 }
 QLabel[openExternalLinks=false] { color: white; font-weight: normal }
 
 /*
-#btnChatSend, #btnChatSmiley, #btnChatBold {
+#btnChatSend, #btnChatSmiley, #btnChatBold, #btnChatVideo {
 padding: 0px;
 margin: 0px;
 border-width: 1px;
@@ -133,13 +133,13 @@ border-radius: 0px;
          border: 4px solid ;
          border-radius: 13px;
          opacity: 700;
-         border-color: rgb(89,38,68);
-         background-color: rgb(62,29,67);
+         border-color: rgb(30, 51, 105);
+         background-color: rgb(23, 39, 79);
      }
 }
 */
 
-#btnChatSend, #btnChatSmiley, #btnChatBold {
+#btnChatSend, #btnChatSmiley, #btnChatBold, #btnChatVideo {
 padding: 3px;
 margin: 0px;
 border-radius: 0px;
@@ -148,9 +148,9 @@ border-color: white;
 }
 
 QPushButton, QToolButton {
-	border: 4px solid rgb(103,47,82);
+	border: 4px solid rgb(38, 61, 121);
 	border-radius: 12px;
-	background-color: rgb(103,47,82);
+	background-color: rgb(38, 61, 121);
 	color: white;
 	padding: 6px;
 	margin: 6px;
@@ -158,19 +158,19 @@ QPushButton, QToolButton {
 
 
 QPushButton:hovered, QToolButton:hovered {
-        background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));
+        background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));
 }
 QPushButton:pressed, QToolButton:checked {
 	color: #cca000;
 }
 QPushButton:pressed, QToolButton:pressed {
 	border-color: #cca000;
-        background-color: rgb(89,38,68);
+        background-color: rgb(30, 51, 105);
 	color: #cca000;
 }
 QPushButton:disabled, QToolButton:disabled {
 	color: #444;
-	background-color: rgb(62,29,67);
+	background-color: rgb(23, 39, 79);
 }
 
 
@@ -179,11 +179,11 @@ QPushButton:disabled, QToolButton:disabled {
 	border-width: 0px;
 }
 
-QStatusBar { background: rgb(62,29,67); }
+QStatusBar { background: rgb(23, 39, 79); }
 
 
-#scrollAreaWidgetContents { background: rgb(62,29,67); }
-#scrollAreaWidgetContents > QFrame { background-color: rgb(62,29,67); border-width: 0px; border-style: none; }
+#scrollAreaWidgetContents { background: rgb(23, 39, 79); }
+#scrollAreaWidgetContents > QFrame { background-color: rgb(23, 39, 79); border-width: 0px; border-style: none; }
 
 
 QLineEdit#txtChatNick,QLineEdit#txtChatMsg {
@@ -202,7 +202,7 @@ QComboBox {
 	border-width: 0;
 	border-style: none;
 	padding: 8px;
-	background-color: rgb(103,47,82);
+	background-color: rgb(38, 61, 121);
 	color: white;
         font: 11pt "Lato";
 }
@@ -213,23 +213,23 @@ QTextBrowser {
 	border-style: none;
 	padding: 8px;
         background-color: blue;
-        alternate-background-color: rgb(103,47,82);
+        alternate-background-color: rgb(38, 61, 121);
 	color: black;
 }
 
 QComboBox::drop-down {
 	border-width: 0;
 	border-style: none;
-	background-color: rgb(103,47,82);
+	background-color: rgb(38, 61, 121);
 	color: white;
 }
 /*
 QTableView {
-	background: rgb(103,47,82);
+	background: rgb(38, 61, 121);
 	color: blue;
 	border-style: none;
-	selection-background-color: rgb(103,47,82);
-	alternate-background-color: rgb(89,38,68);
+	selection-background-color: rgb(38, 61, 121);
+	alternate-background-color: rgb(30, 51, 105);
         selection-color: red;
 	border: 0px solid black;
 }
@@ -237,29 +237,29 @@ QTableView {
 
 
 QTabWidget {
-	background: rgb(103,47,82);
-	alternate-background-color: rgb(89,38,68);
-        selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0,stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));
+	background: rgb(38, 61, 121);
+	alternate-background-color: rgb(30, 51, 105);
+        selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0,stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));
 }
 
 QListView {
-	background: rgb(103,47,82);
-	alternate-background-color: rgb(89,38,68);
+	background: rgb(38, 61, 121);
+	alternate-background-color: rgb(30, 51, 105);
 }
 
  QTabWidget::pane {
-	border-top: 2px solid rgb(103,47,82);
-	border: 4px solid rgb(103,47,82);
+	border-top: 2px solid rgb(38, 61, 121);
+	border: 4px solid rgb(38, 61, 121);
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	border-top-right-radius: 8px;
-	background: rgb(103,47,82);
+	background: rgb(38, 61, 121);
 }
 
 QTabWidget::tab {
-	background: rgb(103,47,82);
-	border: 4px solid rgb(62,29,67);
-	border-bottom-color: rgb(103,47,82); /* same as the pane color */
+	background: rgb(38, 61, 121);
+	border: 4px solid rgb(23, 39, 79);
+	border-bottom-color: rgb(38, 61, 121); /* same as the pane color */
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 	min-width: 8ex;
@@ -275,7 +275,7 @@ QTabBar::tab:hover {
 }
 
 QTabBar::tab:selected {
-	border-color: rgb(103,47,82); /* same as pane color */
+	border-color: rgb(38, 61, 121); /* same as pane color */
 	border-top-color: #cca000;
 }
 

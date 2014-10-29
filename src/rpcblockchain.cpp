@@ -327,9 +327,6 @@ Value getchat(const Array& params, bool fHelp)
             std::string nick = TLK___[i][3];
             std::string msg  = TLK___[i][4];
 
-            if (atoi(TLK___[i][1].c_str()) == GET_V_CHATB(nBestHeight))
-                msg = "<b>" + msg + "</b>";
-
             Object obj;
             obj.push_back(Pair("time", time));
             obj.push_back(Pair("nick", nick));

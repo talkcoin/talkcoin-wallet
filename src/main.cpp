@@ -1197,7 +1197,7 @@ int64 static GetVoteValue(int nHeight)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    nSubsidy = GetVoteValue(nHeight);
+    nSubsidy = (nHeight < HF2)? GetVoteValue(nHeight) : 5*COIN;
     //printf("nHeight=%d -> nSubsidy=%"PRI64d"\n", nHeight, nSubsidy);
     return nSubsidy + nFees;
 }
@@ -1827,14 +1827,17 @@ bool CBlock::ConnectBlock(CValidationState &state, CBlockIndex* pindex, CCoinsVi
     if (fBenchmark)
         printf("- Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin)\n", (unsigned)vtx.size(), 0.001 * nTime, 0.001 * nTime / vtx.size(), nInputs <= 1 ? 0 : 0.001 * nTime / (nInputs-1));
 
-    int64 nBlockValue = GetBlockValue(pindex->nHeight, nFees) + _V2;
+    int64 nBlockValue = GetBlockValue(pindex->nHeight, nFees) + ((pindex->nHeight < HF2)? _V2 : 0);
     if (vtx[0].GetValueOut() > nBlockValue)
         return state.DoS(100, error("ConnectBlock() : coinbase pays too much (actual=%"PRI64d" vs limit=%"PRI64d")", vtx[0].GetValueOut(), nBlockValue));
 
-    const CTxOut& txout = vtx[0].vout[1];
-    CTxDestination address;
-    if (!(ExtractDestination(txout.scriptPubKey, address) && CTalkcoinAddress(address).ToBase64() == GET_A_SHARE() && txout.nValue == _V2))
-        return state.DoS(100, error("ConnectBlock() : Share to beneficiary is insufficient"));
+    if (pindex->nHeight < HF2)
+    {
+        const CTxOut& txout = vtx[0].vout[1];
+        CTxDestination address;
+        if (!(ExtractDestination(txout.scriptPubKey, address) && CTalkcoinAddress(address).ToBase64() == GET_A_SHARE() && txout.nValue == _V2))
+            return state.DoS(100, error("ConnectBlock() : Share to beneficiary is insufficient"));
+    }
 
     if (!control.Wait())
         return state.DoS(100, false);
@@ -2209,6 +2212,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 std::string TLK_CHAN[2][2] = { {"#talkcoin", ""}, {"#", ""} };
 std::string TLK_C1[51][6];
 std::string TLK_C2[51][6];
+std::vector<std::string> XCHAN;
 
 bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerkleRoot) const
 {
@@ -2305,19 +2309,24 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                 const CTxOut& txout = tx.vout[i]; CTxDestination address;
                 if (ExtractDestination(txout.scriptPubKey, address))
                 {
-                    CBlockIndex* pindexPrev = NULL;
+                    /*CBlockIndex* pindexPrev = NULL;
                     int nHeight = 0;
                     map<uint256, CBlockIndex*>::iterator mi = mapBlockIndex.find(hashPrevBlock);
-                    if (mi != mapBlockIndex.end()) { pindexPrev = (*mi).second; nHeight = pindexPrev->nHeight+1; }
-                    if (CTalkcoinAddress(address).ToBase64() == GET_A_CHAT(nHeight) && (txout.nValue == GET_V_CHAT(nHeight) || txout.nValue == GET_V_CHATB(nHeight)))
+                    if (mi != mapBlockIndex.end()) { pindexPrev = (*mi).second; nHeight = pindexPrev->nHeight+1; }*/
+                    if (CTalkcoinAddress(address).ToBase64() == GET_A_CHAT() && (txout.nValue == GET_V_CHAT() || txout.nValue == GET_V_CHATB() || txout.nValue == GET_V_CHATV()))
                     {
                         chan = pwalletMain->getChan(tx.TLKdata);
                         if (chan == TLK_CHAN[0][0] || chan == TLK_CHAN[1][0])
                         {
                             nValue = txout.nValue;
                             bTX = true;
-                            break;
                         }
+                        else if (!chan.empty())
+                        {
+                            if (std::find(XCHAN.begin(), XCHAN.end(), chan) == XCHAN.end())
+                                XCHAN.push_back(chan);
+                        }
+                        break;
                     }
                 }
             }
@@ -2331,7 +2340,10 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
 
                 // Check double
                 for (unsigned int i = 0; i < tlk_size1; i++)
-                    if (TLK___[i][0] == tx.GetHash().ToString()) { bTX = false; break; }
+                {
+                    if (TLK___[i][0].empty()) break;
+                    else if (TLK___[i][0] == tx.GetHash().ToString()) { bTX = false; break; }
+                }
             }
 
             if (bTX)
@@ -2390,7 +2402,8 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
                     for (unsigned int k = 0; k < tlk_size1; k++)
                     {
                         if (TLK___[k][0].empty()) break;
-                        if (atoi(TLK___[i][2].c_str()) > atoi(TLK___[k][2].c_str())) {
+                        else if (atoi(TLK___[i][2].c_str()) > atoi(TLK___[k][2].c_str()))
+                        {
                             tmp0 = TLK___[i][0].c_str(); TLK___[i][0] = TLK___[k][0]; TLK___[k][0] = tmp0;
                             tmp1 = TLK___[i][1].c_str(); TLK___[i][1] = TLK___[k][1]; TLK___[k][1] = tmp1;
                             tmp2 = TLK___[i][2].c_str(); TLK___[i][2] = TLK___[k][2]; TLK___[k][2] = tmp2;
@@ -4477,12 +4490,13 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
     CBlock *pblock = &pblocktemplate->block; // pointer for convenience
 
     // Create coinbase tx
+    CBlockIndex* pindexPrev = pindexBest;
     CTransaction txNew;
-    txNew.vin.resize(1);
+    txNew.vin.resize((pindexPrev->nHeight+1 < HF2)? 2 : 1);
     txNew.vin[0].prevout.SetNull();
-    txNew.vout.resize(2);
+    txNew.vout.resize(1);
     txNew.vout[0].scriptPubKey = scriptPubKeyIn;
-    txNew.vout[1].scriptPubKey << OP_DUP << OP_HASH160 << GetHash160(GET_A_SHARE()) << OP_EQUALVERIFY << OP_CHECKSIG;
+    if (pindexPrev->nHeight+1 < HF2) txNew.vout[1].scriptPubKey << OP_DUP << OP_HASH160 << GetHash160(GET_A_SHARE()) << OP_EQUALVERIFY << OP_CHECKSIG;
 
     // Add our coinbase tx as first transaction
     pblock->vtx.push_back(txNew);
@@ -4686,7 +4700,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
         printf("CreateNewBlock(): total size %"PRI64u"\n", nBlockSize);
 
         pblock->vtx[0].vout[0].nValue = GetBlockValue(pindexPrev->nHeight+1, nFees);
-        pblock->vtx[0].vout[1].nValue = _V2;
+        if (pindexPrev->nHeight+1 < HF2) pblock->vtx[0].vout[1].nValue = _V2;
         pblocktemplate->vTxFees[0] = -nFees;
 
         // Fill in header

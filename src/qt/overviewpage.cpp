@@ -13,13 +13,15 @@
 #include <QPainter>
 
 #include <QTimer>
-#include <QKeyEvent>
 #include <QScrollBar>
+#include <QtWebKit>
+#include <QClipboard>
 #include "coincontroldialog.h"
 #include "util.h"
 #include "base58.h"
 #include "askpassphrasedialog.h"
 #include "wallet.h"
+#include <boost/algorithm/string/join.hpp>
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
@@ -134,22 +136,47 @@ OverviewPage::OverviewPage(QWidget *parent) :
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
 
-    // ToolTips
+    // ToolTip
     ui->rbChan1->setToolTip(TLK_CHAN[0][0].c_str());
     ui->rbChan2->setToolTip(TLK_CHAN[1][0].c_str());
-    ui->btnVote->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_VOTE()));
-    ui->chkAutoVote->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_VOTE()));
     ui->btnChatSend->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_CHAT()));
     ui->btnChatBold->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_CHATB()));
+    ui->btnChatVideo->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_CHATV()));
 
-    // vote
+    // Vote
+    /*ui->btnVote->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_VOTE()));
+    ui->chkAutoVote->setToolTip(TalkcoinUnits::formatWithUnit(TalkcoinUnits::TAC, GET_V_VOTE()));
     ui->spbVote->setMinimum((double)GET_V_REWARDMIN()/COIN);
     ui->spbVote->setMaximum((double)GET_V_REWARDMAX()/COIN);
-    ui->spbVote->setValue((double)(GET_V_REWARDMAX()/2)/COIN);
+    ui->spbVote->setValue((double)(GET_V_REWARDMAX()/2)/COIN);*/
 
-    // chat
+    // Chat
     ui->txtChatNick->installEventFilter(this);
     ui->txtChatMsg->installEventFilter(this);
+    ui->txtChat->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->txtChat, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showContextMenu(const QPoint &)));
+    ui->txtChat->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+
+    // webView
+    ui->btnHide->setVisible(false);
+    ui->webView->setVisible(false);
+    QNetworkProxyFactory::setUseSystemConfiguration(true);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::PluginsEnabled, true);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::JavascriptEnabled, true );
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::AutoLoadImages, true);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::PrivateBrowsingEnabled, false);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
+    QWebSettings::globalSettings()->setAttribute(QWebSettings::LocalStorageDatabaseEnabled, true);
+    ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
+    ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
+    ui->webView->setContextMenuPolicy(Qt::NoContextMenu);
+
+    //QNetworkProxy proxy;
+    //proxy.setType(QNetworkProxy::HttpProxy);
+    //proxy.setHostName("ip");
+    //proxy.setPassword("pwd");
+    //proxy.setPort(8008);
+    //QNetworkProxy::setApplicationProxy(proxy);
 }
 
 bool OverviewPage::eventFilter(QObject *object, QEvent *event)
@@ -157,13 +184,33 @@ bool OverviewPage::eventFilter(QObject *object, QEvent *event)
     if ((object == ui->txtChatNick || object == ui->txtChatMsg) && event->type() == QEvent::KeyPress)
     {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
-        if (keyEvent->key() == Qt::Key_Return)
+        if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)
         {
             this->OverviewPage::on_btnChatSend_clicked();
             return true;
         }
     }
+
     return QWidget::eventFilter(object, event);
+}
+
+void OverviewPage::showContextMenu(const QPoint &pt)
+{
+    QAction *copyText = new QAction(tr("Copy"), this);
+    copyText->setShortcut(QKeySequence::Copy);
+    QTextCursor cursor(ui->txtChat->textCursor()); if (!cursor.hasSelection()) copyText->setEnabled(false);
+    connect(copyText, SIGNAL(triggered()), this, SLOT(onCopyText()));
+    QMenu *menu = new QMenu(this);
+    menu->addAction(copyText);
+    menu->exec(ui->txtChat->mapToGlobal(pt));
+    delete copyText, menu;
+}
+
+void OverviewPage::onCopyText()
+{
+    QTextCursor cursor(ui->txtChat->textCursor());
+    if (cursor.hasSelection())
+        QApplication::clipboard()->setText(cursor.selectedText());
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
@@ -211,11 +258,20 @@ void OverviewPage::setClientModel(ClientModel *model)
     ui->txtChatMsg->setPlaceholderText(tr("Type Your Message Here!"));
 #endif
 
-    bVote = false;
+    //bVote = false;
+    bChat = true;
 
     t_action = new QTimer(this); t_action->start(5*1000);
     connect(t_action, SIGNAL(timeout()), this, SLOT(showAction()));
     this->showAction();
+}
+
+// DEV
+void delay(int secondsToWait)
+{
+    QTime dieTime = QTime::currentTime().addSecs(secondsToWait);
+    while(QTime::currentTime() < dieTime)
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
 // #talkcoin
@@ -224,13 +280,13 @@ void OverviewPage::showAction()
     if(walletModel)
         this->setWalletStatus();
 
-    this->showVote();
+    //this->showVote();
 
     if (ui->rbChan1->isChecked()) this->on_rbChan1_clicked();
     else if (ui->rbChan2->isChecked()) this->on_rbChan2_clicked();
 }
 
-void OverviewPage::showVote()
+/*void OverviewPage::showVote()
 {
     int nHeightH = nBestHeight + (V_BlockInterval - (nBestHeight % V_BlockInterval));
     int start = nHeightH - V_BlockInit - V_Blocks;
@@ -262,7 +318,13 @@ void OverviewPage::showVote()
                 if (ui->chkAutoVote->isChecked())
                 {
                     ui->chkAutoVote->setChecked(Qt::Unchecked);
-                    this->on_btnVote_clicked();
+                    // DEV
+                    //for (unsigned int i = 0; i < 10; i++)
+                    //{
+                        //delay(1);
+                        this->on_btnVote_clicked();
+                    //}
+
                 }
             }
         }
@@ -274,14 +336,22 @@ void OverviewPage::showVote()
         ui->btnVote->setEnabled(false);
         bVote = false;
     }
-}
+}*/
 
 void OverviewPage::showChat()
 {
     if (ui->rbChan2->isChecked() && TLK_CHAN[1][0] == "#")
     {
+        QString html;
+        std::string xchan = boost::algorithm::join(XCHAN, " ");
+        html = "<p style=\"font-size:12pt; text-align:center; color:red;\">" + tr("To join or create a chat room, start talkcoin-qt with the flag <i>-chan=#yourchan</i> <i>-chanpassword=yourpassword</i> (an associated password is optional)") + "</p>";
+        if (!xchan.empty())
+        {
+            html += "<p style=\"font-size:12pt; text-align:center; color:green;\">" + tr("Public room(s) available: ") + xchan.c_str() + "</p>";
+        }
+
         ui->txtChat->clear();
-        ui->txtChat->setHtml("<p style=\"font-size:12pt; text-align:center; color:red;\">" + tr("To create your own chat room, start talkcoin-qt with the flag <i>-chan=#yourchan</i> <i>-chanpassword=yourpassword</i> (an associated password is optional)") + "</p>");
+        ui->txtChat->setHtml(html);
         xTLK[0] = "#";
         return;
     }
@@ -298,37 +368,68 @@ void OverviewPage::showChat()
     }
 
 
-    std::string tlk = "";
-    std::string nickx = "";
+    tlkchat = "";
+    std::string lastnick = "";
+    std::string msgv = "", hash = "";
     CWallet *wallet;
 
     for (int i = tlk_size1-1; i >= 0; i--)
     {
         if (!TLK___[i][0].empty())
         {
-            std::string style = QString(TLK___[i][4].c_str()).remove(QRegExp("<[^>]*>")).trimmed().toStdString();
-            std::string translate = "<a href =\"https://translate.google.com/m?sl=auto&tl=auto&ie=UTF-8&prev=_m&q=" + QString(QUrl::toPercentEncoding(style.c_str())).toStdString() + "\"><img src=\":/icons/chat_translate\"></a>&nbsp;";
-            style = getSmileys(style);
-            std::string nick = QString(TLK___[i][3].c_str()).remove(QRegExp("<[^>]*>")).trimmed().toStdString();
+            std::string nick = stripTags(TLK___[i][3]);
+            std::string msg, msgvret;
+            msg = msgvret = stripTags(TLK___[i][4]);
+            std::string firsticon = "<a href =\"https://translate.google.com/m?sl=auto&tl=auto&ie=UTF-8&prev=_m&q=" + QString(QUrl::toPercentEncoding(msg.c_str())).toStdString() + "\"><img src=\":/icons/chat_translate\"></a>&nbsp;";
             std::string encrypted = wallet->checkCrypt(TLK___[i][5])? "&nbsp;<img src=\":/icons/chat_encrypted\">" : "";
 
-            if (atoi(TLK___[i][1].c_str()) == GET_V_CHATB(nBestHeight))
-                style = "<b>" + style + "</b>";
+            if (atoi(TLK___[i][1].c_str()) == GET_V_CHATV() && getVid(msgvret))
+            {
+                firsticon = "<a href =\"@" + msg + "\"><img src=\":/icons/video_play\"></a>";
+                msgv = msgvret;
+                msg = "";
 
-            tlk += (std::string)"<table style=\"margin-bottom:10px;\"><tr><td width=\"35\">"
-                   + (nickx!=nick? "<img src=\":/icons/chat_bubble\">" : "") + "</td>"
-                   + "<td style=\"font-size:12pt; color:blue;\">" + nick + " <span style=\"font-size:small; color:#808080;\">(" + GUIUtil::dateTimeStr(atoi(TLK___[i][2].c_str())).toStdString() + ")</span>" + encrypted + "</td></tr>"
-                   + "<tr><td></td><td style=\"font-size:12pt;\">" + translate + style + "</td></tr></table>";
+                if (std::find(PlayList.begin(), PlayList.end(), TLK___[i][0]) != PlayList.end())
+                    msgv = "";
+                else
+                    hash = TLK___[i][0];
+            }
+            else
+            {
+                msg = getSmileys(msg);
+                if (atoi(TLK___[i][1].c_str()) == GET_V_CHATB())
+                    msg = "<b>" + msg + "</b>";
+            }
 
-            nickx = nick;
+            tlkchat += (std::string)"<table style=\"margin-bottom:10px;\"><tr><td width=\"35\">"
+                   + (nick!=lastnick? "<img src=\":/icons/chat_bubble\">" : "") + "</td>"
+                   + "<td style=\"font-size:12pt; color:blue;\">"
+                   + (validNick(nick)? nick : "<span style=\"font-weight:bold; color:red;\">" + nick + "</span>")
+                   + "&nbsp;<span style=\"font-size:small; color:#808080;\">(" + GUIUtil::dateTimeStr(atoi(TLK___[i][2].c_str())).toStdString() + ")</span>" + encrypted + "</td></tr>"
+                   + "<tr><td></td><td style=\"font-size:12pt;\">" + firsticon + msg + "</td></tr></table>";
+
+            lastnick = nick;
         }
     }
 
     ui->txtChat->clear();
-    ui->txtChat->setHtml(tlk.c_str());
+    ui->txtChat->setHtml(tlkchat.c_str());
     if (!clientModel->inInitialBlockDownload()) GUIUtil::playSound(":/sounds/chat");
     QScrollBar *sb = ui->txtChat->verticalScrollBar();
     sb->setValue(sb->maximum());
+
+    if (!msgv.empty() && !ui->btnHide->isVisible())
+    {
+        PlayList.push_back(hash);
+        ui->btnHide->setVisible(true);
+        ui->webView->setVisible(true);
+        ui->webView->setHtml(msgv.c_str());
+    }
+
+    if (ui->txtChatNick->isReadOnly() && TLK___[0][3] == stripTags(ui->txtChatNick->text().toStdString()) && (TLK___[1][3] == TLK___[0][3] && TLK___[2][3] == TLK___[0][3] && TLK___[3][3] == TLK___[0][3] && TLK___[4][3] == TLK___[0][3]))
+        bChat = false;
+    else
+        bChat = true;
 }
 
 void OverviewPage::on_btnChatSmiley_clicked()
@@ -338,24 +439,25 @@ void OverviewPage::on_btnChatSmiley_clicked()
 
     msgBox->setText(
                     (QString)"<table align=\"center\" width=\"100%\">"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_smile\"></td><td style=\"vertical-align:middle;\"><b>:)</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_biggrin\"></td><td style=\"vertical-align:middle;\"><b>:D</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_sad\"></td><td style=\"vertical-align:middle;\"><b>:(</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_surprised\"></td><td style=\"vertical-align:middle;\"><b>:o</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_eek\"></td><td style=\"vertical-align:middle;\"><b>8O</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_confused\"></td><td style=\"vertical-align:middle;\"><b>:?</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_cool\"></td><td style=\"vertical-align:middle;\"><b>8)</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_mad\"></td><td style=\"vertical-align:middle;\"><b>:x</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_razz\"></td><td style=\"vertical-align:middle;\"><b>:P</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_neutral\"></td><td style=\"vertical-align:middle;\"><b>:|</b></td></tr>"
-                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smileys/icon_wink\"></td><td style=\"vertical-align:middle;\"><b>;)</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_smile\"></td><td style=\"vertical-align:middle;\"><b>:)</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_biggrin\"></td><td style=\"vertical-align:middle;\"><b>:D</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_sad\"></td><td style=\"vertical-align:middle;\"><b>:(</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_surprised\"></td><td style=\"vertical-align:middle;\"><b>:o</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_eek\"></td><td style=\"vertical-align:middle;\"><b>8O</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_confused\"></td><td style=\"vertical-align:middle;\"><b>:?</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_cool\"></td><td style=\"vertical-align:middle;\"><b>8)</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_mad\"></td><td style=\"vertical-align:middle;\"><b>:x</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_razz\"></td><td style=\"vertical-align:middle;\"><b>:P</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_neutral\"></td><td style=\"vertical-align:middle;\"><b>:|</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_wink\"></td><td style=\"vertical-align:middle;\"><b>;)</b></td></tr>"
+                    + "<tr><td style=\"vertical-align:middle;\"><img src=\":/smiley/icon_troll\"></td><td style=\"vertical-align:middle;\"><b>:troll:</b></td></tr>"
                     + "</table>"
                    );
 
     msgBox->setStyleSheet("font-size:10pt;font-family:'Lato'; \
                            color: white; \
-                           background-color: rgb(103,47,82); \
-                           alternate-background-color: rgb(89,38,68);");
+                           background-color: rgb(38, 61, 121); \
+                           alternate-background-color: rgb(30, 51, 105);");
 
     msgBox->setStandardButtons(QMessageBox::Ok);
     msgBox->setDefaultButton(QMessageBox::Ok);
@@ -366,45 +468,75 @@ void OverviewPage::on_btnChatSmiley_clicked()
 
 std::string OverviewPage::getSmileys(std::string str)
 {
-    replaceAll(str, ":)", "<img src=\":/smileys/icon_smile\">");
-    replaceAll(str, ":D", "<img src=\":/smileys/icon_biggrin\">");
-    replaceAll(str, ":(", "<img src=\":/smileys/icon_sad\">");
-    replaceAll(str, ":o", "<img src=\":/smileys/icon_surprised\">");
-    replaceAll(str, "8O", "<img src=\":/smileys/icon_eek\">");
-    replaceAll(str, ":?", "<img src=\":/smileys/icon_confused\">");
-    replaceAll(str, "8)", "<img src=\":/smileys/icon_cool\">");
-    replaceAll(str, ":x", "<img src=\":/smileys/icon_mad\">");
-    replaceAll(str, ":P", "<img src=\":/smileys/icon_razz\">");
-    replaceAll(str, ":|", "<img src=\":/smileys/icon_neutral\">");
-    replaceAll(str, ";)", "<img src=\":/smileys/icon_wink\">");
+    replaceAll(str, ":)", "<img src=\":/smiley/icon_smile\">");
+    replaceAll(str, ":D", "<img src=\":/smiley/icon_biggrin\">");
+    replaceAll(str, ":(", "<img src=\":/smiley/icon_sad\">");
+    replaceAll(str, ":o", "<img src=\":/smiley/icon_surprised\">");
+    replaceAll(str, "8O", "<img src=\":/smiley/icon_eek\">");
+    replaceAll(str, ":?", "<img src=\":/smiley/icon_confused\">");
+    replaceAll(str, "8)", "<img src=\":/smiley/icon_cool\">");
+    replaceAll(str, ":x", "<img src=\":/smiley/icon_mad\">");
+    replaceAll(str, ":P", "<img src=\":/smiley/icon_razz\">");
+    replaceAll(str, ":|", "<img src=\":/smiley/icon_neutral\">");
+    replaceAll(str, ";)", "<img src=\":/smiley/icon_wink\">");
+    replaceAll(str, ":troll:", "<img src=\":/smiley/icon_troll\">");
     return str;
 }
 
-void OverviewPage::replaceAll(std::string& str, const std::string& from, const std::string& to)
+Embed e_youtube = (std::string)"aHR0cDovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PXwmfDxpZnJhbWUgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyNzAiIHNyYz0iaHR0cDovL3d3dy55b3V0dWJlLmNvbS9lbWJlZC8kSUQvP2F1dG9wbGF5PTEiIGZyYW1lYm9yZGVyPSIwIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+";
+Embed e_youku = (std::string)"aHR0cDovL3YueW91a3UuY29tL3Zfc2hvdy9pZF98Lnw8ZW1iZWQgc3JjPSJodHRwOi8vcGxheWVyLnlvdWt1LmNvbS9wbGF5ZXIucGhwL3NpZC8kSUQvdi5zd2Y/aXNBdXRvUGxheT10cnVlIiB0eXBlPSJhcHBsaWNhdGlvbi94LXNob2Nrd2F2ZS1mbGFzaCIgYWxsb3dGdWxsU2NyZWVuPSJ0cnVlIiB3aWR0aD0iNDgwIiBoZWlnaHQ9IjI3MCI+PC9lbWJlZD4=";
+Embed e_tudou = (std::string)"aHR0cDovL3d3dy50dWRvdS5jb20vfC58PGVtYmVkIHNyYz0iaHR0cDovL3d3dy50dWRvdS5jb20vdi8kSUQvJmF1dG9QbGF5PXRydWUvdi5zd2YiIHR5cGU9ImFwcGxpY2F0aW9uL3gtc2hvY2t3YXZlLWZsYXNoIiBhbGxvd3NjcmlwdGFjY2Vzcz0iYWx3YXlzIiBhbGxvd2Z1bGxzY3JlZW49InRydWUiIHdpZHRoPSI0ODAiIGhlaWdodD0iMjcwIj48L2VtYmVkPg==";
+Embed e_dailymotion = (std::string)"aHR0cDovL3d3dy5kYWlseW1vdGlvbi5jb20vdmlkZW8vfF98PGlmcmFtZSBmcmFtZWJvcmRlcj0iMCIgd2lkdGg9IjQ4MCIgaGVpZ2h0PSIyNzAiIHNyYz0iaHR0cDovL3d3dy5kYWlseW1vdGlvbi5jb20vZW1iZWQvdmlkZW8vJElEP2F1dG9QbGF5PTEiIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4=";
+Embed e_rutube = (std::string)"aHR0cDovL3J1dHViZS5ydS92aWRlby98L3w8aWZyYW1lIHdpZHRoPSI0ODAiIGhlaWdodD0iMjcwIiBzcmM9Imh0dHA6Ly9ydXR1YmUucnUvcGxheS9lbWJlZC8kSUQiIGZyYW1lYm9yZGVyPSIwIiB3ZWJraXRBbGxvd0Z1bGxTY3JlZW4gbW96YWxsb3dmdWxsc2NyZWVuIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4=";
+
+bool OverviewPage::getVid(std::string &ret)
 {
-    if(from.empty())
-        return;
-    size_t start_pos = 0;
-    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
-        str.replace(start_pos, from.length(), to);
-        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+    QString link = QString(ret.c_str()).replace("https://", "http://").replace("youtu.be", "youtube.com");
+
+    if (e_youtube.ValidLink(link.toStdString()))
+    {
+        ret = e_youtube.ReplaceID(link.section(e_youtube.GetLink().c_str(), 1).section(e_youtube.GetSeparator().c_str(), 0, 0).toStdString());
+        return true;
     }
+    else if (e_youku.ValidLink(link.toStdString()))
+    {
+        ret = e_youku.ReplaceID(link.section(e_youku.GetLink().c_str(), 1).section(e_youku.GetSeparator().c_str(), 0, 0).toStdString());
+        return true;
+    }
+    else if (e_tudou.ValidLink(link.toStdString()))
+    {
+        QStringList list = link.split("/");
+        ret = e_tudou.ReplaceID(list[list.at(list.count()-1).isEmpty()? list.count()-2 : list.count()-1].section(e_tudou.GetSeparator().c_str(), 0, 0).toStdString());
+        return true;
+    }
+    else if (e_dailymotion.ValidLink(link.toStdString()))
+    {
+        ret = e_dailymotion.ReplaceID(link.section(e_dailymotion.GetLink().c_str(), 1).section(e_dailymotion.GetSeparator().c_str(), 0, 0).toStdString());
+        return true;
+    }
+    else if (e_rutube.ValidLink(link.toStdString()))
+    {
+        ret = e_rutube.ReplaceID(link.section(e_rutube.GetLink().c_str(), 1).section(e_rutube.GetSeparator().c_str(), 0, 0).toStdString());
+        return true;
+    }
+    else
+        return false;
 }
 
-void OverviewPage::on_btnVote_clicked()
+std::string OverviewPage::stripTags(std::string str)
+{
+    QString qstring = str.c_str();
+    return qstring.remove(QRegExp("<[^>]*>")).trimmed().toStdString();
+}
+
+/*void OverviewPage::on_btnVote_clicked()
 {
     if (clientModel->inInitialBlockDownload()) return;
 
-    if (ui->spbVote->value() < 1 && nBestHeight < HF1)
-    {
-        ui->spbVote->setStyleSheet("background-color: red;");
-        return;
-    }
-
     SendCoinsRecipient rv;
-    rv.address = DecodeBase64(GET_A_VOTE1(nBestHeight)).c_str();
-    rv.label = "Talkcoin Vote";
-    rv.amount = GET_V_VOTE(nBestHeight);
+    rv.address = DecodeBase64(GET_A_VOTE1()).c_str();
+    rv.label = "Talkcoin (genesis block address)";
+    rv.amount = GET_V_VOTE();
     rv.SetVote();
     rv.vote = ui->spbVote->value() * COIN;
     QList<SendCoinsRecipient> recipients;
@@ -446,7 +578,7 @@ void OverviewPage::on_btnVote_clicked()
         bVote = true;
         break;
     }
-}
+}*/
 
 void OverviewPage::on_btnChatSend_clicked()
 {
@@ -454,12 +586,13 @@ void OverviewPage::on_btnChatSend_clicked()
         return;
 
     SendCoinsRecipient rv;
-    rv.address = DecodeBase64(GET_A_CHAT(nBestHeight)).c_str();
-    rv.label = "Talkcoin Chat";
-    rv.amount = ui->btnChatBold->isChecked()? GET_V_CHATB(nBestHeight) : GET_V_CHAT(nBestHeight);
+    rv.address = DecodeBase64(GET_A_CHAT()).c_str();
+    rv.label = "Talkcoin (genesis block address)";
+    rv.amount = ui->btnChatBold->isChecked()? GET_V_CHATB() :
+                                              ui->btnChatVideo->isChecked()? GET_V_CHATV() : GET_V_CHAT();
     rv.SetChat();
-    rv.nick = ui->txtChatNick->text().remove(QRegExp("<[^>]*>")).trimmed();
-    rv.message = ui->txtChatMsg->text().remove(QRegExp("<[^>]*>")).trimmed();
+    rv.nick = stripTags(ui->txtChatNick->text().toStdString()).c_str();
+    rv.message = stripTags(ui->txtChatMsg->text().toStdString()).c_str();
     rv.data = "version=" + clientModel->formatFullVersion() + ";";
     if (ui->rbChan1->isChecked())
         rv.data += (QString)"chan=" + TLK_CHAN[0][0].c_str() + ";";
@@ -497,7 +630,7 @@ void OverviewPage::on_btnChatSend_clicked()
         ui->txtChatMsg->setStyleSheet("background-color: red; background-repeat: no-repeat;");
     }
 
-    if (valid)
+    if (valid && bChat)
     {
         QList<SendCoinsRecipient> recipients;
         recipients.append(rv);
@@ -536,6 +669,8 @@ void OverviewPage::on_btnChatSend_clicked()
         case WalletModel::OK:
             ui->txtChatNick->setReadOnly(true);
             ui->txtChatMsg->clear();
+            ui->btnChatBold->setChecked(false);
+            ui->btnChatVideo->setChecked(false);
             break;
         }
     }
@@ -551,8 +686,8 @@ void OverviewPage::on_txtChatNick_textChanged(const QString &arg1)
          border: 4px solid; \
          border-radius: 13px; \
          opacity: 700; \
-         border-color: rgb(89,38,68); \
-         background-color: rgb(62,29,67); \
+         border-color: rgb(30, 51, 105); \
+         background-color: rgb(23, 39, 79); \
      }");
 }
 
@@ -566,8 +701,8 @@ void OverviewPage::on_txtChatMsg_textChanged(const QString &arg1)
          border: 4px solid; \
          border-radius: 13px; \
          opacity: 700; \
-         border-color: rgb(89,38,68); \
-         background-color: rgb(62,29,67); \
+         border-color: rgb(30, 51, 105); \
+         background-color: rgb(23, 39, 79); \
      }");
 }
 
@@ -682,19 +817,30 @@ void OverviewPage::setWalletStatus()
 
 void OverviewPage::on_btnExpand_clicked()
 {
-    if (ui->bottomleftframe->isVisible())
+    ui->topleftframe->setVisible(!ui->topleftframe->isVisible());
+    ui->toprightframe->setVisible(!ui->toprightframe->isVisible());
+}
+
+void OverviewPage::on_btnHide_clicked()
+{
+    ui->btnHide->setVisible(false);
+    ui->webView->setVisible(false);
+    ui->webView->setUrl(QUrl("about:blank"));
+}
+
+void OverviewPage::on_txtChat_anchorClicked(const QUrl &arg1)
+{
+    std::string msgv = QString(arg1.toString()).mid(1).toStdString();
+    if (getVid(msgv))
     {
-        ui->bottomleftframe->setVisible(false);
-        ui->toprightframe->setVisible(false);
+        ui->btnHide->setVisible(true);
+        ui->webView->setVisible(true);
+        ui->webView->setHtml(msgv.c_str());
     }
-    else if (ui->topleftframe->isVisible())
-    {
-        ui->topleftframe->setVisible(false);
-    }
-    else
-    {
-        ui->topleftframe->setVisible(true);
-        ui->bottomleftframe->setVisible(true);
-        ui->toprightframe->setVisible(true);
-    }
+
+    QScrollBar *sb = ui->txtChat->verticalScrollBar();
+    const int sbval = sb->value();
+    ui->txtChat->clear();
+    ui->txtChat->setHtml(tlkchat.c_str());
+    sb->setValue(sbval);
 }

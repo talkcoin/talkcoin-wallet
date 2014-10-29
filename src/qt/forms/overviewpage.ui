@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1379</width>
-    <height>692</height>
+    <width>1269</width>
+    <height>736</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,8 @@
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
   </property>
   <layout class="QVBoxLayout" name="topLayout">
@@ -70,16 +70,16 @@
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame {color: rgb(255, 255, 255);
-background-color: rgb(103, 47, 82);
-alternate-background-color: rgb(89, 38, 68);}
+background-color: rgb(38, 61, 121);
+alternate-background-color: rgb(30, 51, 105);}
 QToolTip {
      color: white;
      font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
@@ -145,9 +145,7 @@ QToolTip {
               <property name="font">
                <font>
                 <family>Lato</family>
-                <pointsize>23</pointsize>
-                <weight>50</weight>
-                <bold>false</bold>
+                <pointsize>18</pointsize>
                </font>
               </property>
               <property name="text">
@@ -220,7 +218,7 @@ QToolTip {
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton 
+               <string notr="true">QPushButton
 {
 border:none;
 background-color: transparent;
@@ -374,297 +372,6 @@ background-color: transparent;
          </layout>
         </widget>
        </item>
-       <item>
-        <widget class="QFrame" name="bottomleftframe">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>500</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string/>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QFrame {
-background-color: rgb(103,47,82);
-color: rgb(255, 255, 255);
-alternate-background-color: rgb(89,38,68);}
-QToolTip {
-     color: white;
-     font-size:9pt;font-family:'Lato';
-     border: 4px solid ;
-     border-radius: 13px;
-     opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
- }
-                            QPushButton {
-                            border-style: outset;
-                            border-width: 2px;
-                            border-radius: 9px;
-                            border-color: white;
-                            font: bold 11pt;
-                            min-width: 5em;
-                            padding: 3px;
-                            }
-                            QPushButton:pressed {
-                            background-color: green;
-                            border-style: inset;
-                            }</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="9" column="1" colspan="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_9">
-            <item>
-             <widget class="QPushButton" name="btnVote">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>11</pointsize>
-                <weight>75</weight>
-                <italic>false</italic>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="toolTip">
-               <string extracomment="Press the button to cast your vote">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#550000;&quot;&gt;Press the button to cast your vote&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="whatsThis">
-               <string>blabla</string>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-                            QPushButton {
-                            border-style: outset;
-                            border-width: 1px;
-                            border-radius: 12px;
-                            border-color: rgb(62,29,67);
-                            font: bold 11pt;
-                            min-width: 5em;
-                            padding: 3px;
-							background-color:rgb(62,29,67);
-							color: white;
-                            }
-                            QPushButton:pressed {
-                            background-color:  rgb(103,47,82);
-                            border-style: inset;
-                            }
-                          </string>
-              </property>
-              <property name="text">
-               <string>Vote</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QRadioButton" name="chkAutoVote">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="font">
-               <font>
-                <family>Lato</family>
-                <pointsize>11</pointsize>
-                <kerning>true</kerning>
-               </font>
-              </property>
-              <property name="layoutDirection">
-               <enum>Qt::LeftToRight</enum>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">padding-right: 15px;
-color: white;
-</string>
-              </property>
-              <property name="text">
-               <string>Auto Vote</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="lblReward">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Current reward:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="margin">
-             <number>0</number>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
-           <widget class="QSpinBox" name="spbVote">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <italic>false</italic>
-              <bold>true</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Lato&quot;;
-border-style: outset;
-background-color: white;
-color: rgb(103,47,82);
-                            border-width: 2px;
-                            border-radius: 9px;
-                            border-color: white;
-                            font: bold 11pt;
-                            min-width: 2em;
-
-                            
-                            
-                            </string>
-            </property>
-            <property name="wrapping">
-             <bool>false</bool>
-            </property>
-            <property name="frame">
-             <bool>true</bool>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::NoButtons</enum>
-            </property>
-            <property name="specialValueText">
-             <string notr="true"/>
-            </property>
-            <property name="suffix">
-             <string notr="true">  TAC</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1" alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_9">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time to next vote:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1" alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_8">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your vote:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" colspan="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_7">
-            <item>
-             <widget class="QLabel" name="label_2">
-              <property name="minimumSize">
-               <size>
-                <width>180</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Lato</family>
-                <pointsize>23</pointsize>
-                <weight>50</weight>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Vote</string>
-              </property>
-              <property name="textFormat">
-               <enum>Qt::AutoText</enum>
-              </property>
-              <property name="margin">
-               <number>0</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="2" column="2" alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="lblInfo">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <italic>false</italic>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Lato&quot;;font: bold 11pt;</string>
-            </property>
-            <property name="text">
-             <string>lblInfo</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
-           <widget class="QLabel" name="lblVoteInfo">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Lato&quot;;</string>
-            </property>
-            <property name="text">
-             <string>lblVoteInfo</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
       </layout>
      </item>
      <item>
@@ -674,21 +381,21 @@ color: rgb(103,47,82);
          <property name="minimumSize">
           <size>
            <width>639</width>
-           <height>466</height>
+           <height>300</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame {color: rgb(255, 255, 255);
-background-color: rgb(103, 47, 82);
-alternate-background-color: rgb(89, 38, 68);}
+background-color: rgb(38, 61, 121);
+alternate-background-color: rgb(30, 51, 105);}
 QToolTip {
      color: white;
      font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
          </property>
          <property name="frameShape">
@@ -700,12 +407,6 @@ QToolTip {
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
             <property name="bottomMargin">
              <number>9</number>
             </property>
@@ -714,16 +415,11 @@ QToolTip {
               <property name="font">
                <font>
                 <family>Lato</family>
-                <pointsize>23</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
+                <pointsize>18</pointsize>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);
-background-color: transparent;
-font: 23pt &quot;Lato&quot;;</string>
+               <string notr="true"/>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Sunken</enum>
@@ -794,12 +490,6 @@ font: 23pt &quot;Lato&quot;;</string>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
             <property name="font">
              <font>
               <family>Lato</family>
@@ -814,16 +504,16 @@ font: 23pt &quot;Lato&quot;;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QListView {font: 11pt &quot;Lato&quot;;
- background: rgb(103,47,82);
-alternate-background-color: rgb(89,38,68); }
+ background: rgb(38, 61, 121);
+alternate-background-color: rgb(30, 51, 105); }
 QToolTip {
      color: white;
      font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
             </property>
             <property name="frameShape">
@@ -861,8 +551,8 @@ QToolTip {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(103,47,82);
-alternate-background-color: rgb(89,38,68);</string>
+        <string notr="true">background-color: rgb(38, 61, 121);
+alternate-background-color: rgb(30, 51, 105);</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
@@ -906,7 +596,7 @@ alternate-background-color: rgb(89,38,68);</string>
           <item>
            <widget class="QPushButton" name="btnExpand">
             <property name="styleSheet">
-             <string notr="true">QPushButton 
+             <string notr="true">QPushButton
 {
 border:none;
 background-color: transparent;
@@ -929,8 +619,8 @@ background-color: transparent;
                <colorrole role="WindowText">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
+                  <red>85</red>
+                  <green>170</green>
                   <blue>255</blue>
                  </color>
                 </brush>
@@ -938,36 +628,54 @@ background-color: transparent;
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>85</red>
+                  <green>170</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>85</red>
+                  <green>170</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="AlternateBase">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>89</red>
-                  <green>38</green>
-                  <blue>68</blue>
+                  <red>30</red>
+                  <green>51</green>
+                  <blue>105</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -976,8 +684,8 @@ background-color: transparent;
                <colorrole role="WindowText">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>255</red>
-                  <green>255</green>
+                  <red>85</red>
+                  <green>170</green>
                   <blue>255</blue>
                  </color>
                 </brush>
@@ -985,36 +693,54 @@ background-color: transparent;
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>85</red>
+                  <green>170</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>85</red>
+                  <green>170</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="AlternateBase">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>89</red>
-                  <green>38</green>
-                  <blue>68</blue>
+                  <red>30</red>
+                  <green>51</green>
+                  <blue>105</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -1023,45 +749,63 @@ background-color: transparent;
                <colorrole role="WindowText">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>120</red>
-                  <green>120</green>
-                  <blue>120</blue>
+                  <red>85</red>
+                  <green>170</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>85</red>
+                  <green>170</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>85</red>
+                  <green>170</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>103</red>
-                  <green>47</green>
-                  <blue>82</blue>
+                  <red>38</red>
+                  <green>61</green>
+                  <blue>121</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="AlternateBase">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>89</red>
-                  <green>38</green>
-                  <blue>68</blue>
+                  <red>30</red>
+                  <green>51</green>
+                  <blue>105</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -1071,11 +815,97 @@ background-color: transparent;
             <property name="font">
              <font>
               <family>Lato</family>
-              <pointsize>22</pointsize>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(85, 170, 255);</string>
+            </property>
             <property name="text">
-             <string>Chat</string>
+             <string>TALKCOIN</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_vid1">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../talkcoin.qrc">:/icons/video_youtube</pixmap>
+            </property>
+            <property name="margin">
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_vid2">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../talkcoin.qrc">:/icons/video_youku</pixmap>
+            </property>
+            <property name="margin">
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_vid3">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../talkcoin.qrc">:/icons/video_tudou</pixmap>
+            </property>
+            <property name="margin">
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_vid4">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../talkcoin.qrc">:/icons/video_dailymotion</pixmap>
+            </property>
+            <property name="margin">
+             <number>5</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lbl_vid5">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../talkcoin.qrc">:/icons/video_rutube</pixmap>
+            </property>
+            <property name="margin">
+             <number>5</number>
             </property>
            </widget>
           </item>
@@ -1092,22 +922,6 @@ background-color: transparent;
             </property>
            </spacer>
           </item>
-          <item alignment="Qt::AlignVCenter">
-           <widget class="QLabel" name="label_7">
-            <property name="font">
-             <font>
-              <family>Lato</family>
-              <pointsize>15</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>Group Chat:</string>
-            </property>
-           </widget>
-          </item>
           <item>
            <widget class="QRadioButton" name="rbChan1">
             <property name="styleSheet">
@@ -1117,42 +931,48 @@ background-color: transparent;
  }
 
  QRadioButton::indicator::unchecked {
-	width: 22px;
-	height: 16px;
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator:unchecked:hover {
 	background-color: blue;
-	width: 25px;
-	height: 19px;
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator:unchecked:pressed {
 	background-color: blue;
-	width: 25px;
-	height: 19px;
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator::checked {
-	background-color: rgb(62,29,67);
-	width: 25px;
-	height: 19px;
+	background-color: rgb(60, 96, 189);
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator:checked:hover {
 	background-color: blue;
-	width: 25px;
-	height: 19px;
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator:checked:pressed {
 	background-color: blue;
-	width: 25px;
-	height: 19px;
+	width: 38px;
+	height: 38px;
  }</string>
             </property>
             <property name="text">
              <string notr="true"/>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -1164,18 +984,6 @@ background-color: transparent;
           </item>
           <item>
            <widget class="QRadioButton" name="rbChan2">
-            <property name="minimumSize">
-             <size>
-              <width>25</width>
-              <height>19</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>25</width>
-              <height>19</height>
-             </size>
-            </property>
             <property name="styleSheet">
              <string notr="true">QRadioButton::indicator {
 	subcontrol-position: top center;
@@ -1183,116 +991,173 @@ background-color: transparent;
  }
 
  QRadioButton::indicator::unchecked {
-	width: 22px;
-	height: 16px;
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator:unchecked:hover {
 	background-color: blue;
-	width: 25px;
-	height: 19px;
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator:unchecked:pressed {
 	background-color: blue;
-	width: 25px;
-	height: 19px;
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator::checked {
-	background-color: rgb(62,29,67);
-	width: 25px;
-	height: 19px;
+	background-color: rgb(60, 96, 189);
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator:checked:hover {
 	background-color: blue;
-	width: 25px;
-	height: 19px;
+	width: 38px;
+	height: 38px;
  }
 
  QRadioButton::indicator:checked:pressed {
 	background-color: blue;
-	width: 25px;
-	height: 19px;
+	width: 38px;
+	height: 38px;
  }</string>
             </property>
             <property name="text">
              <string/>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="QFrame" name="txtframe">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="spacing">
+           <number>0</number>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_8">
-           <property name="spacing">
-            <number>6</number>
-           </property>
-           <property name="leftMargin">
-            <number>6</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>6</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QTextBrowser" name="txtChat">
-             <property name="enabled">
-              <bool>true</bool>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="txtframe">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <property name="spacing">
+              <number>6</number>
              </property>
-             <property name="font">
-              <font>
-               <family>Lato</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
+             <property name="leftMargin">
+              <number>6</number>
              </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(245, 245, 245);
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>6</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QTextBrowser" name="txtChat">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Lato</family>
+                 <pointsize>12</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: rgb(245, 245, 245);
 background-image: url(:/images/p2p);
 background-repeat: no-repeat;
 background-attachment:fixed;
 background-position: center;
 alternate-background-color: rgb(211, 211, 211);
 color: black</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="verticalScrollBarPolicy">
-              <enum>Qt::ScrollBarAlwaysOn</enum>
-             </property>
-             <property name="horizontalScrollBarPolicy">
-              <enum>Qt::ScrollBarAlwaysOff</enum>
-             </property>
-             <property name="documentTitle">
-              <string notr="true"/>
-             </property>
-             <property name="html">
-              <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOn</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="documentTitle">
+                <string notr="true"/>
+               </property>
+               <property name="html">
+                <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Lato'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="openExternalLinks">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
+               </property>
+               <property name="openExternalLinks">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnHide">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../talkcoin.qrc">
+              <normaloff>:/icons/hide-left</normaloff>:/icons/hide-left</iconset>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWebView" name="webView">
+            <property name="minimumSize">
+             <size>
+              <width>510</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>510</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="url">
+             <url>
+              <string>about:blank</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QFrame" name="messageframe">
@@ -1380,7 +1245,7 @@ background-repeat: no-repeat;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="2">
+           <item row="0" column="3">
             <widget class="QPushButton" name="btnChatBold">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1412,9 +1277,9 @@ background-repeat: no-repeat;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-border-color: rgb(154,154,154);
+border-color: rgb(154, 154, 154);
 border-width: 1px;
-background-color: rgb(255,255,255);
+background-color: rgb(255, 255, 255);
 color :rgb(126, 126, 126);}
 QToolTip {
      color: white;
@@ -1422,8 +1287,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
              </property>
              <property name="text">
@@ -1443,11 +1308,11 @@ QToolTip {
               <string notr="true"/>
              </property>
              <property name="checkable">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item row="0" column="3">
+           <item row="0" column="4">
             <widget class="QPushButton" name="btnChatSmiley">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1474,9 +1339,9 @@ QToolTip {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-border-color: rgb(154,154,154);
+border-color: rgb(154, 154, 154);
 border-width: 1px;
-background-color: rgb(255,255,255);
+background-color: rgb(255, 255, 255);
 color :rgb(126, 126, 126);}
 QToolTip {
      color: white;
@@ -1484,8 +1349,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
              </property>
              <property name="icon">
@@ -1500,7 +1365,7 @@ QToolTip {
              </property>
             </widget>
            </item>
-           <item row="0" column="4">
+           <item row="0" column="5">
             <widget class="QPushButton" name="btnChatSend">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1526,9 +1391,9 @@ QToolTip {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-border-color: rgb(154,154,154);
+border-color: rgb(154, 154, 154);
 border-width: 1px;
-background-color: rgb(255,255,255);
+background-color: rgb(255, 255, 255);
 color :rgb(126, 126, 126);}
 QToolTip {
      color: white;
@@ -1536,8 +1401,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
              </property>
              <property name="text">
@@ -1555,6 +1420,73 @@ QToolTip {
              </property>
             </widget>
            </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="btnChatVideo">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>30</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+border-color: rgb(154, 154, 154);
+border-width: 1px;
+background-color: rgb(255, 255, 255);
+color :rgb(126, 126, 126);}
+QToolTip {
+     color: white;
+     font-size:9pt;font-family:'Lato';
+     border: 4px solid ;
+     border-radius: 13px;
+     opacity: 700;
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
+ }</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../talkcoin.qrc">
+               <normaloff>:/icons/chat_video</normaloff>:/icons/chat_video</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>18</width>
+               <height>18</height>
+              </size>
+             </property>
+             <property name="shortcut">
+              <string notr="true"/>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -1565,6 +1497,13 @@ QToolTip {
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../talkcoin.qrc"/>
  </resources>

@@ -380,7 +380,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
 
             pszKeyword = "Address:";
         }
-        else if (nHost == 2)
+        /*else if (nHost == 2)
         {
             addrConnect = CService("74.208.43.192", 80); // www.showmyip.com
 
@@ -398,7 +398,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
                      "\r\n";
 
             pszKeyword = NULL; // Returns just IP address
-        }
+        }*/
 
         if (GetMyExternalIP2(addrConnect, pszGet, pszKeyword, ipRet))
             return true;
@@ -1254,7 +1254,7 @@ void ThreadDNSAddressSeed()
 
 unsigned int pnSeed[] =
 {
-    0x1aa4a5bc
+    0x82612705
 };
 
 void DumpAddresses()

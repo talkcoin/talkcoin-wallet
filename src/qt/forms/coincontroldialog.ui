@@ -22,7 +22,7 @@
   <property name="styleSheet">
    <string notr="true">
 border-color: rgb(72, 72, 72);
-background-color: rgb(103, 47, 82);</string>
+background-color: rgb(38, 61, 121);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -2024,18 +2024,18 @@ border-color: rgb(72, 72, 72);</string>
          <property name="styleSheet">
           <string notr="true">
 QPushButton{
-background-color: rgb(89, 38, 68);
+background-color: rgb(30, 51, 105);
 selection-background-color: rgb(85, 255, 38);
 color: rgb(255, 255, 255);
-border-color: rgb(62, 29, 67);}
+border-color: rgb(23, 39, 79);}
 QToolTip {
      color: white;
      font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
          </property>
          <property name="text">
@@ -2268,22 +2268,22 @@ QToolTip {
       <string notr="true">QDialogButtonBox{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(62,29,67);}
+border-color: rgb(23, 39, 79);}
 QPushButton{
 border: 4px solid;
 border-radius: 13px;
-background-color: rgb(89, 38, 68);
+background-color: rgb(30, 51, 105);
 selection-background-color: rgb(85, 255, 38);
 color: rgb(255, 255, 255);
-border-color: rgb(62, 29, 67);}
+border-color: rgb(23, 39, 79);}
 QToolTip {
      color: white;
      font-size:9pt;font-family:'Gill Sans MT';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
      </property>
      <property name="orientation">

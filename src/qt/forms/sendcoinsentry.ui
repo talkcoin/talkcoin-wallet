@@ -20,7 +20,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(62, 29, 67);
+   <string notr="true">background-color: rgb(23, 39, 79);
 color: rgb(255, 255, 255);</string>
   </property>
   <property name="frameShape">
@@ -75,7 +75,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="TalkcoinAmountField" name="payAmount">
      <property name="styleSheet">
       <string notr="true">
-background-color: rgb(89,38,68);
+background-color: rgb(30, 51, 105);
 font-size:11pt;font-family:'Lato';
 
 
@@ -131,7 +131,7 @@ font-size:11pt;font-family:'Lato';
        </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
-background-color: rgb(89,38,68);
+background-color: rgb(30, 51, 105);
 font-size:11pt;font-family:'Lato';
 color: white;
 }
@@ -143,8 +143,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
        </property>
        <property name="maxLength">
@@ -167,7 +167,7 @@ QToolTip {
         <string notr="true">QToolButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(89,38,68);}
+border-color: rgb(30, 51, 105);}
 
 QToolTip {
      color: white;
@@ -175,8 +175,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
        </property>
        <property name="text">
@@ -200,7 +200,7 @@ QToolTip {
         <string notr="true">QToolButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(89,38,68);}
+border-color: rgb(30, 51, 105);}
 
 
 QToolTip {
@@ -209,8 +209,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
        </property>
        <property name="text">
@@ -234,15 +234,15 @@ QToolTip {
         <string notr="true">QToolButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(89,38,68);}
+border-color: rgb(30, 51, 105);}
 QToolTip {
      color: white;
      font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
        </property>
        <property name="text">
@@ -263,7 +263,7 @@ QToolTip {
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit {
-background-color: rgb(89,38,68);
+background-color: rgb(30, 51, 105);
 font-size:11pt;font-family:'Lato';
 color: white;
 }
@@ -275,8 +275,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
      </property>
      <property name="frame">

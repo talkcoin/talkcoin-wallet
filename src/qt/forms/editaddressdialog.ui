@@ -20,7 +20,7 @@
    <string>Edit Address</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(103, 47, 82);
+   <string notr="true">background-color: rgb(38, 61, 121);
 color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -39,8 +39,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
        </property>
        <property name="text">
@@ -58,8 +58,8 @@ QToolTip {
        </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
-background-color: rgb(103, 47, 82);
-border-color:rgb(255,255,255);
+background-color: rgb(38, 61, 121);
+border-color:rgb(255, 255, 255);
 border-width: 2px;
 color: rgb(255, 255, 255);
 }
@@ -69,8 +69,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
        </property>
        <property name="frame">
@@ -88,8 +88,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
        </property>
        <property name="text">
@@ -107,8 +107,8 @@ QToolTip {
        </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
-background-color: rgb(103, 47, 82);
-border-color:rgb(255,255,255);
+background-color: rgb(38, 61, 121);
+border-color:rgb(255, 255, 255);
 border-width: 2px;
 color: rgb(255, 255, 255);
 }
@@ -118,8 +118,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
        </property>
        <property name="frame">
@@ -135,7 +135,7 @@ QToolTip {
       <string notr="true">QPushButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(62,29,67);}</string>
+border-color: rgb(23, 39, 79);}</string>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>

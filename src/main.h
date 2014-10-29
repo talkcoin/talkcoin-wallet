@@ -87,6 +87,7 @@ extern int V_Total;
 extern std::string TLK_CHAN[2][2];
 extern std::string TLK_C1[51][6];
 extern std::string TLK_C2[51][6];
+extern std::vector<std::string> XCHAN;
 
 
 extern CCriticalSection cs_main;

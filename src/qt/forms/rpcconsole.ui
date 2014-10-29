@@ -20,13 +20,13 @@
    <string>Talkcoin - Debug window</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(103,47,82);
+   <string notr="true">background-color: rgb(38, 61, 121);
 
 
 color: rgb(255, 255, 255);
 
 selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, 
-stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));</string>
+stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -611,7 +611,7 @@ stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));</string>
           <string notr="true">QPushButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(62,29,67);}
+border-color: rgb(23, 39, 79);}
 
 
 QToolTip {
@@ -620,8 +620,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
          </property>
          <property name="text">
@@ -654,7 +654,7 @@ QToolTip {
           <string notr="true">QPushButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(62,29,67);}
+border-color: rgb(23, 39, 79);}
 
 QToolTip {
      color: white;
@@ -662,8 +662,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
          </property>
          <property name="text">
@@ -706,7 +706,7 @@ QToolTip {
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">border-color: rgb(62, 29, 67);</string>
+          <string notr="true">border-color: rgb(23, 39, 79);</string>
          </property>
          <property name="readOnly">
           <bool>true</bool>
@@ -741,7 +741,7 @@ QToolTip {
            </property>
            <property name="styleSheet">
             <string notr="true">QLineEdit{
-background-color: rgb(62,29,67);
+background-color: rgb(23, 39, 79);
 }
 
 QToolTip {
@@ -750,8 +750,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
            </property>
            <property name="frame">
@@ -774,7 +774,7 @@ QToolTip {
             <string notr="true">QPushButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(62,29,67);}
+border-color: rgb(23, 39, 79);}
 
 QToolTip {
      color: white;
@@ -782,8 +782,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
            </property>
            <property name="text">

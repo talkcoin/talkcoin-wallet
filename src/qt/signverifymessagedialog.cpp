@@ -24,17 +24,17 @@ SignVerifyMessageDialog::SignVerifyMessageDialog(QWidget *parent) :
 
     ui->addressIn_SM->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
                                      alternate-background-color: blue; \
-                                     background-color: rgb(89,38,68); \
-                                     selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+                                     background-color: rgb(30, 51, 105); \
+                                     selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));");
     ui->signatureOut_SM->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
-                                        background-color: rgb(89,38,68); \
-                                        selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+                                        background-color: rgb(30, 51, 105); \
+                                        selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));");
     ui->addressIn_VM->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
-                                     background-color: rgb(89,38,68); \
-                                     selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+                                     background-color: rgb(30, 51, 105); \
+                                     selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));");
     ui->signatureIn_VM->setStyleSheet("color: white; font-size:11pt;font-family:'Lato'; \
-                                       background-color: rgb(89,38,68); \
-                                       selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(88,0,118), stop: 1 rgb(41,0,100));");
+                                       background-color: rgb(30, 51, 105); \
+                                       selection-background-color:QLinearGradient(x1: 0.8, y1: 0, x2: 1, y2: 0, stop: 0 rgb(0, 45, 157), stop: 1 rgb(0, 40, 138));");
 
 #if (QT_VERSION >= 0x040700)
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */

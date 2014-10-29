@@ -1611,7 +1611,7 @@ Value listlockunspent(const Array& params, bool fHelp)
     return ret;
 }
 
-Value votedev(const Array& params, bool fHelp)
+/*Value votedev(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
@@ -1635,7 +1635,7 @@ Value votedev(const Array& params, bool fHelp)
 
     // Wallet comments
     CWalletTx wtx;
-    wtx.mapValue["to"] = "Talkcoin Vote";
+    wtx.mapValue["to"] = "Talkcoin (genesis block address)";
 
     if (pwalletMain->IsLocked())
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
@@ -1645,4 +1645,4 @@ Value votedev(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
 
     return wtx.GetHash().GetHex();
-}
+}*/

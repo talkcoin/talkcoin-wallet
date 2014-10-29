@@ -1187,7 +1187,7 @@ bool CWallet::checkVersion(const std::string data)
             if (version.find("talkcoin") != std::string::npos)
             {
                 version.erase(std::remove_if(version.begin(), version.end(), EraseChar), version.end());
-                if (atoi(version.c_str()) >= 140)
+                if (atoi(version.c_str()) >= 200)
                     return true;
                 else
                     return false;
@@ -1209,7 +1209,7 @@ std::string CWallet::getChan(const std::string data, bool base64)
         {
             if (!TLK_CHAN[1][1].empty() && !XTALK::Decode(strs2.at(1), TLK_CHAN[1][1]).empty())
                 return XTALK::Decode(strs2.at(1), TLK_CHAN[1][1]);
-            else
+            else  if (strs2.at(1).substr(0, 1) == "#")
                 return strs2.at(1);
         }
     }

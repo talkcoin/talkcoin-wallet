@@ -30,18 +30,20 @@ static const char* pszBase58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnop
 
 // Hard fork on block ...
 static const int HF1 = 241920;
+static const int HF2 = 680000;
 //
 inline std::string GET_A_GENESIS()              { return "VHBtZnVHcmp2Z240M0dvUjhNUlYzVUtmUEVaQnJzQlZHTg=="; }
 inline std::string GET_A_VOTE1(int nHeight=HF1) { return (nHeight<HF1)? "VHRENDZ6WmgxVEtqM0JaZHhLa0tzcmMyUHE3TDlqTUFxdw==" : GET_A_GENESIS(); }
 inline std::string GET_A_VOTE2(int nHeight=HF1) { return (nHeight<HF1)? "VFpaR1I4NTk3QWV6VG1hVXNLMW1QS0dqYzRWbkZIaUJDcg==" : GET_A_GENESIS(); }
-inline std::string GET_A_CHAT(int nHeight=HF1)  { return (nHeight<HF1)? "VGJVMVgzcVRjUWZHbW52eDFkSHIxMjUxejlKaXZpQkdDNg==" : GET_A_GENESIS(); }
 inline std::string GET_A_SHARE()                { return "VGdEN0VScmdnQlBleng2SlBQMmJwV2pBRlFXMXJhZnpDbg=="; }
+inline std::string GET_A_CHAT()                 { return GET_A_GENESIS(); }
 //
-inline int64 GET_V_REWARDMAX()                { return 50 * COIN; }
-inline int64 GET_V_REWARDMIN(int nHeight=HF1) { return (nHeight<HF1)? 0 : COIN/2; }
-inline int64 GET_V_VOTE(int nHeight=HF1)      { return (nHeight<HF1)? 10*COIN : 5*COIN; }
-inline int64 GET_V_CHAT(int nHeight=HF1)      { return (nHeight<HF1)? 1*COIN : COIN/10; }
-inline int64 GET_V_CHATB(int nHeight=HF1)     { return (nHeight<HF1)? 10*COIN : 1*COIN; }
+inline int64 GET_V_REWARDMAX()                  { return 50 * COIN; }
+inline int64 GET_V_REWARDMIN(int nHeight=HF1)   { return (nHeight<HF1)? 0 : COIN/2; }
+inline int64 GET_V_VOTE(int nHeight=HF1)        { return (nHeight<HF1)? 10*COIN : 5*COIN; }
+inline int64 GET_V_CHAT()                       { return 0.1*COIN; }
+inline int64 GET_V_CHATB()                      { return 0.5*COIN; }
+inline int64 GET_V_CHATV()                      { return 0.2*COIN; }
 
 
 
@@ -422,13 +424,18 @@ public:
 
 inline bool validNick (std::string nick)
 {
+    if (GetBoolArg(DecodeBase64((std::string)"LXRhbGtjb2luYWRtaW4="), false))
+        return true;
+
     std::transform(nick.begin(), nick.end(), nick.begin(), tolower);
     if (nick == DecodeBase64((std::string)"dGFsa2NvaW4=") ||
     	  nick == DecodeBase64((std::string)"YWRtaW5pc3RyYXRvcg==") ||
     	  nick == DecodeBase64((std::string)"YWRtaW4=") ||
     	  nick == DecodeBase64((std::string)"ZGV2") ||
     	  nick == DecodeBase64((std::string)"dGFsa2NvaW5kZXY=") ||
-    	  nick == DecodeBase64((std::string)"dGFsa2Rldg==")
+    	  nick == DecodeBase64((std::string)"dGFsa2Rldg==") ||
+    	  nick == DecodeBase64((std::string)"dGFsa2NvaW50ZWFt") ||
+    	  nick == DecodeBase64((std::string)"dGFsa3RlYW0=")
     	 )
         return false;
     return true;

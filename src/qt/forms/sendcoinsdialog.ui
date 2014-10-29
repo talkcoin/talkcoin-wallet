@@ -125,15 +125,15 @@
              <string notr="true">QPushButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(103,47,82);}
+border-color: rgb(38, 61, 121);}
 QToolTip {
      color: white;
      font-size:9pt;font-family:'Lato';
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
             </property>
             <property name="text">
@@ -629,12 +629,12 @@ QToolTip {
             </property>
             <property name="styleSheet">
              <string notr="true">QLineEdit {
-background-color: rgb(89,38,68);
+background-color: rgb(30, 51, 105);
 font-size:11pt;font-family:'Lato';
 color: white;
 }
 QLineEdit:hover {
-background-color: rgb(89,38,68);
+background-color: rgb(30, 51, 105);
 font-size:11pt;font-family:'Lato';
 color: white;
 }
@@ -646,8 +646,8 @@ QToolTip {
      border: 4px solid ;
      border-radius: 13px;
      opacity: 700;
-     border-color: rgb(89,38,68);
-     background-color: rgb(62,29,67);
+     border-color: rgb(30, 51, 105);
+     background-color: rgb(23, 39, 79);
  }</string>
             </property>
             <property name="frame">
@@ -770,7 +770,7 @@ QToolTip {
         <string notr="true">QPushButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(103,47,82);}</string>
+border-color: rgb(38, 61, 121);}</string>
        </property>
        <property name="text">
         <string>Add &amp;Recipient</string>
@@ -806,7 +806,7 @@ border-color: rgb(103,47,82);}</string>
         <string notr="true">QPushButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(103,47,82);}</string>
+border-color: rgb(38, 61, 121);}</string>
        </property>
        <property name="text">
         <string>Clear &amp;All</string>
@@ -901,7 +901,7 @@ border-color: rgb(103,47,82);}</string>
         <string notr="true">QPushButton{
 border: 4px solid;
 border-radius: 13px;
-border-color: rgb(103,47,82);}</string>
+border-color: rgb(38, 61, 121);}</string>
        </property>
        <property name="text">
         <string>S&amp;end</string>

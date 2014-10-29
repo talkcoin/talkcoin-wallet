@@ -963,13 +963,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location line="+156"/>
-        <location line="+575"/>
+        <location line="+154"/>
+        <location line="+273"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Talkcoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Οι πληροφορίες που εμφανίζονται μπορεί να είναι ξεπερασμένες. Το πορτοφόλι σας συγχρονίζεται αυτόματα με το δίκτυο Talkcoin μετά από μια σύνδεση, αλλά αυτή η διαδικασία δεν έχει ακόμη ολοκληρωθεί. </translation>
     </message>
     <message>
-        <location line="-412"/>
+        <location line="-110"/>
         <source>Balance:</source>
         <translation>Υπόλοιπο</translation>
     </message>
@@ -979,80 +979,33 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Ανεπιβεβαίωτες</translation>
     </message>
     <message>
-        <location line="+227"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Current reward:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+69"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Time to next vote:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+63"/>
-        <source>lblInfo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-50"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your vote:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-97"/>
-        <source>Auto Vote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+240"/>
+        <location line="+150"/>
         <source>Recent transactions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+343"/>
-        <source>Chat</source>
+        <location line="+396"/>
+        <source>TALKCOIN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+29"/>
-        <source>Group Chat:</source>
+        <location line="+328"/>
+        <source>about:blank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+365"/>
+        <location line="+182"/>
         <source>List of emoticons
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-811"/>
-        <source>lblVoteInfo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-219"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#550000;&quot;&gt;Press the button to cast your vote&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <extracomment>Press the button to cast your vote</extracomment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>blabla</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <location line="+148"/>
-        <source>Vote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-461"/>
+        <location line="-1185"/>
         <source>Wallet</source>
         <translation>Πορτοφόλι</translation>
     </message>
     <message>
-        <location line="-32"/>
+        <location line="-30"/>
         <source>Immature:</source>
         <translation>Ανώριμος</translation>
     </message>
@@ -1066,7 +1019,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="obsolete">&lt;b&gt;Πρόσφατες συναλλαγές&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+211"/>
+        <location line="+209"/>
         <source>Your current balance</source>
         <translation>Το τρέχον υπόλοιπο</translation>
     </message>
@@ -1076,13 +1029,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Το άθροισμα των συναλλαγών που δεν έχουν ακόμα επιβεβαιωθεί και δεν προσμετρώνται στο τρέχον υπόλοιπό σας</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+131"/>
+        <location filename="../overviewpage.cpp" line="+133"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>εκτός συγχρονισμού</translation>
     </message>
     <message>
-        <location line="+78"/>
+        <location line="+65"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+58"/>
         <source>Nickname</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1092,41 +1050,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source> votes)</source>
+        <location line="+89"/>
+        <source>To join or create a chat room, start talkcoin-qt with the flag &lt;i&gt;-chan=#yourchan&lt;/i&gt; &lt;i&gt;-chanpassword=yourpassword&lt;/i&gt; (an associated password is optional)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source> hours</source>
+        <location line="+3"/>
+        <source>Public room(s) available: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source> hour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Voting is open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <source>Voting is closed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>To create your own chat room, start talkcoin-qt with the flag &lt;i&gt;-chan=#yourchan&lt;/i&gt; &lt;i&gt;-chanpassword=yourpassword&lt;/i&gt; (an associated password is optional)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+138"/>
-        <location line="+5"/>
-        <location line="+6"/>
-        <location line="+5"/>
-        <location line="+76"/>
+        <location line="+297"/>
         <location line="+5"/>
         <location line="+6"/>
         <location line="+5"/>
@@ -1134,27 +1068,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Αποστολή νομισμάτων</translation>
     </message>
     <message>
-        <location line="-107"/>
-        <source>The amount to vote exceeds your balance.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>The total to vote exceeds your balance when the %1 transaction fee is included.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Vote Error: Transaction creation failed!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Vote Error: The transaction was rejected. This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+76"/>
+        <location line="-15"/>
         <source>The amount to chat exceeds your balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1174,7 +1088,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+141"/>
+        <location line="+143"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation type="unfinished">Το πορτοφόλι είναι &lt;b&gt;κρυπτογραφημένο&lt;/b&gt; και &lt;b&gt;ξεκλείδωτο&lt;/b&gt;</translation>
     </message>
@@ -1184,7 +1098,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Το πορτοφόλι είναι &lt;b&gt;κρυπτογραφημένο&lt;/b&gt; και &lt;b&gt;κλειδωμένο&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-340"/>
+        <location line="-374"/>
         <source>List of emoticons</source>
         <translation type="unfinished"></translation>
     </message>
