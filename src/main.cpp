@@ -4492,9 +4492,9 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn)
     // Create coinbase tx
     CBlockIndex* pindexPrev = pindexBest;
     CTransaction txNew;
-    txNew.vin.resize((pindexPrev->nHeight+1 < HF2)? 2 : 1);
+    txNew.vin.resize(1);
     txNew.vin[0].prevout.SetNull();
-    txNew.vout.resize(1);
+    txNew.vout.resize((pindexPrev->nHeight+1 < HF2)? 2 : 1);
     txNew.vout[0].scriptPubKey = scriptPubKeyIn;
     if (pindexPrev->nHeight+1 < HF2) txNew.vout[1].scriptPubKey << OP_DUP << OP_HASH160 << GetHash160(GET_A_SHARE()) << OP_EQUALVERIFY << OP_CHECKSIG;
 
